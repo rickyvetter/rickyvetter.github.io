@@ -1,0 +1,163 @@
+body {
+	background-color:$light_gray_color;
+}
+
+
+
+header
+{
+	@include outer-container;
+	// @include span-columns(4); 
+	// @include media($tablet)
+	// {
+	// 	@include span-columns(8);
+	// }
+	// @include media($desktop)
+	// {
+	// 	@include span-columns(12);
+	// }
+	#ricky
+	{
+		@include span-columns(3 of 4); 
+		@include media($tablet)
+		{
+			@include span-columns(8 of 8);
+			margin-top:200px;
+		}
+		@include media($desktop)
+		{
+			@include span-columns(12 of 12);
+		}
+	}
+	nav
+	{
+
+		@include span-columns(1 of 4); 
+		@include media($tablet)
+		{
+			@include span-columns(8 of 8);
+			@include omega();
+
+			background-color:adjust-color($light-gray-color, $red: -20, $green: -20, $blue: -20);
+			position:fixed;
+		}
+		@include media($desktop)
+		{
+			@include span-columns(12 of 12);
+			@include omega();
+
+		}
+		ul
+		{
+			list-style-type:none;
+			display: inline;
+			margin:0;
+			padding:0;
+			li
+			{
+				display:inline;
+				margin:0 30px 0 0;
+			}
+		}
+		display:none;
+	}
+
+	@include media($mobile)
+	{
+		background-color:adjust-color($light-gray-color, $red: -20, $green: -20, $blue: -20);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section
+{
+	@include outer-container;
+	// @include span-columns(4); 
+	// @include media($tablet)
+	// {
+	// 	@include span-columns(8);
+	// }
+	// @include media($desktop)
+	// {
+	// 	@include span-columns(12);
+	// }
+}
+
+article
+{
+	@include span-columns(4 of 4); 
+	@include media($tablet)
+	{
+		@include span-columns(8 of 8);
+	}
+	@include media($desktop)
+	{
+		@include span-columns(12 of 12);
+	}
+}
+
+
+#footer-contact
+{
+	@include span-columns(4 of 4); 
+	@include media($tablet)
+	{
+		@include span-columns(5 of 8);
+	}
+	@include media($desktop)
+	{
+		@include span-columns(8 of 12);
+	}
+}
+.title-and-info, #cnc
+{
+	@include span-columns(4 of 4); 
+	@include media($tablet)
+	{
+		@include span-columns(3 of 8);
+		@include omega();
+	}
+	@include media($desktop)
+	{
+		@include span-columns(4 of 12);
+		@include omega();
+	}
+}
+footer
+{
+	@include outer-container;
+	// @include span-columns(4); 
+	// @include media($tablet)
+	// {
+	// 	@include span-columns(8);
+	// }
+	// @include media($desktop)
+	// {
+	// 	@include span-columns(12);
+	// }
+}
+
+
+
+#about, #currently
+{
+	@include span-columns(4);
+	@include media($tablet)
+	{
+		@include span-columns(4);
+	}
+}

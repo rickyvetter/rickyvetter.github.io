@@ -1,3 +1,4 @@
+@charset "IBM437";
 /*********************************************
 	Custom CSS by Ricky Vetter (unless noted)
 	http://rickyvetter
@@ -135,177 +136,243 @@ body:before {
   font-weight: normal;
   font-style: italic; }
 
+/*********************************************
+	LAYOUT
+	http://rickyvetter.com 
+	v1.0
+*********************************************/
 body {
   background-color: #eeeeee; }
 
 header {
-  *zoom: 1;
-  max-width: 68em;
-  margin-left: auto;
-  margin-right: auto; }
-  header:before, header:after {
-    content: " ";
-    display: table; }
-  header:after {
-    clear: both; }
-  header #ricky {
-    display: block;
-    float: left;
-    margin-right: 7.42297%;
-    width: 73.14426%; }
-    header #ricky:last-child {
-      margin-right: 0; }
-    @media screen and (min-width: 481px) {
-      header #ricky {
-        display: block;
-        float: left;
-        margin-right: 3.57866%;
-        width: 100%;
-        margin-top: 200px; }
-        header #ricky:last-child {
-          margin-right: 0; } }
-    @media screen and (min-width: 960px) {
-      header #ricky {
-        display: block;
-        float: left;
-        margin-right: 2.35765%;
-        width: 100%; }
-        header #ricky:last-child {
-          margin-right: 0; } }
-  header nav {
-    display: block;
-    float: left;
-    margin-right: 7.42297%;
-    width: 19.43277%;
-    display: none; }
-    header nav:last-child {
-      margin-right: 0; }
-    @media screen and (min-width: 481px) {
-      header nav {
-        display: block;
-        float: left;
-        margin-right: 3.57866%;
-        width: 100%;
-        margin-right: 0;
-        background-color: #dadada;
-        position: fixed; }
-        header nav:last-child {
-          margin-right: 0; } }
-    @media screen and (min-width: 960px) {
-      header nav {
-        display: block;
-        float: left;
-        margin-right: 2.35765%;
-        width: 100%;
+  background-color: #eeeeee; }
+  header .header-content {
+    *zoom: 1;
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto; }
+    header .header-content:before, header .header-content:after {
+      content: " ";
+      display: table; }
+    header .header-content:after {
+      clear: both; }
+    header .header-content #ricky {
+      display: block;
+      float: left;
+      margin-right: 7.42297%;
+      width: 73.14426%;
+      margin-bottom: 0.5rem; }
+      header .header-content #ricky:last-child {
         margin-right: 0; }
-        header nav:last-child {
-          margin-right: 0; } }
-    header nav ul {
-      list-style-type: none;
-      display: inline;
-      margin: 0;
-      padding: 0; }
-      header nav ul li {
+      @media screen and (min-width: 481px) {
+        header .header-content #ricky {
+          display: block;
+          float: left;
+          margin-right: 3.57866%;
+          width: 35.26334%; }
+          header .header-content #ricky:last-child {
+            margin-right: 0; } }
+      @media screen and (min-width: 960px) {
+        header .header-content #ricky {
+          display: block;
+          float: left;
+          margin-right: 2.35765%;
+          width: 31.76157%; }
+          header .header-content #ricky:last-child {
+            margin-right: 0; } }
+    header .header-content nav {
+      display: none;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem; }
+      @media screen and (max-width: calc($tablet-size-1px)) {
+        header .header-content nav {
+          display: block;
+          float: left;
+          margin-right: 3.57866%;
+          width: 61.158%;
+          margin-right: 0;
+          display: block; }
+          header .header-content nav:last-child {
+            margin-right: 0; } }
+      @media screen and (min-width: 481px) {
+        header .header-content nav {
+          display: block;
+          float: left;
+          margin-right: 3.57866%;
+          width: 61.158%;
+          margin-right: 0;
+          display: block; }
+          header .header-content nav:last-child {
+            margin-right: 0; } }
+      @media screen and (min-width: 960px) {
+        header .header-content nav {
+          display: block;
+          float: left;
+          margin-right: 2.35765%;
+          width: 65.88078%; }
+          header .header-content nav:last-child {
+            margin-right: 0; } }
+      header .header-content nav ul {
+        list-style-type: none;
         display: inline;
-        margin: 0 30px 0 0; }
-  @media screen and (max-width: calc($tablet-size-1px)) {
-    header {
-      background-color: #dadada; } }
+        margin: 0;
+        padding: 0; }
+        header .header-content nav ul li {
+          display: inline;
+          margin: 0 2rem 0 0; }
+  header #menu-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: url(menu-icon.png) no-repeat center; }
+    @media screen and (min-width: 481px) {
+      header #menu-icon {
+        display: none; } }
+
+#banner {
+  width: 100%;
+  background-color: #240438;
+  color: #eeeeee;
+  padding: 50px 0; }
+
+a.button {
+  display: block;
+  float: left;
+  margin-right: 7.42297%;
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+  font-size: 2rem;
+  border: 1px solid #eeeeee; }
+  a.button:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 481px) {
+    a.button {
+      display: block;
+      float: left;
+      margin-right: 3.57866%;
+      width: 35.26334%; }
+      a.button:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 960px) {
+    a.button {
+      display: block;
+      float: left;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
+      a.button:last-child {
+        margin-right: 0; } }
+
+a.dark {
+  color: #eeeeee;
+  background-color: #240438; }
+
+a.dark:hover {
+  background-color: #7a0f4f;
+  color: #eeeeee; }
 
 section {
   *zoom: 1;
   max-width: 68em;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  margin-bottom: 2rem; }
   section:before, section:after {
     content: " ";
     display: table; }
   section:after {
     clear: both; }
+  section h1 {
+    margin-bottom: 1rem;
+    margin-top: 2rem; }
+  section article {
+    display: block;
+    float: left;
+    margin-right: 7.42297%;
+    width: 100%;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem; }
+    section article:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 481px) {
+      section article {
+        display: block;
+        float: left;
+        margin-right: 3.57866%;
+        width: 100%; }
+        section article:last-child {
+          margin-right: 0; } }
+    @media screen and (min-width: 960px) {
+      section article {
+        display: block;
+        float: left;
+        margin-right: 2.35765%;
+        width: 100%; }
+        section article:last-child {
+          margin-right: 0; } }
 
-article {
+#footer-contact, .content {
   display: block;
   float: left;
   margin-right: 7.42297%;
   width: 100%; }
-  article:last-child {
+  #footer-contact:last-child, .content:last-child {
     margin-right: 0; }
   @media screen and (min-width: 481px) {
-    article {
-      display: block;
-      float: left;
-      margin-right: 3.57866%;
-      width: 100%; }
-      article:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 960px) {
-    article {
-      display: block;
-      float: left;
-      margin-right: 2.35765%;
-      width: 100%; }
-      article:last-child {
-        margin-right: 0; } }
-
-#footer-contact {
-  display: block;
-  float: left;
-  margin-right: 7.42297%;
-  width: 100%; }
-  #footer-contact:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 481px) {
-    #footer-contact {
+    #footer-contact, .content {
       display: block;
       float: left;
       margin-right: 3.57866%;
       width: 61.158%; }
-      #footer-contact:last-child {
+      #footer-contact:last-child, .content:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 960px) {
-    #footer-contact {
+    #footer-contact, .content {
       display: block;
       float: left;
       margin-right: 2.35765%;
       width: 65.88078%; }
-      #footer-contact:last-child {
+      #footer-contact:last-child, .content:last-child {
         margin-right: 0; } }
 
-.title-and-info, #cnc {
+.title-and-info, #cnc, .intro {
   display: block;
   float: left;
   margin-right: 7.42297%;
   width: 100%; }
-  .title-and-info:last-child, #cnc:last-child {
+  .title-and-info:last-child, #cnc:last-child, .intro:last-child {
     margin-right: 0; }
   @media screen and (min-width: 481px) {
-    .title-and-info, #cnc {
+    .title-and-info, #cnc, .intro {
       display: block;
       float: left;
       margin-right: 3.57866%;
-      width: 35.26334%;
-      margin-right: 0; }
-      .title-and-info:last-child, #cnc:last-child {
+      width: 35.26334%; }
+      .title-and-info:last-child, #cnc:last-child, .intro:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 960px) {
-    .title-and-info, #cnc {
+    .title-and-info, #cnc, .intro {
       display: block;
       float: left;
       margin-right: 2.35765%;
-      width: 31.76157%;
-      margin-right: 0; }
-      .title-and-info:last-child, #cnc:last-child {
+      width: 31.76157%; }
+      .title-and-info:last-child, #cnc:last-child, .intro:last-child {
         margin-right: 0; } }
 
 footer {
+  background-color: #aaaaaa; }
+
+.container {
   *zoom: 1;
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
-  footer:before, footer:after {
+  .container:before, .container:after {
     content: " ";
     display: table; }
-  footer:after {
+  .container:after {
     clear: both; }
 
 #about, #currently {
@@ -324,43 +391,108 @@ footer {
       #about:last-child, #currently:last-child {
         margin-right: 0; } }
 
+/* @license
+ * MyFonts Webfont Build ID 2669885, 2013-10-19T16:15:26-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Novecento Sans Wide Bold by Synthview
+ * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-bold/
+ * 
+ * Webfont: Novecento Sans Wide Book by Synthview
+ * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-book/
+ * 
+ * Webfont: Novecento Sans Wide DemiBold by Synthview
+ * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-demibold/
+ * 
+ * Webfont: Novecento Sans Wide Light by Synthview
+ * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-light/
+ * 
+ * Webfont: Novecento Sans Wide Medium by Synthview
+ * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-medium/
+ * 
+ * Webfont: Novecento Sans Wide Normal by Synthview
+ * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-normal/
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=2669885
+ * Licensed pageviews: Unlimited
+ * Webfonts copyright: Copyright &#x00A9; 2013 by Jan Tonellato. All rights reserved.
+ * 
+ * © 2013 MyFonts Inc
+*/
+@font-face {
+  font-family: 'Novecentosanswide-Bold';
+  src: url("webfonts/28BD3D_0_0.eot");
+  src: url("webfonts/28BD3D_0_0.eot?#iefix") format("embedded-opentype"), url("webfonts/28BD3D_0_0.woff") format("woff"), url("webfonts/28BD3D_0_0.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Novecentosanswide-Book';
+  src: url("webfonts/28BD3D_1_0.eot");
+  src: url("webfonts/28BD3D_1_0.eot?#iefix") format("embedded-opentype"), url("webfonts/28BD3D_1_0.woff") format("woff"), url("webfonts/28BD3D_1_0.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Novecentosanswide-DemiBold';
+  src: url("webfonts/28BD3D_2_0.eot");
+  src: url("webfonts/28BD3D_2_0.eot?#iefix") format("embedded-opentype"), url("webfonts/28BD3D_2_0.woff") format("woff"), url("webfonts/28BD3D_2_0.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Novecentosanswide-Light';
+  src: url("webfonts/28BD3D_3_0.eot");
+  src: url("webfonts/28BD3D_3_0.eot?#iefix") format("embedded-opentype"), url("webfonts/28BD3D_3_0.woff") format("woff"), url("webfonts/28BD3D_3_0.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Novecentosanswide-Medium';
+  src: url("webfonts/28BD3D_4_0.eot");
+  src: url("webfonts/28BD3D_4_0.eot?#iefix") format("embedded-opentype"), url("webfonts/28BD3D_4_0.woff") format("woff"), url("webfonts/28BD3D_4_0.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Novecentosanswide-Normal';
+  src: url("webfonts/28BD3D_5_0.eot");
+  src: url("webfonts/28BD3D_5_0.eot?#iefix") format("embedded-opentype"), url("webfonts/28BD3D_5_0.woff") format("woff"), url("webfonts/28BD3D_5_0.ttf") format("truetype"); }
+
 /*********************************************
 	TYPOGRAPHY
 	http://rickyvetter.com 
 	v1.0
 *********************************************/
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'News Cycle', Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 1rem; }
+  font-size: 1rem;
+  color: #171717; }
 
 h1, h2, h3, h4, h5, h6, nav, a, a:visited {
-  font-family: "League Gothic Italic", Helvetica, Arial, sans-serif;
-  color: #301d59;
+  font-family: "Novecentosanswide-Bold", Helvetica, Arial, sans-serif;
+  color: #240438;
+  text-transform: uppercase;
   text-decoration: none; }
 
 a:hover {
-  color: #b03684;
+  color: #7a0f4f;
   text-decoration: none; }
 
 footer p {
-  font-size: 1rem;
-  color: #aaaaaa; }
+  font-size: 1rem; }
 
 p {
-  font-size: 1.6rem; }
+  font-size: 1.5rem; }
 
 h1 {
-  font-size: 6rem; }
+  font-size: 3rem; }
 
 h2, nav {
-  font-size: 4rem; }
-
-h3 {
   font-size: 2rem; }
 
-h4 {
+h3 {
   font-size: 1.6rem; }
+
+h4 {
+  font-size: 1.4rem; }
 
 /*********************************************
 	CUSTOM HEADER

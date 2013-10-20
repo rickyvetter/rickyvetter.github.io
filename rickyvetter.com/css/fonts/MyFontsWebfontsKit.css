@@ -32,6 +32,10 @@
  * 
  * © 2013 MyFonts Inc
 */
+
+
+
+
   
 @font-face {font-family: 'Novecentosanswide-Bold';src: url('webfonts/28BD3D_0_0.eot');src: url('webfonts/28BD3D_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/28BD3D_0_0.woff') format('woff'),url('webfonts/28BD3D_0_0.ttf') format('truetype');}
  
@@ -50,51 +54,3 @@
   
 @font-face {font-family: 'Novecentosanswide-Normal';src: url('webfonts/28BD3D_5_0.eot');src: url('webfonts/28BD3D_5_0.eot?#iefix') format('embedded-opentype'),url('webfonts/28BD3D_5_0.woff') format('woff'),url('webfonts/28BD3D_5_0.ttf') format('truetype');}
  
-
-
-
-/*********************************************
-	TYPOGRAPHY
-	http://rickyvetter.com 
-	v1.0
-*********************************************/
-
-body {
-		font-family: 'News Cycle', Helvetica, Arial, sans-serif;
-		//font-family:   sans-serif;
-		font-weight: normal;
-		font-size: $base;
-		color:$dark-color;
-	}
-
-h1, h2, h3, h4, h5, h6, nav, a, a:visited{
-		font-family: "Novecentosanswide-Bold", Helvetica, Arial, sans-serif;
-		color:$primary-color;
-		text-transform: uppercase;
-		text-decoration:none;
-	}
-
-a:hover{
-	color:$secondary-color;
-	text-decoration:none;
-}
-		
-footer p{
-	font-size: $base;
-}
-
-p{
-	font-size:$base*1.5;
-}
-h1{
-	font-size:$base*3;
-}
-h2, nav{
-	font-size:$base*2;
-}
-h3{
-	font-size:$base*1.6;
-}
-h4{
-	font-size:$base*1.4;
-}

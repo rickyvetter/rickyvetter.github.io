@@ -1,4 +1,5 @@
 @charset "IBM437";
+@import url(font-awesome/css/font-awesome.min.css);
 /*********************************************
 	Custom CSS by Ricky Vetter (unless noted)
 	http://rickyvetter
@@ -142,7 +143,11 @@ body:before {
 	v1.0
 *********************************************/
 body {
-  background-color: #eeeeee; }
+  background-color: #eeeeee;
+  padding: 0 1rem; }
+  @media screen and (min-width: 960px) {
+    body {
+      padding: 0; } }
 
 header {
   background-color: #eeeeee; }
@@ -232,10 +237,15 @@ header {
         display: none; } }
 
 #banner {
-  width: 100%;
   background-color: #240438;
   color: #eeeeee;
-  padding: 50px 0; }
+  positioning: absolute;
+  padding: 50px 1rem;
+  margin: 0 -1rem; }
+  @media screen and (min-width: 960px) {
+    #banner {
+      padding: 50px 0;
+      margin: 0; } }
 
 a.button {
   display: block;
@@ -245,7 +255,8 @@ a.button {
   text-align: center;
   padding: 25px 0;
   font-size: 2rem;
-  border: 1px solid #eeeeee; }
+  border: 1px solid #eeeeee;
+  margin: 1rem 0; }
   a.button:last-child {
     margin-right: 0; }
   @media screen and (min-width: 481px) {
@@ -253,7 +264,8 @@ a.button {
       display: block;
       float: left;
       margin-right: 3.57866%;
-      width: 35.26334%; }
+      width: 35.26334%;
+      margin: 0; }
       a.button:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 960px) {
@@ -265,12 +277,12 @@ a.button {
       a.button:last-child {
         margin-right: 0; } }
 
-a.dark {
+a.dark, a.dark:visited {
   color: #eeeeee;
   background-color: #240438; }
 
 a.dark:hover {
-  background-color: #7a0f4f;
+  background-color: #6c5662;
   color: #eeeeee; }
 
 section {
@@ -362,17 +374,24 @@ section {
         margin-right: 0; } }
 
 footer {
-  background-color: #aaaaaa; }
+  background-color: #aaaaaa;
+  positioning: absolute;
+  padding: 50px 1rem;
+  margin: 0 -1rem; }
+  @media screen and (min-width: 960px) {
+    footer {
+      padding: 50px 0;
+      margin: 0; } }
 
-.container {
+.container, #footer-content {
   *zoom: 1;
   max-width: 68em;
   margin-left: auto;
   margin-right: auto; }
-  .container:before, .container:after {
+  .container:before, .container:after, #footer-content:before, #footer-content:after {
     content: " ";
     display: table; }
-  .container:after {
+  .container:after, #footer-content:after {
     clear: both; }
 
 #about, #currently {
@@ -473,7 +492,7 @@ h1, h2, h3, h4, h5, h6, nav, a, a:visited {
   text-decoration: none; }
 
 a:hover {
-  color: #7a0f4f;
+  color: #6c5662;
   text-decoration: none; }
 
 footer p {

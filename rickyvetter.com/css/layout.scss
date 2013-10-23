@@ -8,6 +8,11 @@ $base: 1rem;
 
 body {
 	background-color:$light-gray-color;
+	padding:0 $base;
+	@include media($desktop)
+	{
+		padding:0;
+	}
 }
 
 
@@ -93,16 +98,23 @@ header
 }
 
 #banner{
-	width:100%;
 	background-color:$primary-color;
 	color:$light-gray-color;
-	padding:50px 0;
+	positioning:absolute;
+	padding: 50px $base;
+	margin:0 $base*-1;
+	@include media($desktop)
+	{
+		padding: 50px 0;
+		margin:0;
+	}
 }
 a.button{
 	@include span-columns(4 of 4); 
 	@include media($tablet)
 	{
 		@include span-columns(3 of 8);
+		margin:0;
 	}
 	@include media($desktop)
 	{
@@ -112,8 +124,9 @@ a.button{
 	padding:25px 0;
 	font-size:$base*2;
 	border:1px solid $light-gray-color;
+	margin:$base 0;
 }
-a.dark{
+a.dark, a.dark:visited{
 	color:$light-gray-color;
 	background-color:$primary-color;
 }
@@ -182,10 +195,19 @@ section
 }
 footer
 {
+
 	background-color:$gray-color;
+	positioning:absolute;
+	padding: 50px $base;
+	margin:0 $base*-1;
+	@include media($desktop)
+	{
+		padding: 50px 0;
+		margin:0;
+	}
 }
 
-.container
+.container, #footer-content
 {
 	@include outer-container;
 }
@@ -199,14 +221,3 @@ footer
 		@include span-columns(4);
 	}
 }
-
-
-
-// .color-wrapper
-// {
-// 	width:100%;
-// }
-// .light-bg
-// {
-	
-// }

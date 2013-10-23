@@ -134,6 +134,28 @@ a.dark:hover{
 	background-color:$secondary-color;
 	color:$light-gray-color;
 }
+.social-links
+{
+	@include span-columns(4 of 4); 
+		@include media($tablet)
+		{
+			@include span-columns(2 of 8);
+			margin:0;
+		}
+		@include media($desktop)
+		{
+			@include span-columns(4 of 12);
+		}
+}
+a.social-link, a.social-link:visited
+{
+	font-size:$base*5;
+	color:$light-gray-color;
+}
+a.social-links:hover
+{
+	color:$secondary-color;
+}
 
 
 

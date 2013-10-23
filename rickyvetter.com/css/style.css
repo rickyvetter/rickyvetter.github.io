@@ -285,6 +285,38 @@ a.dark:hover {
   background-color: #6c5662;
   color: #eeeeee; }
 
+.social-links {
+  display: block;
+  float: left;
+  margin-right: 7.42297%;
+  width: 100%; }
+  .social-links:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 481px) {
+    .social-links {
+      display: block;
+      float: left;
+      margin-right: 3.57866%;
+      width: 22.316%;
+      margin: 0; }
+      .social-links:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 960px) {
+    .social-links {
+      display: block;
+      float: left;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
+      .social-links:last-child {
+        margin-right: 0; } }
+
+a.social-link, a.social-link:visited {
+  font-size: 5rem;
+  color: #eeeeee; }
+
+a.social-links:hover {
+  color: #6c5662; }
+
 section {
   *zoom: 1;
   max-width: 68em;

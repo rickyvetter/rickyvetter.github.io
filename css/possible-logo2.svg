@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="500"
+   height="500"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="possible-logo2.svg"
+   inkscape:export-filename="C:\Users\Ricky\Documents\GitHub\rickyvetter.com\rickyvetter.com\css\possible-logo.png"
+   inkscape:export-xdpi="9"
+   inkscape:export-ydpi="9">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective3792" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="23.903251"
+     inkscape:cy="822.85863"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="877"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-552.36217)">
+    <path
+       style="fill:#240438;fill-opacity:1;stroke:none"
+       d="m 250,552.36218 c -138.07119,0 -250,111.92881 -250,250 0,138.07119 111.92881,250.00002 250,250.00002 138.07119,0 250,-111.92883 250,-250.00002 0,-138.07119 -111.92881,-250 -250,-250 z m -26.65625,76.28125 c 23.60644,0.0665 46.76768,8.31005 69.5,24.75 19.78409,14.6857 33.24525,31.8078 40.40625,51.375 7.16093,19.56787 7.62574,40.59621 1.40625,63.0625 l 156.875,14.125 -60.1875,81.75 -134.53125,-16.0625 -10.59375,14.375 -12.09375,16.4375 94.90625,69.875 -50.8125,69.03127 -287.625,-211.75002 80.46875,-109.28125 c 27.14315,-36.16578 56.66768,-57.84193 88.53125,-65.03125 7.96594,-1.79712 15.88119,-2.6784 23.75,-2.65625 z m -8.0625,86.6875 c -2.18153,-0.0523 -4.366,0.0874 -6.53125,0.40625 -11.54781,1.70113 -22.29093,9.20049 -32.21875,22.46875 l -32.65625,44.375 75.1875,55.34375 32.96875,-44.78125 c 9.38971,-12.80648 13.44267,-24.86525 12.15625,-36.1875 -1.28635,-11.32168 -7.98564,-21.4744 -20.09375,-30.46875 -9.75903,-7.19582 -19.35921,-10.92962 -28.8125,-11.15625 z"
+       id="path3753"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

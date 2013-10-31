@@ -1,0 +1,77 @@
+{% assign page-title = page.title %}
+
+{% include header.html title=page-title %}
+
+	<div id="banner">
+		<div class="container">
+			<div class="intro">
+				<p>My name is Ricky. I work on websites, mobile apps and any other technology that I find interesting.</p>
+			</div>
+			<a href="#" class="dark button">Work with me</a>
+			<div class="social-links">
+				<p>
+					<a href="http://www.linkedin.com/in/rickyvetter" class="social-link">
+						<i class="icon-linkedin"></i>
+					</a>
+					<a href="https://github.com/rickyvetter" class="social-link">
+						<i class="icon-github"></i>
+					</a>
+					<a href="https://twitter.com/rickyvetter" class="social-link">
+						<i class="icon-twitter"></i>
+					</a>
+					<a href="https://www.facebook.com/rickyvetter" class="social-link">
+						<i class="icon-facebook"></i>
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- Projects -->
+	<section id="projects">
+		{{ content }}
+		<!-- <article id="boxup" class="project mobile">
+			<div class="title-and-info">
+				<h2>Box Up <i class="icon-mobile-phone"></i></h2>
+				<h4>StaticDuo</h4>
+				<p>My role: <i class="icon-code"></i></p>
+			</div>
+			<div class="content">
+				<p>Box Up is a new kind of organizational tool. It doesn't make assumptions about what you're organizing and it lets you do things your way. Box Up is fast enough to be useful on the go and versatile enough to help keep track of anything. It is based on a simple idea: having one place to organize everything is more effective than having to look everywhere.</p>
+				<p><a class="btn btn-default" href="boxup">View details &raquo;</a></p>
+			</div>
+		</article>
+		<article id="ramblerbuzz" class="project web">
+			<div class="title-and-info">
+				<h2>Rambler Buzz <i class="icon-desktop"></i></h2>
+				<h4>Loyola University Chicago</h4>
+			</div>
+			<div class="content">
+				<p>Rambler Buzz is a website built for student communication at Loyola University Chicago. It is a main hub for links to important information as well as one of the best ways to deliver content to the student body. I worked on the video background and control, as well as the coding for a few of the story modules.</p>
+				<p><a class="btn btn-default" href="http://luc.edu/ramblerbuzz/" target="_blank">View site &raquo;</a></p>
+			</div>
+		</article>
+		<article id="chemapp" class="project mobile">
+			<div class="title-and-info">
+				<h2>The Chem App <i class="icon-mobile-phone"></i></h2>
+				<h4>StaticDuo</h4>
+				<i class="icon-pencil"></i>
+			</div>
+			<div class="content">
+				<p>The unnamed chem app is currently under construction. The app has two different pages: the drawing page and the reaction page. The drawing page&apos;s functionality has been fully designed and is currently being coded. Wireframes for the reaction page have been discussed but the design for that page has not been finalized yet. I have almost no experience with chemistry, but I have a lot of fun playing around with it.</p>
+				<p><a class="btn btn-default" href="chemapp">View details &raquo;</a></p>
+			</div>
+		</article>
+		<article id="betweenthelines" class="project print">
+			<div class="title-and-info">
+				<h2>Reading Between the Lines <i class="icon-pencil"></i></h2>
+				<h4>Loyola University Chicago</h4>
+			</div>
+			<div class="content">
+				<p><i>Reading Between the Lines: Design Theory Then and Now</i>, as edited by Helen Armstrong, is a compilation of essays including <i>The Crystal Goblet, or Why Printing Should Be Invisible</i>, by Beatrice Warde, and <i>The Designer as Author</i> by Michael Rock.</p>
+				<p><a class="btn btn-default" href="betweenthelines">View details &raquo;</a></p>
+			</div>
+		</article> -->
+	</section>
+     	
+	{% include footer.html %}

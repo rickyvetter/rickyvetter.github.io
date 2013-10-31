@@ -1,0 +1,16 @@
+---
+layout: project
+title:  "Box Up"
+date:   2013-10-27 16:58:00
+categories: projects
+company: StaticDuo
+icon: mobile-phone
+---
+Box Up is a new kind of organizational tool. It doesn't make assumptions about what you're organizing and it lets you do things your way. Box Up is fast enough to be useful on the go and versatile enough to help keep track of anything. It is based on a simple idea: having one place to organize everything is more effective than having to look everywhere.
+
+Code
+----
+
+Box Up was created entirely in Visual Studio. It runs on C# and consists of a list of lists. Each item within the sub-list has an array of three modules which add functionality. It is a highly modifiable system that allows for a module to work with any type of information that you would want to be part of the list.
+
+The code is currently being refactored and accurately commented. Once complete, I will post a sample of code and download. In the mean time, contact me if you would like to see the source.

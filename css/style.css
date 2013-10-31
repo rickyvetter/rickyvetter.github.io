@@ -308,6 +308,58 @@ section {
       #footer-contact:last-child, .content:last-child {
         margin-right: 0; } }
 
+.one-half {
+  display: block;
+  float: left;
+  margin-right: 7.42297%;
+  width: 100%; }
+  .one-half:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 481px) {
+    .one-half {
+      display: block;
+      float: left;
+      margin-right: 5.85151%;
+      width: 25.90395%; }
+      .one-half:last-child {
+        margin-right: 0; }
+      .one-half:nth-child(2n) {
+        margin-right: 0; }
+      .one-half:nth-child(2n+1) {
+        clear: left; } }
+  @media screen and (min-width: 960px) {
+    .one-half {
+      display: block;
+      float: left;
+      margin-right: 3.57866%;
+      width: 48.21067%; }
+      .one-half:last-child {
+        margin-right: 0; } }
+
+.great {
+  background: #240438;
+  color: #eeeeee;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-family: "Montserrat";
+  font-size: 1.2rem; }
+
+.good {
+  background: #6c5662;
+  color: #eeeeee;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-family: "Montserrat";
+  font-size: 1.2rem; }
+
+.learning {
+  background: #83b036;
+  color: #eeeeee;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-family: "Montserrat";
+  font-size: 1.2rem; }
+
 .title-and-info, #cnc, .intro {
   display: block;
   float: left;
@@ -369,7 +421,7 @@ footer {
       #about:last-child, #currently:last-child {
         margin-right: 0; } }
 
-p {
+p, h2 {
   margin-bottom: 1rem; }
 
 /* @license

@@ -4,6 +4,15 @@
 	v1.0
 *********************************************/
 
+@mixin color-block($block-color, $font-color) {
+	background: $block-color;
+	color: $font-color;
+	margin-bottom: $base;
+	padding: $base;
+	font-family: "Montserrat";
+	font-size: $base*1.2;
+}
+
 $base: 1rem;
 
 body {
@@ -14,8 +23,6 @@ body {
 		padding:0;
 	}
 }
-
-
 
 header
 {
@@ -202,6 +209,37 @@ section
 		@include span-columns(8 of 12);
 	}
 }
+.one-half
+{
+	@include span-columns(4 of 4); 
+	@include media($tablet)
+	{
+		@include span-columns(1.5 of 5);
+		@include omega(2n);
+	}
+	@include media($desktop)
+	{
+		@include span-columns(4 of 8);
+	}
+}
+.great
+{
+	@include color-block($primary-color, $light-gray-color)
+}
+.good
+{
+	@include color-block($secondary-color, $light-gray-color)
+}
+.learning
+{
+	@include color-block($tertiary-color, $light-gray-color)
+}
+
+
+
+
+
+
 .title-and-info, #cnc, .intro
 {
 	@include span-columns(4 of 4); 
@@ -243,6 +281,6 @@ footer
 	}
 }
 
-p {
+p, h2 {
 	margin-bottom: $base;
 }

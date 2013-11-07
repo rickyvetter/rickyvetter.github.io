@@ -1,60 +1,6 @@
-/* @license
- * MyFonts Webfont Build ID 2669885, 2013-10-19T16:15:26-0400
- * 
- * The fonts listed in this notice are subject to the End User License
- * Agreement(s) entered into by the website owner. All other parties are 
- * explicitly restricted from using the Licensed Webfonts(s).
- * 
- * You may obtain a valid license at the URLs below.
- * 
- * Webfont: Novecento Sans Wide Bold by Synthview
- * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-bold/
- * 
- * Webfont: Novecento Sans Wide Book by Synthview
- * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-book/
- * 
- * Webfont: Novecento Sans Wide DemiBold by Synthview
- * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-demibold/
- * 
- * Webfont: Novecento Sans Wide Light by Synthview
- * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-light/
- * 
- * Webfont: Novecento Sans Wide Medium by Synthview
- * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-medium/
- * 
- * Webfont: Novecento Sans Wide Normal by Synthview
- * URL: http://www.myfonts.com/fonts/synthview/novecento/wide-normal/
- * 
- * 
- * License: http://www.myfonts.com/viewlicense?type=web&buildid=2669885
- * Licensed pageviews: Unlimited
- * Webfonts copyright: Copyright &#x00A9; 2013 by Jan Tonellato. All rights reserved.
- * 
- * © 2013 MyFonts Inc
-*/
-
+//@import url(http://fonts.googleapis.com/css?family=News+Cycle:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-  
-@font-face {font-family: 'Novecentosanswide-Bold';src: url('webfonts/28BD3D_0_0.eot');src: url('webfonts/28BD3D_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/28BD3D_0_0.woff') format('woff'),url('webfonts/28BD3D_0_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'Novecentosanswide-Book';src: url('webfonts/28BD3D_1_0.eot');src: url('webfonts/28BD3D_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/28BD3D_1_0.woff') format('woff'),url('webfonts/28BD3D_1_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'Novecentosanswide-DemiBold';src: url('webfonts/28BD3D_2_0.eot');src: url('webfonts/28BD3D_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/28BD3D_2_0.woff') format('woff'),url('webfonts/28BD3D_2_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'Novecentosanswide-Light';src: url('webfonts/28BD3D_3_0.eot');src: url('webfonts/28BD3D_3_0.eot?#iefix') format('embedded-opentype'),url('webfonts/28BD3D_3_0.woff') format('woff'),url('webfonts/28BD3D_3_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'Novecentosanswide-Medium';src: url('webfonts/28BD3D_4_0.eot');src: url('webfonts/28BD3D_4_0.eot?#iefix') format('embedded-opentype'),url('webfonts/28BD3D_4_0.woff') format('woff'),url('webfonts/28BD3D_4_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'Novecentosanswide-Normal';src: url('webfonts/28BD3D_5_0.eot');src: url('webfonts/28BD3D_5_0.eot?#iefix') format('embedded-opentype'),url('webfonts/28BD3D_5_0.woff') format('woff'),url('webfonts/28BD3D_5_0.ttf') format('truetype');}
- 
-
-
-
 /*********************************************
 	TYPOGRAPHY
 	http://rickyvetter.com 
@@ -62,14 +8,14 @@
 *********************************************/
 
 body {
-		font-family: 'News Cycle', Helvetica, Arial, sans-serif;
+		font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 		//font-family:   sans-serif;
 		font-weight: normal;
 		font-size: $base;
 		color:$dark-color;
 	}
 
-h1, h2, h3, h4, h5, h6, nav, a, a:visited{
+h1, h2, h3, h4, h5, h6, nav{
 		font-family: 'Montserrat', "Novecentosanswide-Bold", Helvetica, Arial, sans-serif;
 		font-weight: bold;
 		color:$primary-color;
@@ -77,22 +23,30 @@ h1, h2, h3, h4, h5, h6, nav, a, a:visited{
 		text-decoration:none;
 	}
 
-a:hover{
-	color:$secondary-color;
+a, a:visited{
+	font-family: 'Montserrat', "Novecentosanswide-Bold", Helvetica, Arial, sans-serif;
+	color:$primary-color;
 	text-decoration:none;
 }
-		
-footer p{
-	font-size: $base;
+
+a:hover{
+	color:$primary-faded-color;
+	text-decoration:none;
 }
 
-p{
+nav a{
 	font-size:$base*1.5;
+	line-height:$base*2;
+}
+		
+p, ul, ol, code, pre{
+	font-size:$base*1.5;
+	line-height:$base*2;
 }
 h1{
 	font-size:$base*3;
 }
-h2, nav{
+h2{
 	font-size:$base*2;
 }
 h3{
@@ -100,4 +54,34 @@ h3{
 }
 h4{
 	font-size:$base*1.4;
+}
+
+
+pre {
+	border: 1px solid #ddd;
+	background-color: #eef;
+	padding: 0 .4em;
+	font-family: monospace;
+}
+
+code {
+	border: 1px solid #ddd;
+	background-color: #eef;
+	padding: 0 .2em;
+	font-family: monospace;
+}
+
+pre code {
+	border: none;
+}
+
+/* terminal */
+pre.terminal {
+	border: 1px solid #000;
+	background-color: #333;
+	color: #FFF;
+}
+
+pre.terminal code {
+	background-color: #333;
 }

@@ -3,7 +3,7 @@ layout: project
 title:  "Rambler Buzz"
 date:   2013-10-27 16:58:00
 categories: projects
-company: StaticDuo
+company: Loyola University Chicago
 icon: desktop
 ---
 

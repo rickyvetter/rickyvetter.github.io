@@ -16,4 +16,6 @@ Cons
 ----
 1. It can sometimes seem so powerful I want to believe that I can add dynamic content to it. I find myself more drawn to try and add things that are difficult without server side code.
 
-I'll write more on this topic at a later date. I'm dead tired and I just wanted to get this down before I head to bed. Goodnight! Happy Halloween!
+I'll write more on this topic at a later date. I'm dead tired and I just wanted to get this down before I head to bed. Goodnight! Happy Halloween<pre>Hello</pre>.
+
+	Hello this is code;

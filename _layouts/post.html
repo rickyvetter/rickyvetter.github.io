@@ -4,13 +4,8 @@ layout: default
 		<article>
 			<div class="title-and-info">
 				<h2><a href="{{ page.url }}">{{ page.title }}</a><i class="icon-{{ page.icon }}"></i></h2>
-				<h4>By: {{ post.author }}</h4>
+				<h4>By: {{ page.author }}</h4>
 				<p>{{ page.date | date_to_string }}</p>
-				<!-- <ul>
-					<li>Design</li>
-					<li>Coded the data structures and backend logic for manipulating boxes and items</li>
-					<li></li>
-				</ul> -->
 			</div>
 			<div class="content">
 				{{ content }}

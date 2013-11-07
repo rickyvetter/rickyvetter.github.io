@@ -1,9 +1,10 @@
 ---
 layout: default
+title: Thoughts
 ---
 		<h1>{{ page.title }}</h1>
 		{% for post in site.categories.thoughts %}
-		<article class="project mobile">
+		<article>
 			<div class="title-and-info">
 				<h2><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<i class="icon-{{ post.icon }}"></i></h2>
 				<h4>By: {{ post.author }}</h4>
@@ -15,7 +16,7 @@ layout: default
 			</div>
 			<div class="content">
 				<p>{{ post.excerpt }}</p>
-				<p><a class="btn btn-default" href="boxup">View details &raquo;</a></p>
+				<p><a href="{{ post.url }}">View details &raquo;</a></p>
 			</div>
 		</article>
 		{% endfor %}

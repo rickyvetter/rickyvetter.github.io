@@ -52,33 +52,18 @@ header
 		}
 		nav
 		{
-			@include media($mobile)
-			{
-				@include span-columns(5 of 8);
-				@include omega();
-				display:block;
-			}
+			@include span-columns(4);
 			@include media($tablet)
 			{
-				@include span-columns(5 of 8);
-				@include omega();
-				display:block;
+				@include span-columns(5);
 			}
 			@include media($desktop)
 			{
-				@include span-columns(8 of 12);
+				@include span-columns(8);
 			}
-			ul
+			a
 			{
-				list-style-type:none;
-				display: inline;
-				margin:0;
-				padding:0;
-				li
-				{
-					display:inline;
-					margin:0 $base*2 0 0;
-				}
+				margin:0 $base*2 0 0;
 			}
 			display:none;
 			margin-top: $base;
@@ -87,13 +72,16 @@ header
 	}
 	#menu-icon
 	{
-		position:absolute;
-		top:0;
-		right:0;
+		@include span-columns(1); 
+		// position:absolute;
+		// top:0;
+		// right:0;
+		float:right;
 		width:50px;
 		height:50px;
 		//background:red;
 		background: url(menu-icon.png) no-repeat center;
+		margin-right:0;
 		@include media($tablet)
 		{
 			display:none;
@@ -117,15 +105,14 @@ header
 	}
 }
 a.button{
-	@include span-columns(4 of 4); 
+	@include span-columns(4); 
 	@include media($tablet)
 	{
-		@include span-columns(3 of 8);
-		margin:0;
+		@include span-columns(3);
 	}
 	@include media($desktop)
 	{
-		@include span-columns(4 of 12);
+		@include span-columns(4);
 	}
 	text-align:center;
 	padding:25px 0;
@@ -133,25 +120,25 @@ a.button{
 	border:1px solid $light-gray-color;
 	margin:$base 0;
 }
-a.dark, a.dark:visited{
+a.dark, a.dark:visited, input.submit{
 	color:$light-gray-color;
 	background-color:$primary-color;
 }
 a.dark:hover{
-	background-color:$secondary-color;
+	background-color:$primary-faded-color;
 	color:$light-gray-color;
 }
 .social-links
 {
-	@include span-columns(4 of 4); 
+	@include span-columns(4); 
 		@include media($tablet)
 		{
-			@include span-columns(2 of 8);
+			@include span-columns(2);
 			margin:0;
 		}
 		@include media($desktop)
 		{
-			@include span-columns(4 of 12);
+			@include span-columns(4);
 		}
 }
 a.social-link, a.social-link:visited
@@ -161,7 +148,7 @@ a.social-link, a.social-link:visited
 }
 a.social-links:hover
 {
-	color:$secondary-color;
+	color:$primary-faded-color;
 }
 
 
@@ -178,16 +165,16 @@ section
 	}
 	article
 	{
-		@include span-columns(4 of 4); 
+		@include span-columns(4); 
 		@include media($tablet)
 		{
-			@include span-columns(8 of 8);
+			@include span-columns(8);
 
 			// border-bottom:1px solid $gray-color;
 		}
 		@include media($desktop)
 		{
-			@include span-columns(12 of 12);
+			@include span-columns(12);
 		}
 		padding-bottom:$base;
 		margin-bottom:$base;
@@ -199,14 +186,14 @@ section
 
 #footer-contact, .content
 {
-	@include span-columns(4 of 4); 
+	@include span-columns(4); 
 	@include media($tablet)
 	{
-		@include span-columns(5 of 8);
+		@include span-columns(5);
 	}
 	@include media($desktop)
 	{
-		@include span-columns(8 of 12);
+		@include span-columns(8);
 	}
 }
 .one-half
@@ -214,12 +201,18 @@ section
 	@include span-columns(4 of 4); 
 	@include media($tablet)
 	{
-		@include span-columns(1.5 of 5);
+		@include span-columns(2.5 of 5);
 		@include omega(2n);
 	}
 	@include media($desktop)
 	{
 		@include span-columns(4 of 8);
+	}
+	ul{
+		list-style: none;
+		ul li{
+			margin-left:$base;
+		}
 	}
 }
 .great
@@ -242,14 +235,14 @@ section
 
 .title-and-info, #cnc, .intro
 {
-	@include span-columns(4 of 4); 
+	@include span-columns(4); 
 	@include media($tablet)
 	{
-		@include span-columns(3 of 8);
+		@include span-columns(3);
 	}
 	@include media($desktop)
 	{
-		@include span-columns(4 of 12);
+		@include span-columns(4);
 	}
 }
 footer
@@ -283,4 +276,8 @@ footer
 
 p, h2 {
 	margin-bottom: $base;
+}
+
+input, textarea{
+	width:100%
 }

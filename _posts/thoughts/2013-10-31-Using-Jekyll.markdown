@@ -7,6 +7,7 @@ author: Ricky Vetter
 ---
 
 So far using Jekyll has been going smoothly. It certainly isn't as full-featured as some of the Content Management Systems, but it does some really powerful stuff really quickly.
+
 Pros
 ----
 1. Powerful use of includes, with variables make it so I'm not spending a lot of time manipulating HTML. I can focus on style and content more than I even have before.
@@ -15,7 +16,7 @@ Pros
 Cons
 ----
 1. It can sometimes seem so powerful I want to believe that I can add dynamic content to it. I find myself more drawn to try and add things that are difficult without server side code.
-
-I'll write more on this topic at a later date. I'm dead tired and I just wanted to get this down before I head to bed. Goodnight! Happy Halloween<pre>Hello</pre>.
+I'll write more on this topic at a later date. I'm dead tired and I just wanted to get this down before I head to bed. Goodnight! Happy Halloween<code>Hello</code>.
 
 	Hello this is code;
+	This is more code;

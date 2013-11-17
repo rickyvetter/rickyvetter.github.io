@@ -96,11 +96,17 @@ header
 	background-color:$primary-color;
 	color:$light-gray-color;
 	positioning:absolute;
-	padding: 50px $base;
+	padding: $base*2 $base;
 	margin:0 $base*-1 $base*2 $base*-1;
+	@include media($tablet)
+	{
+		p{
+			margin:0;
+		}
+	}
 	@include media($desktop)
 	{
-		padding: 50px 0;
+		padding: $base*2 0;
 		margin:0 0 $base*2 0;
 	}
 }
@@ -118,7 +124,7 @@ a.button{
 	padding:25px 0;
 	font-size:$base*2;
 	border:1px solid $light-gray-color;
-	margin:$base 0;
+	margin-bottom:$base;
 }
 a.dark, a.dark:visited, input.submit{
 	color:$light-gray-color;

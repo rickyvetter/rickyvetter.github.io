@@ -8,4 +8,11 @@ icon: mobile-phone
 excerpt: "The unnamed chem app is currently under construction. The app has two different pages: the drawing page and the reaction page. The drawing page's functionality has been fully designed and is currently being coded. Wireframes for the reaction page have been discussed but the design for that page has not been finalized yet. I have almost no experience with chemistry, but I have a lot of fun playing around with it."
 ---
 
-The unnamed chem app is currently under construction. The app has two different pages: the drawing page and the reaction page. The drawing page's functionality has been fully designed and is currently being coded. Wireframes for the reaction page have been discussed but the design for that page has not been finalized yet. I have almost no experience with chemistry, but I have a lot of fun playing around with it.
+<article>
+	<div class="title-and-info">
+		<h2>About</h2>
+	</div>
+	<div class="content">
+		<p>The unnamed chem app is currently under construction. The app has two different pages: the drawing page and the reaction page. The drawing page's functionality has been fully designed and is currently being coded. Wireframes for the reaction page have been discussed but the design for that page has not been finalized yet. I have almost no experience with chemistry, but I have a lot of fun playing around with it.</p>
+	</div>
+</article>

@@ -15,7 +15,6 @@ excerpt: "Box Up is a new kind of organizational tool. It doesn't make assumptio
 		<p>Box Up is a new kind of organizational tool. It doesn't make assumptions about what you're organizing and it lets you do things your way. Box Up is fast enough to be useful on the go and versatile enough to help keep track of anything. It is based on a simple idea: having one place to organize everything is more effective than having to look everywhere.</p>
 	</div>
 </article>
-<!-- more -->
 <article>
 	<div class="title-and-info">
 		<h2>Process</h2>

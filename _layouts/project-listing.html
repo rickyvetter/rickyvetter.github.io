@@ -15,7 +15,7 @@ layout: default
 				</ul> -->
 			</div>
 			<div class="content">
-				{{ post.excerpt }}
+				{{ post.excerpt | markdownify }}
 				<p><a href="{{ post.url }}">View Details &raquo;</a></p>
 			</div>
 		</article>

@@ -420,6 +420,9 @@ p, h2 {
 input, textarea {
   width: 100%; }
 
+#r {
+  margin-bottom: -0.5rem; }
+
 /*********************************************
 	TYPOGRAPHY
 	http://rickyvetter.com 
@@ -435,7 +438,6 @@ h1, h2, h3, h4, h5, h6, nav {
   font-family: 'Montserrat', "Novecentosanswide-Bold", Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #240438;
-  text-transform: uppercase;
   text-decoration: none; }
 
 a, a:visited {

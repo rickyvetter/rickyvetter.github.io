@@ -423,9 +423,6 @@ p, h2 {
 input, textarea {
   width: 100%; }
 
-#r {
-  margin-bottom: -0.5rem; }
-
 /*********************************************
 	TYPOGRAPHY
 	http://rickyvetter.com 
@@ -496,6 +493,45 @@ pre.terminal {
 
 pre.terminal code {
   background-color: #333; }
+
+#ricky {
+  -webkit-transform: translate3D(0, 0, 0); }
+
+.circle {
+  -webkit-transition: -webkit-transform .5s; }
+
+.circle {
+  display: inline-block;
+  background: #240438;
+  text-align: center;
+  float: left;
+  width: 3rem;
+  vertical-align: text-top;
+  color: #fafafa;
+  cursor: pointer;
+  -webkit-border-radius: 120px;
+  -moz-border-radius: 120px;
+  border-radius: 120px;
+  -moz-transform: rotate(-36deg);
+  -webkit-transform: rotate(-36deg);
+  -o-transform: rotate(-36deg);
+  transform: rotate(-36deg);
+  -webkit-transition: all 100ms;
+  -moz-transition: all 100ms;
+  transition: all 100ms; }
+
+#header-link:hover {
+  color: #6c5662; }
+
+#header-link:hover .circle {
+  background: #6c5662;
+  -moz-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 100ms;
+  -moz-transition: all 100ms;
+  transition: all 100ms; }
 
 /*********************************************
 	CUSTOM HEADER

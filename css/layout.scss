@@ -65,7 +65,7 @@ header
 			{
 				margin:0 $base*2 0 0;
 			}
-			display:none;
+			display: none;
 			margin-top: $base;
 			margin-bottom: $base/2;
 		}
@@ -286,8 +286,4 @@ p, h2{
 
 input, textarea{
 	width:100%
-}
-
-#r{
-	margin-bottom: $base*-0.5;
 }

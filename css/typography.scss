@@ -85,3 +85,42 @@ pre.terminal {
 pre.terminal code {
 	background-color: #333;
 }
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+#ricky {
+  -webkit-transform: translate3D(0, 0, 0);
+}
+.circle {
+  -webkit-transition: -webkit-transform .5s;
+}
+.circle {
+  display:inline-block;
+  background: $primary-color;
+  text-align: center;
+  float: left;
+  width:$base*3; //same as h1 font-size
+  vertical-align:text-top;
+  color: $light-color;
+  cursor: pointer;
+  @include border-radius(120px);
+  -moz-transform: rotate(-36deg);
+    -webkit-transform: rotate(-36deg);
+    -o-transform: rotate(-36deg);
+    transform: rotate(-36deg);
+    @include transition(all 100ms);
+}
+#header-link:hover{
+	color: $primary-faded-color;
+}
+#header-link:hover .circle {
+	background: $primary-faded-color;
+  -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    @include transition(all 100ms);
+}

@@ -1,12 +1,12 @@
 ---
 layout: default
 ---
-		<h1>{{ page.title }}</h1>
 		{% for post in site.categories.projects %}
 		<article>
 			<div class="title-and-info">
 				<h2><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<i class="icon-{{ post.icon }}"></i></h2>
-				<h4>{{ post.company }}</h4>
+				<!-- <h4>{{ post.company }}</h4> -->
+				<div class="info"><p>Hello there!</p></div>
 				<!--<h4>Target:{% for post.icon in post %} <i class="icon-{{ post.icon }}"></i>{% endfor %}</h4>-->
 				
 				<!--<p>My role: <i class="icon-code"></i></p>-->

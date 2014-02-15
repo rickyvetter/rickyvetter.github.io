@@ -98,6 +98,9 @@ header
 	positioning:absolute;
 	padding: $base*2 $base;
 	margin:0 $base*-1 $base*2 $base*-1;
+	h1{
+		color:$light-gray-color;
+	}
 	@include media($tablet)
 	{
 		p{
@@ -133,19 +136,6 @@ a.dark, a.dark:visited, input.submit{
 a.dark:hover{
 	background-color:$primary-faded-color;
 	color:$light-gray-color;
-}
-.social-links
-{
-	@include span-columns(4); 
-		@include media($tablet)
-		{
-			@include span-columns(2);
-			margin:0;
-		}
-		@include media($desktop)
-		{
-			@include span-columns(4);
-		}
 }
 a.social-link, a.social-link:visited
 {
@@ -238,8 +228,30 @@ section
 
 
 
+.intro
+{
+	i{
+		float:right;
+	}
+	@include span-columns(4); 
+	@include media($tablet)
+	{
+		@include span-columns(8);
+	}
+	@include media($desktop)
+	{
+		@include span-columns(12);
+	}
+	.info
+	{
+		border-width: 1px;
+		border-color: $secondary-color;
+		padding:$base;
+	}
+}
 
-.title-and-info, #cnc, .intro
+
+.title-and-info, #cnc
 {
 	@include span-columns(4); 
 	@include media($tablet)
@@ -249,6 +261,12 @@ section
 	@include media($desktop)
 	{
 		@include span-columns(4);
+	}
+	.info
+	{
+		border-width: 1px;
+		border-color: $secondary-color;
+		padding:$base;
 	}
 }
 footer

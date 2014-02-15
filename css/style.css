@@ -160,6 +160,8 @@ header {
   positioning: absolute;
   padding: 2rem 1rem;
   margin: 0 -1rem 2rem -1rem; }
+  #banner h1 {
+    color: #eeeeee; }
   @media screen and (min-width: 769px) {
     #banner p {
       margin: 0; } }
@@ -204,31 +206,6 @@ a.dark, a.dark:visited, input.submit {
 a.dark:hover {
   background-color: #6c5662;
   color: #eeeeee; }
-
-.social-links {
-  display: block;
-  float: left;
-  margin-right: 7.42297%;
-  width: 100%; }
-  .social-links:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 769px) {
-    .social-links {
-      display: block;
-      float: left;
-      margin-right: 3.57866%;
-      width: 22.316%;
-      margin: 0; }
-      .social-links:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 1100px) {
-    .social-links {
-      display: block;
-      float: left;
-      margin-right: 2.35765%;
-      width: 31.76157%; }
-      .social-links:last-child {
-        margin-right: 0; } }
 
 a.social-link, a.social-link:visited {
   font-size: 5rem;
@@ -356,29 +333,63 @@ section {
   font-family: "Montserrat";
   font-size: 1.2rem; }
 
-.title-and-info, #cnc, .intro {
+.intro {
   display: block;
   float: left;
   margin-right: 7.42297%;
   width: 100%; }
-  .title-and-info:last-child, #cnc:last-child, .intro:last-child {
+  .intro i {
+    float: right; }
+  .intro:last-child {
     margin-right: 0; }
   @media screen and (min-width: 769px) {
-    .title-and-info, #cnc, .intro {
+    .intro {
+      display: block;
+      float: left;
+      margin-right: 3.57866%;
+      width: 100%; }
+      .intro:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 1100px) {
+    .intro {
+      display: block;
+      float: left;
+      margin-right: 2.35765%;
+      width: 100%; }
+      .intro:last-child {
+        margin-right: 0; } }
+  .intro .info {
+    border-width: 1px;
+    border-color: #83b036;
+    padding: 1rem; }
+
+.title-and-info, #cnc {
+  display: block;
+  float: left;
+  margin-right: 7.42297%;
+  width: 100%; }
+  .title-and-info:last-child, #cnc:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 769px) {
+    .title-and-info, #cnc {
       display: block;
       float: left;
       margin-right: 3.57866%;
       width: 35.26334%; }
-      .title-and-info:last-child, #cnc:last-child, .intro:last-child {
+      .title-and-info:last-child, #cnc:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 1100px) {
-    .title-and-info, #cnc, .intro {
+    .title-and-info, #cnc {
       display: block;
       float: left;
       margin-right: 2.35765%;
       width: 31.76157%; }
-      .title-and-info:last-child, #cnc:last-child, .intro:last-child {
+      .title-and-info:last-child, #cnc:last-child {
         margin-right: 0; } }
+  .title-and-info .info, #cnc .info {
+    border-width: 1px;
+    border-color: #83b036;
+    padding: 1rem; }
 
 footer {
   background-color: #aaaaaa;
@@ -438,6 +449,7 @@ h1, h2, h3, h4, h5, h6, nav {
   font-family: 'Montserrat', "Novecentosanswide-Bold", Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #240438;
+  text-transform: uppercase;
   text-decoration: none; }
 
 a, a:visited {

@@ -1,7 +1,7 @@
 ---
 layout: project
 title:  "Rambler Buzz"
-date:   2013-10-27 16:58:00
+date:   2013-11-27 16:58:00
 categories: projects
 company: Loyola University Chicago
 role: "Front End Development"

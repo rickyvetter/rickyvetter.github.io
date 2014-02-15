@@ -1,7 +1,7 @@
 ---
 layout: project
 title:  "Box Up"
-date:   2013-10-27 16:58:00
+date:   2014-01-27 16:58:00
 categories: projects
 company: StaticDuo
 role: "Development, UX"

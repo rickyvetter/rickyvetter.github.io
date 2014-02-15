@@ -1,7 +1,7 @@
 ---
 layout: project
 title:  "Bikes for Books"
-date:   2013-10-27 16:58:00
+date:   2014-02-01 16:58:00
 categories: projects
 company: Bikes for Books
 role: Web Development

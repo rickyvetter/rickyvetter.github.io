@@ -6,12 +6,9 @@ title: Thoughts
 		<article>
 			<div class="title-and-info">
 				<h2><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<i class="icon-{{ post.icon }}"></i></h2>
-				<h4>By: {{ post.author }}</h4>
-				<!-- <ul>
-					<li>Design</li>
-					<li>Coded the data structures and backend logic for manipulating boxes and items</li>
-					<li></li>
-				</ul> -->
+				<div class="info">
+					<span class="author">By {{ post.author }}</span>
+				</div>
 			</div>
 			<div class="content">
 				<p>{{ post.excerpt }}</p>

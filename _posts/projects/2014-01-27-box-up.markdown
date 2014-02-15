@@ -1,0 +1,43 @@
+---
+layout: project
+title:  "Box Up"
+date:   2013-10-27 16:58:00
+categories: projects
+company: StaticDuo
+role: "Development, UX"
+skills: "C#, XAML, Wireframing"
+icon: mobile-phone
+excerpt: "Box Up is a new kind of organizational tool. It doesn't make assumptions about what you're organizing and it lets you do things your way. Box Up is fast enough to be useful on the go and versatile enough to help keep track of anything. It is based on a simple idea: having one place to organize everything is more effective than having to look everywhere."
+---
+<article>
+	<div class="title-and-info">
+		<h2>About</h2>
+	</div>
+	<div class="content">
+		<p>Box Up is a new kind of organizational tool. It doesn't make assumptions about what you're organizing and it lets you do things your way. Box Up is fast enough to be useful on the go and versatile enough to help keep track of anything. It is based on a simple idea: having one place to organize everything is more effective than having to look everywhere.</p>
+	</div>
+</article>
+<article>
+	<div class="title-and-info">
+		<h2>Process</h2>
+	</div>
+	<div class="content">
+		<p>Box Up is an app for Windows Phone built as a fun project with a friend. It is made to help organize every aspect of your life and it is made to be simple. "Boxing up" different things is one of the most basic organizational methods we have. We abstracted and built upon that concept and then put it on a phone.</p>
+	</div>
+</article>
+<article>
+	<div class="title-and-info">
+		<h2>Code</h2>
+	</div>
+	<div class="content">
+		<p>Box Up was created entirely in Visual Studio. It runs on C# and consists of a list of lists. Each item within the sub-list has an array of three modules which add functionality. It is a highly modifiable system that allows for a module to work with any type of information that you would want to be part of the list.</p><p>The code is currently being refactored and accurately commented. Once complete, I will post a sample of code and download. In the mean time, contact me if you would like to see the source.</p>
+	</div>
+</article>
+<article>
+	<div class="title-and-info">
+		<h2>Design</h2>
+	</div>
+	<div class="content">
+		<p>The layout of Box Up was created using XAML. From the beginning the app was created with the understanding of fitting into the Windows Phone design language. It uses tiles to display box information and to play on the "box" idea that we named the app for.</p><p>Box Up is essentially a list of lists. What makes it unique is the ability to add specific widgets to different items and to do that in the quickest, simplest way possible. It was designed to be a full-featured app that would not cause a heavy cognitive load for users unless they were looking for the features.</p>
+	</div>
+</article>

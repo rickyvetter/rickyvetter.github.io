@@ -338,8 +338,11 @@ section {
   float: left;
   margin-right: 7.42297%;
   width: 100%; }
-  .intro i {
-    float: right; }
+  .intro a, .intro a:visited {
+    color: #eeeeee;
+    float: right;
+    font-size: 1rem;
+    vertical-align: bottom; }
   .intro:last-child {
     margin-right: 0; }
   @media screen and (min-width: 769px) {
@@ -358,10 +361,6 @@ section {
       width: 100%; }
       .intro:last-child {
         margin-right: 0; } }
-  .intro .info {
-    border-width: 1px;
-    border-color: #83b036;
-    padding: 1rem; }
 
 .title-and-info, #cnc {
   display: block;
@@ -387,9 +386,9 @@ section {
       .title-and-info:last-child, #cnc:last-child {
         margin-right: 0; } }
   .title-and-info .info, #cnc .info {
-    border-width: 1px;
-    border-color: #83b036;
-    padding: 1rem; }
+    font-size: 1rem;
+    color: #6c5662;
+    line-height: 2rem; }
 
 footer {
   background-color: #aaaaaa;
@@ -445,7 +444,7 @@ body {
   font-size: 1rem;
   color: #171717; }
 
-h1, h2, h3, h4, h5, h6, nav {
+h1, h2, h3, h4, h5, h6, nav, .info {
   font-family: 'Montserrat', "Novecentosanswide-Bold", Helvetica, Arial, sans-serif;
   font-weight: bold;
   color: #240438;

@@ -4,8 +4,10 @@ layout: default
 		<article>
 			<div class="title-and-info">
 				<h2><a href="{{ page.url }}">{{ page.title }}</a><i class="icon-{{ page.icon }}"></i></h2>
-				<h4>By: {{ page.author }}</h4>
-				<p>{{ page.date | date_to_string }}</p>
+				<div class="info">
+					<span class="author">By {{ page.author }}</span><br>
+					<span class="date">{{ page.date | date_to_string }}</span>
+				</div>
 			</div>
 			<div class="content">
 				{{ content }}

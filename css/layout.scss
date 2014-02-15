@@ -230,8 +230,12 @@ section
 
 .intro
 {
-	i{
+	a, a:visited{
+		color:$light-gray-color;
 		float:right;
+		
+		font-size:$base;
+		vertical-align: bottom;
 	}
 	@include span-columns(4); 
 	@include media($tablet)
@@ -241,12 +245,6 @@ section
 	@include media($desktop)
 	{
 		@include span-columns(12);
-	}
-	.info
-	{
-		border-width: 1px;
-		border-color: $secondary-color;
-		padding:$base;
 	}
 }
 
@@ -264,9 +262,9 @@ section
 	}
 	.info
 	{
-		border-width: 1px;
-		border-color: $secondary-color;
-		padding:$base;
+		font-size:$base;
+		color:$primary-faded-color;
+		line-height: $base*2;
 	}
 }
 footer

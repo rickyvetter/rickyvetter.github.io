@@ -5,11 +5,10 @@ layout: default
 		<article>
 			<div class="title-and-info">
 				<h2><a href="{{ post.url }}">{{ post.title }}</a>&nbsp;<i class="icon-{{ post.icon }}"></i></h2>
-				<!-- <h4>{{ post.company }}</h4> -->
-				<div class="info"><p>Hello there!</p></div>
-				<!--<h4>Target:{% for post.icon in post %} <i class="icon-{{ post.icon }}"></i>{% endfor %}</h4>-->
-				
-				<!--<p>My role: <i class="icon-code"></i></p>-->
+				<div class="info">
+					<span class="roles">{{ post.role }}</span><br>
+					<span class="skills">{{ post.skills }}</span>
+				</div>
 			</div>
 			<div class="content">
 				{{ post.excerpt | markdownify }}

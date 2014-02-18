@@ -24,10 +24,10 @@ excerpt: "<p>The Bikes for Books website was created to help the launch of the C
 	</div>
 	<div class="content">
 	    <div id="full-slider" class="owl-carousel owl-theme">
-	    	<div class="item"><img src="/images/b4b1.png" alt="The Last of us"></div>
-			<div class="item"><img src="/images/b4b2.png" alt="GTA V"></div>
-			<div class="item"><img src="/images/b4b3.png" alt="Mirror Edge"></div>
+	    	<div class="item"><img src="/images/b4b1.png" alt="B4B Home Page"></div>
+			<div class="item"><img src="/images/b4b2.png" alt="B4B News Blocks"></div>
+			<div class="item"><img src="/images/b4b3.png" alt="B4B Blog"></div>
 	    </div>
 	</div>
 </article>
-<style type="text/css">#b4b-pics .item img{display: block;width: 100%;height: auto;}</style>
+<style type="text/css">#full-slider .item img{display: block;width: 100%;height: auto;}</style>

@@ -20,6 +20,18 @@ excerpt: "<p>The Bikes for Books website was created to help the launch of the C
 </article>
 <article>
 	<div class="title-and-info">
+		<h2>Roles</h2>
+		<div class="info">
+			<span class="roles">{{ page.role }}</span><br>
+			<span class="skills">{{ page.skills }}</span>
+		</div>
+	</div>
+	<div class="content">
+		<p>I was part of a team that started the blog, built off of one of the WordPress default themes, developed custom interactions and found appropriate plugins to bring the best experience possible to the Bikes for Books site. Specically, I worked extensively on the development and styling of the homepage.</p>
+	</div>
+</article>
+<article>
+	<div class="title-and-info">
 		<h2>Pictures</h2>
 	</div>
 	<div class="content">
@@ -28,6 +40,14 @@ excerpt: "<p>The Bikes for Books website was created to help the launch of the C
 			<div class="item"><img src="/images/b4b2.png" alt="B4B News Blocks"></div>
 			<div class="item"><img src="/images/b4b3.png" alt="B4B Blog"></div>
 	    </div>
+	</div>
+</article>
+<article>
+	<div class="title-and-info">
+		<h2>Link</h2>
+	</div>
+	<div class="content">
+	    <p><a href="http://bikes4books.com">bikes4books.com</a></P>
 	</div>
 </article>
 <style type="text/css">#full-slider .item img{display: block;width: 100%;height: auto;}</style>

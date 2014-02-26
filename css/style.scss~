@@ -1,5 +1,5 @@
 /*********************************************
-	CSS by Ricky Vetter
+	Custom CSS by Ricky Vetter (unless noted)
 	http://rickyvetter
 	v2.0
 *********************************************/
@@ -15,4 +15,4 @@
 @import "typography";
 @import "full_page_header";
 
-@import "owl-carousel";
+@import "owl-carousel/owl-carousel";

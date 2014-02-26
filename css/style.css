@@ -1,8 +1,5 @@
-@import url(font-awesome/css/font-awesome.min.css);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 /*********************************************
-	Custom CSS by Ricky Vetter (unless noted)
+	CSS by Ricky Vetter
 	http://rickyvetter
 	v2.0
 *********************************************/
@@ -12,6 +9,12 @@
 	v2.0 | 20110126
 	License: none (public domain)
 *********************************************/
+@import url(font-awesome/css/font-awesome.min.css);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(owl.carousel.css);
+@import url(owl.transitions.css);
+@import url(owl.theme.css);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -549,3 +552,15 @@ pre.terminal code {
 	http://rickyvetter.com 
 	v1.0
 *********************************************/
+#full-slider .item img {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+#three-slider .item {
+  margin: 3px; }
+
+#three-slider .item img {
+  display: block;
+  width: 100%;
+  height: auto; }

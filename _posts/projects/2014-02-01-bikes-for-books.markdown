@@ -32,7 +32,7 @@ excerpt: "<p>The Bikes for Books website was created to help the launch of the C
 </article>
 <article>
 	<div class="title-and-info">
-		<h2>Pictures</h2>
+		<h2>Screenshots</h2>
 	</div>
 	<div class="content">
 	    <div id="full-slider" class="owl-carousel owl-theme">
@@ -50,4 +50,3 @@ excerpt: "<p>The Bikes for Books website was created to help the launch of the C
 	    <p><a href="http://bikes4books.com">bikes4books.com</a></P>
 	</div>
 </article>
-<style type="text/css">#full-slider .item img{display: block;width: 100%;height: auto;}</style>

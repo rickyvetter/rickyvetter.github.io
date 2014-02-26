@@ -42,10 +42,15 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#full-slider").owlCarousel({
-			navigation : true, // Show next and prev buttons
 			slideSpeed : 300,
 			paginationSpeed : 400,
 			singleItem:true
+		});
+	});
+
+	$(document).ready(function() {
+		$("#three-slider").owlCarousel({
+			items : 3
 		});
 	});
 </script>

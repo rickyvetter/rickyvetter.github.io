@@ -1,0 +1,16 @@
+@import 'owl.carousel.css';
+@import 'owl.transitions.css';
+@import 'owl.theme.css';
+
+#full-slider .item img
+{
+	display: block;width: 100%;height: auto;
+}
+#three-slider .item{
+margin: 3px;
+}
+#three-slider .item img{
+display: block;
+width: 100%;
+height: auto;
+}

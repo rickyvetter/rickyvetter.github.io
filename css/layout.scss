@@ -28,15 +28,6 @@ header
 {
 	.header-content{
 		@include outer-container;
-		// @include span-columns(4); 
-		// @include media($tablet)
-		// {
-		// 	@include span-columns(8);
-		// }
-		// @include media($desktop)
-		// {
-		// 	@include span-columns(12);
-		// }
 		#ricky
 		{
 			@include span-columns(3); 
@@ -50,7 +41,7 @@ header
 			}
 			margin-bottom:$base/2 ;
 		}
-		nav
+		nav#main-nav
 		{
 			@include span-columns(4);
 			@include media($tablet)
@@ -92,7 +83,7 @@ header
 	//top:0;
 }
 
-#banner{
+#stripe{
 	background-color:$primary-color;
 	color:$light-gray-color;
 	positioning:absolute;
@@ -111,6 +102,13 @@ header
 	{
 		padding: $base*2 0;
 		margin:0 0 $base*2 0;
+	}
+}
+#stripe.just-stripe{
+	margin:0 $base*-1 0 $base*-1;
+	@include media($desktop)
+	{
+		margin:0;
 	}
 }
 a.button{
@@ -238,6 +236,7 @@ section
 		vertical-align: bottom;
 	}
 	@include span-columns(4); 
+	@include omega();
 	@include media($tablet)
 	{
 		@include span-columns(8);
@@ -287,13 +286,17 @@ footer
 }
 
 
-#about, #currently
-{
-	@include span-columns(4);
-	@include media($tablet)
-	{
-		@include span-columns(4);
-	}
+// #about, #currently
+// {
+// 	@include span-columns(4);
+// 	@include media($tablet)
+// 	{
+// 		@include span-columns(4);
+// 	}
+// }
+#currently{
+background: none no-repeat scroll center bottom transparent;
+height:200px;
 }
 
 p, h2{
@@ -302,4 +305,20 @@ p, h2{
 
 input, textarea{
 	width:100%
+}
+
+.experiment
+{
+	@include span-columns(4);
+	@include media($tablet-only)
+	{
+		@include span-columns(4);
+		@include omega(2n);
+	}
+	@include media($desktop)
+	{
+		@include span-columns(4);
+		@include omega(3n);
+	}
+	margin-bottom:$base;
 }

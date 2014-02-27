@@ -113,7 +113,7 @@ header {
           width: 31.76157%; }
           header .header-content #ricky:last-child {
             margin-right: 0; } }
-    header .header-content nav {
+    header .header-content nav#main-nav {
       display: block;
       float: left;
       margin-right: 7.42297%;
@@ -121,25 +121,25 @@ header {
       display: none;
       margin-top: 1rem;
       margin-bottom: 0.5rem; }
-      header .header-content nav:last-child {
+      header .header-content nav#main-nav:last-child {
         margin-right: 0; }
       @media screen and (min-width: 769px) {
-        header .header-content nav {
+        header .header-content nav#main-nav {
           display: block;
           float: left;
           margin-right: 3.57866%;
           width: 61.158%; }
-          header .header-content nav:last-child {
+          header .header-content nav#main-nav:last-child {
             margin-right: 0; } }
       @media screen and (min-width: 1100px) {
-        header .header-content nav {
+        header .header-content nav#main-nav {
           display: block;
           float: left;
           margin-right: 2.35765%;
           width: 65.88078%; }
-          header .header-content nav:last-child {
+          header .header-content nav#main-nav:last-child {
             margin-right: 0; } }
-      header .header-content nav a {
+      header .header-content nav#main-nav a {
         margin: 0 2rem 0 0; }
   header #menu-icon {
     display: block;
@@ -157,21 +157,27 @@ header {
       header #menu-icon {
         display: none; } }
 
-#banner {
+#stripe {
   background-color: #240438;
   color: #eeeeee;
   positioning: absolute;
   padding: 2rem 1rem;
   margin: 0 -1rem 2rem -1rem; }
-  #banner h1 {
+  #stripe h1 {
     color: #eeeeee; }
   @media screen and (min-width: 769px) {
-    #banner p {
+    #stripe p {
       margin: 0; } }
   @media screen and (min-width: 1100px) {
-    #banner {
+    #stripe {
       padding: 2rem 0;
       margin: 0 0 2rem 0; } }
+
+#stripe.just-stripe {
+  margin: 0 -1rem 0 -1rem; }
+  @media screen and (min-width: 1100px) {
+    #stripe.just-stripe {
+      margin: 0; } }
 
 a.button {
   display: block;
@@ -340,7 +346,8 @@ section {
   display: block;
   float: left;
   margin-right: 7.42297%;
-  width: 100%; }
+  width: 100%;
+  margin-right: 0; }
   .intro a, .intro a:visited {
     color: #eeeeee;
     float: right;
@@ -414,27 +421,48 @@ footer {
   .container:after, #footer-content:after {
     clear: both; }
 
-#about, #currently {
-  display: block;
-  float: left;
-  margin-right: 7.42297%;
-  width: 100%; }
-  #about:last-child, #currently:last-child {
-    margin-right: 0; }
-  @media screen and (min-width: 769px) {
-    #about, #currently {
-      display: block;
-      float: left;
-      margin-right: 3.57866%;
-      width: 48.21067%; }
-      #about:last-child, #currently:last-child {
-        margin-right: 0; } }
+#currently {
+  background: none no-repeat scroll center bottom transparent;
+  height: 200px; }
 
 p, h2 {
   margin-bottom: 1rem; }
 
 input, textarea {
   width: 100%; }
+
+.experiment {
+  display: block;
+  float: left;
+  margin-right: 7.42297%;
+  width: 100%;
+  margin-bottom: 1rem; }
+  .experiment:last-child {
+    margin-right: 0; }
+  @media screen and (min-width: 769px) and (max-width: 1100px) {
+    .experiment {
+      display: block;
+      float: left;
+      margin-right: 3.57866%;
+      width: 48.21067%; }
+      .experiment:last-child {
+        margin-right: 0; }
+      .experiment:nth-child(2n) {
+        margin-right: 0; }
+      .experiment:nth-child(2n+1) {
+        clear: left; } }
+  @media screen and (min-width: 1100px) {
+    .experiment {
+      display: block;
+      float: left;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
+      .experiment:last-child {
+        margin-right: 0; }
+      .experiment:nth-child(3n) {
+        margin-right: 0; }
+      .experiment:nth-child(3n+1) {
+        clear: left; } }
 
 /*********************************************
 	TYPOGRAPHY

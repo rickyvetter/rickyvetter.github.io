@@ -1,4 +1,13 @@
-	<footer>
+{% assign page-title = page.title %}
+
+{% include header.html title=page-title %}
+
+	<div id="stripe" class="just-stripe">
+		<div class="container">
+			{{ content }}
+		</div>
+	</div>     	
+		<footer>
 		<div id="footer-content">
 			<div id="cnc">
 				<p>&copy; Ricky Vetter 2012-2013</p>
@@ -53,6 +62,43 @@
 			items : 3
 		});
 	});
+</script>
+<script>
+		jQuery(document).ready(function($) {
+			var location = "/IL/Chicago"
+			$.ajax({
+				url : "http://api.wunderground.com/api/a0e7f695aa24f812/geolookup/conditions/q"+location+".json",
+				dataType : "jsonp",
+				success : function(parsed_json) {
+					var fullTime = parsed_json['current_observation']["local_time_rfc822"];
+					var time = fullTime.substring(17,22);
+					var date = fullTime.substring(0,16);
+					var city = parsed_json['location']['city'];
+					var temp_f = parsed_json['current_observation']['temp_f'];
+					$("#currentCity").html("Currently, Ricky is in " + city + ".");
+					var hour = time.substring(0,2);
+					var minute = time.substring(2,time.length);
+					var meridian = " am";
+					if (hour > 12)
+					{
+						hour -= 12;
+						meridian = " pm";
+					}
+					if (hour == 0)
+					{
+						hour = 12;
+					}
+					time = hour*1 + minute + meridian;
+					$("#currentTime").html(time);
+					$("#currentDate").html(date);
+					$("#currentWeather").html(temp_f + " &deg;F");
+					$("#currently").css("background-image", "url(/images/"+city+".png)");
+					$("#wunderground").css("background-image", "url('/images/wu.png')");
+					$("#wunderground").attr("href", "http://www.wunderground.com/US" + location + ".html?apiref=a0e7f695aa24f812");
+					$("#weatherAttribute").attr("href", "http://www.wunderground.com/US" + location + ".html?apiref=a0e7f695aa24f812");
+				}
+			});
+		});
 </script>
 
 </body>

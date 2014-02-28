@@ -52,12 +52,37 @@ header
 			{
 				@include span-columns(8);
 			}
-			a
-			{
-				margin:0 $base*2 0 0;
+			ul{
+				list-style:none;
+				@include span-columns(4 of 4);
+				@include media($tablet)
+				{
+					@include span-columns(5 of 5);
+				}
+				@include media($desktop)
+				{
+					@include span-columns(8 of 8);
+				}
+			}
+			li{
+				@include span-columns(4 of 4);
+				text-align:right;
+				@include media($tablet)
+				{
+					@include span-columns(2.5 of 5);
+					text-align:left;
+				}
+				@include media($tablet-only)
+				{
+					@include omega(2n);
+				}
+				@include media($desktop)
+				{
+					@include span-columns(2 of 8);
+					margin-top: $base;
+				}
 			}
 			display: none;
-			margin-top: $base;
 			margin-bottom: $base/2;
 		}
 	}

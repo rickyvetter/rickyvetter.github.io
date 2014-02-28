@@ -119,7 +119,6 @@ header {
       margin-right: 7.42297%;
       width: 100%;
       display: none;
-      margin-top: 1rem;
       margin-bottom: 0.5rem; }
       header .header-content nav#main-nav:last-child {
         margin-right: 0; }
@@ -139,8 +138,61 @@ header {
           width: 65.88078%; }
           header .header-content nav#main-nav:last-child {
             margin-right: 0; } }
-      header .header-content nav#main-nav a {
-        margin: 0 2rem 0 0; }
+      header .header-content nav#main-nav ul {
+        list-style: none;
+        display: block;
+        float: left;
+        margin-right: 7.42297%;
+        width: 100%; }
+        header .header-content nav#main-nav ul:last-child {
+          margin-right: 0; }
+        @media screen and (min-width: 769px) {
+          header .header-content nav#main-nav ul {
+            display: block;
+            float: left;
+            margin-right: 5.85151%;
+            width: 100%; }
+            header .header-content nav#main-nav ul:last-child {
+              margin-right: 0; } }
+        @media screen and (min-width: 1100px) {
+          header .header-content nav#main-nav ul {
+            display: block;
+            float: left;
+            margin-right: 3.57866%;
+            width: 100%; }
+            header .header-content nav#main-nav ul:last-child {
+              margin-right: 0; } }
+      header .header-content nav#main-nav li {
+        display: block;
+        float: left;
+        margin-right: 7.42297%;
+        width: 100%;
+        text-align: right; }
+        header .header-content nav#main-nav li:last-child {
+          margin-right: 0; }
+        @media screen and (min-width: 769px) {
+          header .header-content nav#main-nav li {
+            display: block;
+            float: left;
+            margin-right: 5.85151%;
+            width: 47.07425%;
+            text-align: left; }
+            header .header-content nav#main-nav li:last-child {
+              margin-right: 0; } }
+        @media screen and (min-width: 769px) and (max-width: 1100px) {
+          header .header-content nav#main-nav li:nth-child(2n) {
+            margin-right: 0; }
+          header .header-content nav#main-nav li:nth-child(2n+1) {
+            clear: left; } }
+        @media screen and (min-width: 1100px) {
+          header .header-content nav#main-nav li {
+            display: block;
+            float: left;
+            margin-right: 3.57866%;
+            width: 22.316%;
+            margin-top: 1rem; }
+            header .header-content nav#main-nav li:last-child {
+              margin-right: 0; } }
   header #menu-icon {
     display: block;
     float: left;

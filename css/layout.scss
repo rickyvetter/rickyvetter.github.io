@@ -110,13 +110,9 @@ header
 
 #stripe{
 	background-color:$primary-color;
-	color:$light-gray-color;
 	positioning:absolute;
 	padding: $base*2 $base;
 	margin:0 $base*-1 $base*2 $base*-1;
-	h1{
-		color:$light-gray-color;
-	}
 	@include media($tablet)
 	{
 		p{
@@ -321,7 +317,7 @@ footer
 // }
 #currently{
 background: none no-repeat scroll center bottom transparent;
-height:200px;
+min-height:200px;
 }
 
 p, h2{
@@ -346,4 +342,43 @@ input, textarea{
 		@include omega(3n);
 	}
 	margin-bottom:$base;
+}
+
+
+@include keyframes(flip){
+  0%  {top:0;}
+  10% {top:-$base*4;}
+  20% {top:-$base*8;}
+  30% {top:-$base*2;}
+  40% {top:-$base*10;}
+  50% {top:-$base*6;}
+  60% {top:-$base*8;}
+  70% {top:-$base*4;}
+  80% {top:-$base*10;}
+  90%  {top:-$base*2;}
+  100% {top: 0;}
+}
+
+.i-am{
+  height: $base*2;
+  overflow:hidden;
+  .spinner{
+    vertical-align:top;
+    display: inline-block;
+    //border: 1px solid red;
+    position: relative;
+    width: 300px;
+    height: $base*2;
+    position: relative;
+    top: 0;
+    .step{
+      width:100%;
+      display:inline-block;
+    }
+    // -webkit-perspective: 800;
+    // perspective: 800;
+    @include animation-timing-function(linear);
+    @include animation(flip 20s infinite);
+  
+  }
 }

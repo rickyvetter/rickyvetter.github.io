@@ -124,3 +124,14 @@ pre.terminal code {
     transform: rotate(0deg);
     @include transition(all 100ms);
 }
+
+#stripe{
+	h1, h2, h3, h4, h5, p{
+		color:$light-gray-color;
+	}
+	p{
+		font-family: 'Montserrat', "Novecentosanswide-Bold", Helvetica, Arial, sans-serif;
+		text-transform: uppercase;
+		font-size:$base*1.6;
+	}
+}

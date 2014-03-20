@@ -211,12 +211,9 @@ header {
 
 #stripe {
   background-color: #240438;
-  color: #eeeeee;
   positioning: absolute;
   padding: 2rem 1rem;
   margin: 0 -1rem 2rem -1rem; }
-  #stripe h1 {
-    color: #eeeeee; }
   @media screen and (min-width: 769px) {
     #stripe p {
       margin: 0; } }
@@ -475,7 +472,7 @@ footer {
 
 #currently {
   background: none no-repeat scroll center bottom transparent;
-  height: 200px; }
+  min-height: 200px; }
 
 p, h2 {
   margin-bottom: 1rem; }
@@ -515,6 +512,163 @@ input, textarea {
         margin-right: 0; }
       .experiment:nth-child(3n+1) {
         clear: left; } }
+
+@-webkit-keyframes flip {
+  0% {
+    top: 0; }
+
+  10% {
+    top: -4rem; }
+
+  20% {
+    top: -8rem; }
+
+  30% {
+    top: -2rem; }
+
+  40% {
+    top: -10rem; }
+
+  50% {
+    top: -6rem; }
+
+  60% {
+    top: -8rem; }
+
+  70% {
+    top: -4rem; }
+
+  80% {
+    top: -10rem; }
+
+  90% {
+    top: -2rem; }
+
+  100% {
+    top: 0; } }
+
+@-moz-keyframes flip {
+  0% {
+    top: 0; }
+
+  10% {
+    top: -4rem; }
+
+  20% {
+    top: -8rem; }
+
+  30% {
+    top: -2rem; }
+
+  40% {
+    top: -10rem; }
+
+  50% {
+    top: -6rem; }
+
+  60% {
+    top: -8rem; }
+
+  70% {
+    top: -4rem; }
+
+  80% {
+    top: -10rem; }
+
+  90% {
+    top: -2rem; }
+
+  100% {
+    top: 0; } }
+
+@-o-keyframes flip {
+  0% {
+    top: 0; }
+
+  10% {
+    top: -4rem; }
+
+  20% {
+    top: -8rem; }
+
+  30% {
+    top: -2rem; }
+
+  40% {
+    top: -10rem; }
+
+  50% {
+    top: -6rem; }
+
+  60% {
+    top: -8rem; }
+
+  70% {
+    top: -4rem; }
+
+  80% {
+    top: -10rem; }
+
+  90% {
+    top: -2rem; }
+
+  100% {
+    top: 0; } }
+
+@keyframes flip {
+  0% {
+    top: 0; }
+
+  10% {
+    top: -4rem; }
+
+  20% {
+    top: -8rem; }
+
+  30% {
+    top: -2rem; }
+
+  40% {
+    top: -10rem; }
+
+  50% {
+    top: -6rem; }
+
+  60% {
+    top: -8rem; }
+
+  70% {
+    top: -4rem; }
+
+  80% {
+    top: -10rem; }
+
+  90% {
+    top: -2rem; }
+
+  100% {
+    top: 0; } }
+
+.i-am {
+  height: 2rem;
+  overflow: hidden; }
+  .i-am .spinner {
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    height: 2rem;
+    position: relative;
+    top: 0;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation: flip 20s infinite;
+    -moz-animation: flip 20s infinite;
+    animation: flip 20s infinite; }
+    .i-am .spinner .step {
+      width: 100%;
+      display: inline-block; }
 
 /*********************************************
 	TYPOGRAPHY
@@ -626,6 +780,13 @@ pre.terminal code {
   -webkit-transition: all 100ms;
   -moz-transition: all 100ms;
   transition: all 100ms; }
+
+#stripe h1, #stripe h2, #stripe h3, #stripe h4, #stripe h5, #stripe p {
+  color: #eeeeee; }
+#stripe p {
+  font-family: 'Montserrat', "Novecentosanswide-Bold", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 1.6rem; }
 
 /*********************************************
 	CUSTOM HEADER

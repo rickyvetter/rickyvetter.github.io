@@ -47,22 +47,6 @@
 
 		});
 	</script>
-	<script src="/js/owl.carousel.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("#full-slider").owlCarousel({
-			slideSpeed : 300,
-			paginationSpeed : 400,
-			singleItem:true
-		});
-	});
-
-	$(document).ready(function() {
-		$("#three-slider").owlCarousel({
-			items : 3
-		});
-	});
-</script>
 <script>
 		jQuery(document).ready(function($) {
 			var location = "/IL/Chicago"
@@ -75,7 +59,7 @@
 					var date = fullTime.substring(0,16);
 					var city = parsed_json['location']['city'];
 					var temp_f = parsed_json['current_observation']['temp_f'];
-					$("#currentCity").html("Currently, Ricky is in " + city + ".");
+					$("#currentCity").html("Currently, I am in " + city + ".");
 					var hour = time.substring(0,2);
 					var minute = time.substring(2,time.length);
 					var meridian = " am";

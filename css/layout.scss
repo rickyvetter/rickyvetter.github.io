@@ -98,6 +98,7 @@ header
 		//background:red;
 		background: url(menu-icon.png) no-repeat center;
 		margin-right:0;
+		cursor:pointer;
 		@include media($tablet)
 		{
 			display:none;
@@ -367,7 +368,7 @@ input, textarea{
     display: inline-block;
     //border: 1px solid red;
     position: relative;
-    width: 300px;
+    width: 252px;
     height: $base*2;
     position: relative;
     top: 0;

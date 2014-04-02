@@ -16,14 +16,7 @@ excerpt: "The unnamed chem app is currently under construction. The app has two 
 	</div>
 	<div class="content">
 		<p>The unnamed chem app is currently under construction. The app has two different pages: the drawing page and the reaction page. The drawing page's functionality has been fully designed and is currently being coded. Wireframes for the reaction page have been discussed but the design for that page has not been finalized yet. I have almost no experience with chemistry, but I have a lot of fun playing around with it.</p>
-	</div>
-</article>
-<article>
-	<div class="title-and-info">
-		<h2>Screenshots</h2>
-	</div>
-	<div class="content">
-	    <div id="full-slider" class="owl-carousel owl-theme">
+		<div id="full-slider" class="owl-carousel owl-theme">
 	    	<div class="item"><img src="/images/ca1.png" alt="Chem App - Benzoic Acid"></div>
 	    </div>
 	</div>

@@ -23,6 +23,14 @@ excerpt: "Box Up is a new kind of organizational tool. It doesn't make assumptio
 	</div>
 	<div class="content">
 		<p>Box Up is an app for Windows Phone built as a fun project with a friend. It is made to help organize every aspect of your life and it is made to be simple. "Boxing up" different things is one of the most basic organizational methods we have. We abstracted and built upon that concept and then put it on a phone.</p>
+		<div id="three-slider" class="owl-carousel owl-theme">
+		    <div class="item"><img src="/images/bu1.png" alt="Box Up Employees"></div>
+				<div class="item"><img src="/images/bu2.png" alt="Box Up Recipes"></div>
+				<div class="item"><img src="/images/bu3.jpg" alt="Box Up item example"></div>
+				<div class="item"><img src="/images/bu4.png" alt="Box Up Employee Items"></div>
+				<div class="item"><img src="/images/bu5.png" alt="Box Up recipe items"></div>
+				<div class="item"><img src="/images/bu6.png" alt="Box Up Search"></div>
+	    </div>
 	</div>
 </article>
 <article>
@@ -43,24 +51,9 @@ excerpt: "Box Up is a new kind of organizational tool. It doesn't make assumptio
 </article>
 <article>
 	<div class="title-and-info">
-		<h2>Screenshots</h2>
-	</div>
-	<div class="content">
-	    <div id="three-slider" class="owl-carousel owl-theme">
-		    <div class="item"><img src="/images/bu1.png" alt="Box Up Employees"></div>
-				<div class="item"><img src="/images/bu2.png" alt="Box Up Recipes"></div>
-				<div class="item"><img src="/images/bu3.jpg" alt="Box Up item example"></div>
-				<div class="item"><img src="/images/bu4.png" alt="Box Up Employee Items"></div>
-				<div class="item"><img src="/images/bu5.png" alt="Box Up recipe items"></div>
-				<div class="item"><img src="/images/bu6.png" alt="Box Up Search"></div>
-	    </div>
-	</div>
-</article>
-<article>
-	<div class="title-and-info">
 		<h2>Link</h2>
 	</div>
 	<div class="content">
-	    <p><a href="http://www.windowsphone.com/en-us/store/app/box-up/d4eb15c0-8b15-485a-a088-42b29837a47a">Download the app.</a></P>
+	    <p><a href="http://windowsphone.com/s?appId=d4eb15c0-8b15-485a-a088-42b29837a47a">Download the app.</a></P>
 	</div>
 </article>

@@ -16,6 +16,11 @@ excerpt: "<p>The Bikes for Books website was created to help the launch of the C
 	</div>
 	<div class="content">
 		<p>The Bikes for Books website was created to help the launch of the Chicago-based non-profit. The site uses a heavily modified default WordPress theme and a number of plugins to create a custom look and feel.</p>
+		<div id="full-slider" class="owl-carousel owl-theme">
+	    	<div class="item"><img src="/images/b4b1.png" alt="B4B Home Page"></div>
+			<div class="item"><img src="/images/b4b2.png" alt="B4B News Blocks"></div>
+			<div class="item"><img src="/images/b4b3.png" alt="B4B Blog"></div>
+	    </div>
 	</div>
 </article>
 <article>
@@ -28,18 +33,6 @@ excerpt: "<p>The Bikes for Books website was created to help the launch of the C
 	</div>
 	<div class="content">
 		<p>I was part of a team that started the blog, built off of one of the WordPress default themes, developed custom interactions and found appropriate plugins to bring the best experience possible to the Bikes for Books site. Specically, I worked extensively on the development and styling of the homepage.</p>
-	</div>
-</article>
-<article>
-	<div class="title-and-info">
-		<h2>Screenshots</h2>
-	</div>
-	<div class="content">
-	    <div id="full-slider" class="owl-carousel owl-theme">
-	    	<div class="item"><img src="/images/b4b1.png" alt="B4B Home Page"></div>
-			<div class="item"><img src="/images/b4b2.png" alt="B4B News Blocks"></div>
-			<div class="item"><img src="/images/b4b3.png" alt="B4B Blog"></div>
-	    </div>
 	</div>
 </article>
 <article>

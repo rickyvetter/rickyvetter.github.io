@@ -33,6 +33,32 @@
 			
 	</footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="/js/trianglify.mod.min.js"></script>
+    
+		<script type="text/javascript">
+			var stripe = $("#stripe");
+			window.onresize = function() {
+          redraw();
+      };
+      redraw();
+      function heightChange() {
+          if (height() != prevheight) {
+              console.log("height changed from "+prevheight+" to "+height());
+              prevheight = height();
+              redraw();
+          };
+      }
+      function redraw() {
+        var t = new Trianglify({cellsize: 100, x_gradient: ["#240438", "#6C5662"], y_gradient: ["#240438", "#6C5662"]});
+				var pattern = t.generate(document.body.clientWidth, document.body.clientHeight);
+				stripe.css('background-image', pattern.dataUrl);
+      };
+	    
+		</script>
+
+
     <script type="text/javascript">
 		jQuery(document).ready(function($){
 
@@ -59,7 +85,7 @@
 					var date = fullTime.substring(0,16);
 					var city = parsed_json['location']['city'];
 					var temp_f = parsed_json['current_observation']['temp_f'];
-					$("#currentCity").html("Currently, I am in " + city + ".");
+					$("#currentCity").html("Currently, I'm in " + city + ".");
 					var hour = time.substring(0,2);
 					var minute = time.substring(2,time.length);
 					var meridian = " am";

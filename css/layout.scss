@@ -125,6 +125,16 @@ header
 		padding: $base*2 0;
 		margin:0 0 $base*2 0;
 	}
+	a.button{
+		padding:$base;
+		width:auto;
+		border: 3px solid;
+	}
+	a#work-with-me{
+		border: 5px solid;
+		width:100%;
+		margin-top:$base*4;
+	}
 }
 #stripe.just-stripe{
 	margin:0 $base*-1 0 $base*-1;

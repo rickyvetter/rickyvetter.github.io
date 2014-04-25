@@ -222,6 +222,14 @@ header {
     #stripe {
       padding: 2rem 0;
       margin: 0 0 2rem 0; } }
+  #stripe a.button {
+    padding: 1rem;
+    width: auto;
+    border: 3px solid; }
+  #stripe a#work-with-me {
+    border: 5px solid;
+    width: 100%;
+    margin-top: 4rem; }
 
 #stripe.just-stripe {
   margin: 0 -1rem 0 -1rem; }
@@ -657,7 +665,7 @@ input, textarea {
     vertical-align: top;
     display: inline-block;
     position: relative;
-    width: 275px;
+    width: 252px;
     height: 2rem;
     position: relative;
     top: 0;
@@ -696,6 +704,26 @@ a, a:visited {
 
 a:hover {
   color: #6c5662;
+  text-decoration: none; }
+
+a.button {
+  font-family: 'Montserrat', "Novecentosanswide-Bold", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1rem; }
+
+#stripe a.button {
+  color: #fafafa; }
+
+a#work-with-me {
+  font-weight: bold;
+  font-size: 2rem; }
+
+a.button, a.button:visited {
+  text-decoration: none; }
+
+a.button:hover {
+  background-color: #6c5662;
   text-decoration: none; }
 
 nav a {

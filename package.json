@@ -1,0 +1,19 @@
+{
+  "name": "rickyvetter.github.io",
+  "version": "1.0.0",
+  "description": "My website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rickyvetter/rickyvetter.github.io.git"
+  },
+  "author": "Ricky Vetter <rickywvetter@gmail.com>",
+  "license": "None",
+  "bugs": {
+    "url": "https://github.com/rickyvetter/rickyvetter.github.io/issues"
+  },
+  "homepage": "https://github.com/rickyvetter/rickyvetter.github.io"
+}

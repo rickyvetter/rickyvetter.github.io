@@ -27266,8 +27266,8 @@
 	            backgroundColor: backgroundColor,
 	            color: color
 	        });
-	        console.log('ricky', computedContainerStyles);
-	        return (0, _cycleWeb.h)('div', { style: computedContainerStyles }, [(0, _cycleWeb.h)('site-header', { key: 'site-header' }), (0, _cycleWeb.h)('links', { key: 'links', color: color })]);
+	
+	        return (0, _cycleWeb.h)('div', { className: 'rv-container', style: computedContainerStyles }, [(0, _cycleWeb.h)('site-header', { key: 'site-header' }), (0, _cycleWeb.h)('links', { key: 'links', color: color })]);
 	    });
 	}
 	
@@ -27292,9 +27292,11 @@
 	var bool = true;
 	
 	function model(actions) {
-	    return _cycleCore.Rx.Observable.combineLatest(actions.mouseClickBackground.startWith(false).map(function () {
+	    return _cycleCore.Rx.Observable.combineLatest(actions.mouseClickBackground.startWith(true).map(function (onTarget) {
 	        // TODO fix this weird state
-	        bool = !bool;
+	        if (onTarget) {
+	            bool = !bool;
+	        }
 	        return bool;
 	    }), actions.mouseMoveBackground.startWith({
 	        x: 0,
@@ -27303,7 +27305,7 @@
 	        var distX = Math.abs(move.x / window.innerWidth * 2 - 1);
 	        var distY = Math.abs(move.y / window.innerHeight * 2 - 1);
 	        var purp = 'rgb(' + (Math.floor(distX * 60) + 40) + ', ' + 0 + ', ' + (Math.floor(distY * 60) + 40) + ')';
-	        var white = '#eee';
+	        var white = '#ddd';
 	        return {
 	            color: click ? purp : white,
 	            backgroundColor: click ? white : purp
@@ -27332,7 +27334,11 @@
 	function intent(DOM) {
 	    return {
 	        mouseClickBackground: _cycleCore.Rx.Observable.fromEvent(document.getElementById('app'), 'mousedown', function (me) {
-	            return;
+	            // console.log('ricky', me.target.classlist.contains('rv-container'));
+	            if (me[0].target.classList.contains('rv-container')) {
+	                return true;
+	            }
+	            return false;
 	        }),
 	        mouseMoveBackground: _cycleCore.Rx.Observable.fromEvent(document.getElementById('app'), 'mousemove', function (me) {
 	            return {
@@ -27343,7 +27349,6 @@
 	    };
 	}
 	
-	console.log(Object.keys(_cycleCore.Rx.Observable).sort());
 	module.exports = exports['default'];
 
 /***/ },
@@ -27462,11 +27467,10 @@
 	        }];
 	
 	        return state$.map(function (state) {
-	            console.log(state.props.color);
 	            var computedLinkStyles = _extends({}, linkStyles, {
 	                color: state.props.color
 	            });
-	            console.log(computedLinkStyles);
+	
 	            var linkMarkup = links.map(function (link) {
 	                return (0, _cycleWeb.h)('li', null, [(0, _cycleWeb.h)('a', { style: computedLinkStyles,
 	                    href: link.href }, [link.name])]);

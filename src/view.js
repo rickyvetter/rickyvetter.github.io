@@ -19,9 +19,9 @@ export default function view(state) {
                 color
             }
         );
-        console.log("ricky", computedContainerStyles);
+
         return (
-            <div style={computedContainerStyles}>
+            <div className='rv-container' style={computedContainerStyles}>
                 <site-header key='site-header'/>
                 <links key='links' color={color}/>
             </div>

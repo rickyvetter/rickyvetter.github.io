@@ -6,7 +6,11 @@ export default function intent(DOM) {
             document.getElementById('app'),
             'mousedown',
             (me) => {
-                return;
+                // console.log('ricky', me.target.classlist.contains('rv-container'));
+                if(me[0].target.classList.contains('rv-container')) {
+                    return true;
+                }
+                return false;
             }
         ),
         mouseMoveBackground: Rx.Observable.fromEvent(
@@ -21,5 +25,3 @@ export default function intent(DOM) {
         )
     };
 }
-
-console.log(Object.keys(Rx.Observable).sort());

@@ -45,7 +45,6 @@ export default function links(responses) {
         ];
 
         return state$.map((state) => {
-            console.log(state.props.color);
             let computedLinkStyles = Object.assign(
                 {},
                 linkStyles,
@@ -53,7 +52,7 @@ export default function links(responses) {
                     color: state.props.color
                 }
             );
-            console.log(computedLinkStyles);
+
             let linkMarkup = links.map(
                 (link) => (
                     <li>

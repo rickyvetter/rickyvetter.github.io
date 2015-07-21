@@ -3,7 +3,6 @@ import { h } from '@cycle/web';
 const containerStyles = {
     width: '100vw',
     height: '100vh',
-    color: '#eee',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -11,12 +10,20 @@ const containerStyles = {
 };
 
 export default function view(state) {
-    return state.map(({detail, cssColor, mouseColor}) => {
+    return state.map(({color, backgroundColor}) => {
+        var computedContainerStyles = Object.assign(
+            {},
+            containerStyles,
+            {
+                backgroundColor,
+                color
+            }
+        );
+        console.log("ricky", computedContainerStyles);
         return (
-            <div style={Object.assign({backgroundColor: mouseColor}, containerStyles)}>
-                {/*<h1 className='title'>{`Ricky is ${detail}`}</h1>*/}
+            <div style={computedContainerStyles}>
                 <site-header key='site-header'/>
-                <links key='links'/>
+                <links key='links' color={color}/>
             </div>
         );
     });

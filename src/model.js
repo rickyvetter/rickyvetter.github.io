@@ -1,23 +1,28 @@
 import { Rx } from '@cycle/core';
 
+let bool = true;
+
 export default function model(actions) {
     return Rx.Observable
         .combineLatest(
-            actions.changeDetail.startWith(''),
-            actions.updateBackground.startWith({
-                r: 210,
-                g: 10,
-                b: 220
-            }),
+            actions.mouseClickBackground.startWith(false)
+                .map(() => {
+                    // TODO fix this weird state
+                    bool = !bool;
+                    return bool;
+                }),
             actions.mouseMoveBackground.startWith({
                 x: 0,
                 y: 0
             }),
-            (detail, c, mouse, size) => {
-                var distX = Math.abs((mouse.x / window.innerWidth * 2) - 1);
-                var distY = Math.abs((mouse.y / window.innerHeight * 2) - 1);
+            (click, move) => {
+                var distX = Math.abs((move.x / window.innerWidth * 2) - 1);
+                var distY = Math.abs((move.y / window.innerHeight * 2) - 1);
+                var purp = `rgb(${Math.floor(distX * 60) + 40}, ${0}, ${Math.floor(distY * 60) + 40})`;
+                var white = '#eee';
                 return {
-                    mouseColor: `rgb(${Math.floor(distX * 60) + 40}, ${0}, ${Math.floor(distY * 60) + 40})`
+                    color: click ? purp : white,
+                    backgroundColor: click ? white : purp
                 };
             }
         );

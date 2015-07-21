@@ -2,7 +2,8 @@ import { Rx } from '@cycle/core';
 import { h } from '@cycle/web';
 
 const headerStyles = {
-    fontSize: '4rem'
+    marginBottom: '12px',
+    fontSize: '4em'
 };
 
 export default function header(responses) {

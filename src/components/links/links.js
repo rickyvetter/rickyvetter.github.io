@@ -9,7 +9,6 @@ const linkListStyles = {
 };
 
 const linkStyles = {
-    color: '#eee',
     textDecoration: 'none'
 };
 
@@ -44,15 +43,26 @@ export default function links(responses) {
                 name: 'LinkedIn'
             }
         ];
-        let linkMarkup = links.map(
-            (link) => (
-                <li>
-                    <a style={linkStyles}
-                        href={link.href}>{link.name}</a>
-                </li>
-            )
-        );
-        return state$.map(() => {
+
+        return state$.map((state) => {
+            console.log(state.props.color);
+            let computedLinkStyles = Object.assign(
+                {},
+                linkStyles,
+                {
+                    color: state.props.color
+                }
+            );
+            console.log(computedLinkStyles);
+            let linkMarkup = links.map(
+                (link) => (
+                    <li>
+                        <a style={computedLinkStyles}
+                            href={link.href}>{link.name}</a>
+                    </li>
+                )
+            );
+
             return (
                 <ul style={linkListStyles}>{linkMarkup}</ul>
             );

@@ -27251,7 +27251,6 @@
 	var containerStyles = {
 	    width: '100vw',
 	    height: '100vh',
-	    color: '#eee',
 	    display: 'flex',
 	    flexDirection: 'column',
 	    justifyContent: 'center',
@@ -27260,13 +27259,15 @@
 	
 	function view(state) {
 	    return state.map(function (_ref) {
-	        var detail = _ref.detail;
-	        var cssColor = _ref.cssColor;
-	        var mouseColor = _ref.mouseColor;
+	        var color = _ref.color;
+	        var backgroundColor = _ref.backgroundColor;
 	
-	        return (0, _cycleWeb.h)('div', { style: _extends({ backgroundColor: mouseColor }, containerStyles) }, [
-	        /*<h1 className='title'>{`Ricky is ${detail}`}</h1>*/
-	        (0, _cycleWeb.h)('site-header', { key: 'site-header' }), (0, _cycleWeb.h)('links', { key: 'links' })]);
+	        var computedContainerStyles = _extends({}, containerStyles, {
+	            backgroundColor: backgroundColor,
+	            color: color
+	        });
+	        console.log('ricky', computedContainerStyles);
+	        return (0, _cycleWeb.h)('div', { style: computedContainerStyles }, [(0, _cycleWeb.h)('site-header', { key: 'site-header' }), (0, _cycleWeb.h)('links', { key: 'links', color: color })]);
 	    });
 	}
 	
@@ -27288,19 +27289,24 @@
 	
 	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
 	
+	var bool = true;
+	
 	function model(actions) {
-	    return _cycleCore.Rx.Observable.combineLatest(actions.changeDetail.startWith(''), actions.updateBackground.startWith({
-	        r: 210,
-	        g: 10,
-	        b: 220
+	    return _cycleCore.Rx.Observable.combineLatest(actions.mouseClickBackground.startWith(false).map(function () {
+	        // TODO fix this weird state
+	        bool = !bool;
+	        return bool;
 	    }), actions.mouseMoveBackground.startWith({
 	        x: 0,
 	        y: 0
-	    }), function (detail, c, mouse, size) {
-	        var distX = Math.abs(mouse.x / window.innerWidth * 2 - 1);
-	        var distY = Math.abs(mouse.y / window.innerHeight * 2 - 1);
+	    }), function (click, move) {
+	        var distX = Math.abs(move.x / window.innerWidth * 2 - 1);
+	        var distY = Math.abs(move.y / window.innerHeight * 2 - 1);
+	        var purp = 'rgb(' + (Math.floor(distX * 60) + 40) + ', ' + 0 + ', ' + (Math.floor(distY * 60) + 40) + ')';
+	        var white = '#eee';
 	        return {
-	            mouseColor: 'rgb(' + (Math.floor(distX * 60) + 40) + ', ' + 0 + ', ' + (Math.floor(distY * 60) + 40) + ')'
+	            color: click ? purp : white,
+	            backgroundColor: click ? white : purp
 	        };
 	    });
 	}
@@ -27325,16 +27331,8 @@
 	
 	function intent(DOM) {
 	    return {
-	        changeDetail: _cycleCore.Rx.Observable.timer(0, 2000).timeInterval().map(function (x) {
-	            return x.value;
-	        }),
-	        updateBackground: _cycleCore.Rx.Observable.timer(0, 1000) // TODO: make requestAnimationFrom
-	        .timeInterval().map(function (x) {
-	            return {
-	                r: (100 + x.value) % 255,
-	                g: 0,
-	                b: 255
-	            };
+	        mouseClickBackground: _cycleCore.Rx.Observable.fromEvent(document.getElementById('app'), 'mousedown', function (me) {
+	            return;
 	        }),
 	        mouseMoveBackground: _cycleCore.Rx.Observable.fromEvent(document.getElementById('app'), 'mousemove', function (me) {
 	            return {
@@ -27368,7 +27366,8 @@
 	var _cycleWeb = __webpack_require__(/*! @cycle/web */ 6);
 	
 	var headerStyles = {
-	    fontSize: '4rem'
+	    marginBottom: '12px',
+	    fontSize: '4em'
 	};
 	
 	function header(responses) {
@@ -27415,6 +27414,9 @@
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	exports['default'] = links;
 	
 	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
@@ -27429,7 +27431,6 @@
 	};
 	
 	var linkStyles = {
-	    color: '#eee',
 	    textDecoration: 'none'
 	};
 	
@@ -27459,11 +27460,18 @@
 	            href: 'https://linkedin.com/in/rickyvetter',
 	            name: 'LinkedIn'
 	        }];
-	        var linkMarkup = links.map(function (link) {
-	            return (0, _cycleWeb.h)('li', null, [(0, _cycleWeb.h)('a', { style: linkStyles,
-	                href: link.href }, [link.name])]);
-	        });
-	        return state$.map(function () {
+	
+	        return state$.map(function (state) {
+	            console.log(state.props.color);
+	            var computedLinkStyles = _extends({}, linkStyles, {
+	                color: state.props.color
+	            });
+	            console.log(computedLinkStyles);
+	            var linkMarkup = links.map(function (link) {
+	                return (0, _cycleWeb.h)('li', null, [(0, _cycleWeb.h)('a', { style: computedLinkStyles,
+	                    href: link.href }, [link.name])]);
+	            });
+	
 	            return (0, _cycleWeb.h)('ul', { style: linkListStyles }, [linkMarkup]);
 	        });
 	    }

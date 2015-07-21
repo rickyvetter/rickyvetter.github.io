@@ -79,9 +79,9 @@
 	
 	var _intent2 = _interopRequireDefault(_intent);
 	
-	var _componentsLabeledSliderLabeledSlider = __webpack_require__(/*! ./components/labeled-slider/labeled-slider */ 120);
+	var _componentsLinksLinks = __webpack_require__(/*! ./components/links/links */ 122);
 	
-	var _componentsLabeledSliderLabeledSlider2 = _interopRequireDefault(_componentsLabeledSliderLabeledSlider);
+	var _componentsLinksLinks2 = _interopRequireDefault(_componentsLinksLinks);
 	
 	var _componentsHeaderHeader = __webpack_require__(/*! ./components/header/header */ 121);
 	
@@ -97,7 +97,7 @@
 	
 	_cycleCore2['default'].run(main, {
 	    DOM: (0, _cycleWeb.makeDOMDriver)('#app', {
-	        'labeled-slider': _componentsLabeledSliderLabeledSlider2['default'],
+	        'links': _componentsLinksLinks2['default'],
 	        'site-header': _componentsHeaderHeader2['default']
 	    })
 	});
@@ -27253,6 +27253,7 @@
 	    height: '100vh',
 	    color: '#eee',
 	    display: 'flex',
+	    flexDirection: 'column',
 	    justifyContent: 'center',
 	    alignItems: 'center'
 	};
@@ -27265,7 +27266,7 @@
 	
 	        return (0, _cycleWeb.h)('div', { style: _extends({ backgroundColor: mouseColor }, containerStyles) }, [
 	        /*<h1 className='title'>{`Ricky is ${detail}`}</h1>*/
-	        (0, _cycleWeb.h)('site-header', { key: 'site-header' })]);
+	        (0, _cycleWeb.h)('site-header', { key: 'site-header' }), (0, _cycleWeb.h)('links', { key: 'links' })]);
 	    });
 	}
 	
@@ -27348,66 +27349,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 120 */
-/*!*********************************************************!*\
-  !*** ./src/components/labeled-slider/labeled-slider.js ***!
-  \*********************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	exports['default'] = labeledSlider;
-	
-	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
-	
-	var _cycleWeb = __webpack_require__(/*! @cycle/web */ 6);
-	
-	function labeledSlider(responses) {
-	    function intent(DOM) {
-	        return {
-	            changeValue$: DOM.get('.slider', 'input').map(function (ev) {
-	                return ev.target.value;
-	            }).share()
-	        };
-	    }
-	
-	    function model(context, actions) {
-	        var props$ = context.props.getAll();
-	        return _cycleCore.Rx.Observable.combineLatest(props$, function (props) {
-	            return { props: props };
-	        });
-	    }
-	
-	    function view(state$) {
-	        return state$.map(function (state) {
-	            var _state$props = state.props;
-	            var label = _state$props.label;
-	            var unit = _state$props.unit;
-	            var min = _state$props.min;
-	            var max = _state$props.max;
-	
-	            var value = state.value;
-	            return (0, _cycleWeb.h)('div.labeled-slider', [(0, _cycleWeb.h)('span.label', [label + ' ' + value + unit]), (0, _cycleWeb.h)('input.slider', { type: 'range', min: min, max: max, value: value })]);
-	        });
-	    }
-	
-	    var actions = intent(responses.DOM);
-	    var vtree$ = view(model(responses, actions));
-	
-	    return {
-	        DOM: vtree$,
-	        events: {
-	            newValue: actions.changeValue$
-	        }
-	    };
-	}
-	
-	module.exports = exports['default'];
-
-/***/ },
+/* 120 */,
 /* 121 */
 /*!*****************************************!*\
   !*** ./src/components/header/header.js ***!
@@ -27419,7 +27361,7 @@
 	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
-	exports['default'] = labeledSlider;
+	exports['default'] = header;
 	
 	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
 	
@@ -27429,7 +27371,7 @@
 	    fontSize: '4rem'
 	};
 	
-	function labeledSlider(responses) {
+	function header(responses) {
 	    function intent(DOM) {
 	        return {};
 	    }
@@ -27446,6 +27388,83 @@
 	            return (0, _cycleWeb.h)('header', {
 	                style: headerStyles,
 	                className: 'site-header' }, [(0, _cycleWeb.h)('h1', { className: 'title' }, ['Ricky Vetter'])]);
+	        });
+	    }
+	
+	    var actions = intent(responses.DOM);
+	    var state = model(responses, actions);
+	    var vtree$ = view(state);
+	
+	    return {
+	        DOM: vtree$,
+	        events: {}
+	    };
+	}
+	
+	module.exports = exports['default'];
+
+/***/ },
+/* 122 */
+/*!***************************************!*\
+  !*** ./src/components/links/links.js ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	exports['default'] = links;
+	
+	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
+	
+	var _cycleWeb = __webpack_require__(/*! @cycle/web */ 6);
+	
+	var linkListStyles = {
+	    display: 'flex',
+	    fontSize: '1rem',
+	    justifyContent: 'space-between',
+	    width: '20rem'
+	};
+	
+	var linkStyles = {
+	    color: '#eee',
+	    textDecoration: 'none'
+	};
+	
+	function links(responses) {
+	    function intent() {
+	        return {};
+	    }
+	
+	    function model(context) {
+	        var props$ = context.props.getAll();
+	        return _cycleCore.Rx.Observable.combineLatest(props$, function (props) {
+	            return { props: props };
+	        });
+	    }
+	
+	    function view(state$) {
+	        var links = [{
+	            href: 'https://github.com/rickyvetter',
+	            name: 'Github'
+	        }, {
+	            href: 'https://twitter.com/rickyvetter',
+	            name: 'Twitter'
+	        }, {
+	            href: 'https://facebook.com/rickyvetter',
+	            name: 'Facebook'
+	        }, {
+	            href: 'https://linkedin.com/in/rickyvetter',
+	            name: 'LinkedIn'
+	        }];
+	        var linkMarkup = links.map(function (link) {
+	            return (0, _cycleWeb.h)('li', null, [(0, _cycleWeb.h)('a', { style: linkStyles,
+	                href: link.href }, [link.name])]);
+	        });
+	        return state$.map(function () {
+	            return (0, _cycleWeb.h)('ul', { style: linkListStyles }, [linkMarkup]);
 	        });
 	    }
 	

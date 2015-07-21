@@ -5,7 +5,7 @@ import view from './view';
 import model from './model';
 import intent from './intent';
 
-import labeledSlider from './components/labeled-slider/labeled-slider';
+import links from './components/links/links';
 import siteHeader from './components/header/header';
 
 function main({DOM}) {
@@ -16,7 +16,7 @@ function main({DOM}) {
 
 Cycle.run(main, {
     DOM: makeDOMDriver('#app', {
-        'labeled-slider': labeledSlider,
+        'links': links,
         'site-header': siteHeader
     })
 });

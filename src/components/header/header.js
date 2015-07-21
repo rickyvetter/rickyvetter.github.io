@@ -5,7 +5,7 @@ const headerStyles = {
     fontSize: '4rem'
 };
 
-export default function labeledSlider(responses) {
+export default function header(responses) {
     function intent(DOM) {
         return {};
     }

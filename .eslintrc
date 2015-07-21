@@ -2,7 +2,8 @@
   "parser": "babel-eslint",
   "rules" : {
       "quotes": [2, "single"],
-      "strict": 0
+      "strict": 0,
+      "no-shadow": 0
   },
   "env": {
     "node": true,

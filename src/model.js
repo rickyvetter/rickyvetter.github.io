@@ -1,6 +1,7 @@
 import { Rx } from '@cycle/core';
 
 let bool = true;
+let rotation = 0;
 
 export default function model(actions) {
     return Rx.Observable
@@ -16,15 +17,23 @@ export default function model(actions) {
             actions.mouseMoveBackground.startWith({
                 x: 0,
                 y: 0
-            }).map(move => {
+            }),
+            actions.mouseWheel.startWith([{
+                deltaX: 0
+            }])
+                .map((me) => {
+                    rotation = (rotation + me[0].deltaX) % 255;
+                    return rotation;
+                }),
+            (click, move, rotation) => {
+                console.log(rotation);
                 var distX = Math.abs((move.x / window.innerWidth * 2) - 1);
                 var distY = Math.abs((move.y / window.innerHeight * 2) - 1);
-                return {
-                    purple: `rgb(${Math.floor(distX * 60) + 40}, ${0}, ${Math.floor(distY * 60) + 40})`,
+                let colors = {
+                    purple: `rgb(${(Math.floor(distX * 60) + 40) + rotation}, ${0 + rotation}, ${(Math.floor(distY * 60) + 40) + rotation})`,
                     white: '#ddd'
                 };
-            }),
-            (click, colors) => {
+
                 return {
                     color: click ? colors.purple : colors.white,
                     backgroundColor: click ? colors.white : colors.purple

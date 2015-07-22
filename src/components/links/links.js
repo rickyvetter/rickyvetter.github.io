@@ -4,8 +4,9 @@ import { h } from '@cycle/web';
 const linkListStyles = {
     display: 'flex',
     fontSize: '1rem',
-    justifyContent: 'space-between',
-    width: '20rem'
+    justifyContent: 'space-around',
+    width: '20rem',
+    marginTop: '20px'
 };
 
 const linkStyles = {
@@ -25,7 +26,7 @@ export default function links(responses) {
     }
 
     function view(state$) {
-        let links = [
+        let onlineLinks = [
             {
                 href: 'https://github.com/rickyvetter',
                 name: 'Github'
@@ -44,6 +45,17 @@ export default function links(responses) {
             }
         ];
 
+        let offlineLinks = [
+            {
+                href: 'https://socialtables.com',
+                name: 'Social Tables'
+            },
+            {
+                href: 'https://meetup.com/React-DC',
+                name: 'React DC'
+            }
+        ];
+
         return state$.map((state) => {
             let computedLinkStyles = Object.assign(
                 {},
@@ -52,18 +64,22 @@ export default function links(responses) {
                     color: state.props.color
                 }
             );
-
-            let linkMarkup = links.map(
-                (link) => (
+            function createListLink(link) {
+                return (
                     <li>
                         <a style={computedLinkStyles}
                             href={link.href}>{link.name}</a>
                     </li>
-                )
-            );
+                );
+            }
+            let onlineLinkMarkup = onlineLinks.map(createListLink);
+            let offlineLinkMarkup = offlineLinks.map(createListLink);
 
             return (
-                <ul style={linkListStyles}>{linkMarkup}</ul>
+                <div>
+                    <ul style={linkListStyles}>{onlineLinkMarkup}</ul>
+                    <ul style={linkListStyles}>{offlineLinkMarkup}</ul>
+                </div>
             );
         });
     }

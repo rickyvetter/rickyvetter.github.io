@@ -2,7 +2,6 @@ import { Rx } from '@cycle/core';
 import { h } from '@cycle/web';
 
 const headerStyles = {
-    marginBottom: '12px',
     fontSize: '4em'
 };
 

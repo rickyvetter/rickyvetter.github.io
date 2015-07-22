@@ -2,11 +2,15 @@ import { Rx } from '@cycle/core';
 
 export default function intent(DOM) {
     return {
+        mouseWheel: Rx.Observable.fromEvent(
+            document.getElementById('app'),
+            'mousewheel',
+            (me) => me
+        ),
         mouseClickBackground: Rx.Observable.fromEvent(
             document.getElementById('app'),
             'mousedown',
             (me) => {
-                // console.log('ricky', me.target.classlist.contains('rv-container'));
                 if(me[0].target.classList.contains('rv-container')) {
                     return true;
                 }

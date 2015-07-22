@@ -27290,6 +27290,7 @@
 	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
 	
 	var bool = true;
+	var rotation = 0;
 	
 	function model(actions) {
 	    return _cycleCore.Rx.Observable.combineLatest(actions.mouseClickBackground.startWith(true).map(function (onTarget) {
@@ -27301,14 +27302,20 @@
 	    }), actions.mouseMoveBackground.startWith({
 	        x: 0,
 	        y: 0
-	    }).map(function (move) {
+	    }), actions.mouseWheel.startWith([{
+	        deltaX: 0
+	    }]).map(function (me) {
+	        rotation = (rotation + me[0].deltaX) % 255;
+	        return rotation;
+	    }), function (click, move, rotation) {
+	        console.log(rotation);
 	        var distX = Math.abs(move.x / window.innerWidth * 2 - 1);
 	        var distY = Math.abs(move.y / window.innerHeight * 2 - 1);
-	        return {
-	            purple: 'rgb(' + (Math.floor(distX * 60) + 40) + ', ' + 0 + ', ' + (Math.floor(distY * 60) + 40) + ')',
+	        var colors = {
+	            purple: 'rgb(' + (Math.floor(distX * 60) + 40 + rotation) + ', ' + (0 + rotation) + ', ' + (Math.floor(distY * 60) + 40 + rotation) + ')',
 	            white: '#ddd'
 	        };
-	    }), function (click, colors) {
+	
 	        return {
 	            color: click ? colors.purple : colors.white,
 	            backgroundColor: click ? colors.white : colors.purple
@@ -27336,8 +27343,10 @@
 	
 	function intent(DOM) {
 	    return {
+	        mouseWheel: _cycleCore.Rx.Observable.fromEvent(document.getElementById('app'), 'mousewheel', function (me) {
+	            return me;
+	        }),
 	        mouseClickBackground: _cycleCore.Rx.Observable.fromEvent(document.getElementById('app'), 'mousedown', function (me) {
-	            // console.log('ricky', me.target.classlist.contains('rv-container'));
 	            if (me[0].target.classList.contains('rv-container')) {
 	                return true;
 	            }
@@ -27374,7 +27383,6 @@
 	var _cycleWeb = __webpack_require__(/*! @cycle/web */ 6);
 	
 	var headerStyles = {
-	    marginBottom: '12px',
 	    fontSize: '4em'
 	};
 	
@@ -27434,8 +27442,9 @@
 	var linkListStyles = {
 	    display: 'flex',
 	    fontSize: '1rem',
-	    justifyContent: 'space-between',
-	    width: '20rem'
+	    justifyContent: 'space-around',
+	    width: '20rem',
+	    marginTop: '20px'
 	};
 	
 	var linkStyles = {
@@ -27455,7 +27464,7 @@
 	    }
 	
 	    function view(state$) {
-	        var links = [{
+	        var onlineLinks = [{
 	            href: 'https://github.com/rickyvetter',
 	            name: 'Github'
 	        }, {
@@ -27469,17 +27478,26 @@
 	            name: 'LinkedIn'
 	        }];
 	
+	        var offlineLinks = [{
+	            href: 'https://socialtables.com',
+	            name: 'Social Tables'
+	        }, {
+	            href: 'https://meetup.com/React-DC',
+	            name: 'React DC'
+	        }];
+	
 	        return state$.map(function (state) {
 	            var computedLinkStyles = _extends({}, linkStyles, {
 	                color: state.props.color
 	            });
-	
-	            var linkMarkup = links.map(function (link) {
+	            function createListLink(link) {
 	                return (0, _cycleWeb.h)('li', null, [(0, _cycleWeb.h)('a', { style: computedLinkStyles,
 	                    href: link.href }, [link.name])]);
-	            });
+	            }
+	            var onlineLinkMarkup = onlineLinks.map(createListLink);
+	            var offlineLinkMarkup = offlineLinks.map(createListLink);
 	
-	            return (0, _cycleWeb.h)('ul', { style: linkListStyles }, [linkMarkup]);
+	            return (0, _cycleWeb.h)('div', null, [(0, _cycleWeb.h)('ul', { style: linkListStyles }, [onlineLinkMarkup]), (0, _cycleWeb.h)('ul', { style: linkListStyles }, [offlineLinkMarkup])]);
 	        });
 	    }
 	

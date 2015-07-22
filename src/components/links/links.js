@@ -4,6 +4,7 @@ import { h } from '@cycle/web';
 const linkListStyles = {
     display: 'flex',
     fontSize: '1rem',
+    WebkitJustifyContent: 'space-around',
     justifyContent: 'space-around',
     width: '20rem',
     marginTop: '20px'
@@ -15,13 +16,28 @@ const linkStyles = {
 
 export default function links(responses) {
     function intent() {
-        return {};
+        return {
+            mouseOverLink: Rx.Observable.merge(
+                Rx.Observable.fromEvent(
+                    document.getElementsByClassName('rv-link'),
+                    'mouseenter',
+                    (me) => me[0].target.href
+                ),
+                Rx.Observable.fromEvent(
+                    document.getElementsByClassName('rv-link'),
+                    'mouseout',
+                    () => null
+                )
+            )
+        };
     }
 
-    function model(context) {
+    function model(context, actions) {
         let props$ = context.props.getAll();
-        return Rx.Observable.combineLatest(props$,
-            (props) => { return {props}; }
+        return Rx.Observable.combineLatest(
+            props$,
+            actions.mouseOverLink.startWith(null),
+            (props, mouseOver) => { return {props, mouseOver}; }
         );
     }
 
@@ -29,46 +45,60 @@ export default function links(responses) {
         let onlineLinks = [
             {
                 href: 'https://github.com/rickyvetter',
-                name: 'Github'
+                name: 'Github',
+                alt: 'octocat'
             },
             {
                 href: 'https://twitter.com/rickyvetter',
-                name: 'Twitter'
+                name: 'Twitter',
+                alt: 'bird'
             },
             {
                 href: 'https://facebook.com/rickyvetter',
-                name: 'Facebook'
+                name: 'Facebook',
+                alt: 'thumbsup'
             },
             {
                 href: 'https://linkedin.com/in/rickyvetter',
-                name: 'LinkedIn'
+                name: 'LinkedIn',
+                alt: 'link'
+            },
+            {
+                href: 'https://cash.me/$rickyvetter',
+                name: 'cash.me',
+                alt: 'dollar'
             }
         ];
 
         let offlineLinks = [
             {
-                href: 'https://socialtables.com',
-                name: 'Social Tables'
+                href: 'https://socialtables.com/',
+                name: 'Social Tables',
+                alt: 'office'
             },
             {
-                href: 'https://meetup.com/React-DC',
-                name: 'React DC'
+                href: 'http://www.meetup.com/React-DC/',
+                name: 'React DC',
+                alt: 'busts_in_silhouette'
             }
         ];
 
-        return state$.map((state) => {
-            let computedLinkStyles = Object.assign(
-                {},
-                linkStyles,
-                {
-                    color: state.props.color
-                }
-            );
+        return state$.map(({props, mouseOver}) => {
             function createListLink(link) {
+                let computedLinkStyles = Object.assign(
+                    {},
+                    linkStyles,
+                    {
+                        color: props.color,
+                        textDecoration: mouseOver === link.href ? 'underline' : 'none'
+                    }
+                );
                 return (
                     <li>
                         <a style={computedLinkStyles}
-                            href={link.href}>{link.name}</a>
+                            className='rv-link'
+                            href={link.href}
+                            title={link.name}>{`:${link.alt}:`}</a>
                     </li>
                 );
             }

@@ -1,7 +1,6 @@
 import { Rx } from '@cycle/core';
 
-let bool = true;
-let rotation = 0;
+let bool = Math.random() < 0.5;
 
 export default function model(actions) {
     return Rx.Observable
@@ -18,19 +17,11 @@ export default function model(actions) {
                 x: 0,
                 y: 0
             }),
-            actions.mouseWheel.startWith([{
-                deltaX: 0
-            }])
-                .map((me) => {
-                    rotation = (rotation + me[0].deltaX) % 255;
-                    return rotation;
-                }),
-            (click, move, rotation) => {
-                console.log(rotation);
+            (click, move) => {
                 var distX = Math.abs((move.x / window.innerWidth * 2) - 1);
                 var distY = Math.abs((move.y / window.innerHeight * 2) - 1);
                 let colors = {
-                    purple: `rgb(${(Math.floor(distX * 60) + 40) + rotation}, ${0 + rotation}, ${(Math.floor(distY * 60) + 40) + rotation})`,
+                    purple: `rgb(${Math.floor(distX * 60) + 40}, ${0}, ${Math.floor(distY * 60) + 40})`,
                     white: '#ddd'
                 };
 

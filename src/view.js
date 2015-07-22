@@ -4,6 +4,9 @@ const containerStyles = {
     width: '100vw',
     height: '100vh',
     display: 'flex',
+    WebkitFlexDirection: 'column',
+    WebkitJustifyContent: 'center',
+    WebkitAlignItems: 'center',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'

@@ -79,7 +79,7 @@
 	
 	var _intent2 = _interopRequireDefault(_intent);
 	
-	var _componentsLinksLinks = __webpack_require__(/*! ./components/links/links */ 122);
+	var _componentsLinksLinks = __webpack_require__(/*! ./components/links/links */ 120);
 	
 	var _componentsLinksLinks2 = _interopRequireDefault(_componentsLinksLinks);
 	
@@ -27252,6 +27252,9 @@
 	    width: '100vw',
 	    height: '100vh',
 	    display: 'flex',
+	    WebkitFlexDirection: 'column',
+	    WebkitJustifyContent: 'center',
+	    WebkitAlignItems: 'center',
 	    flexDirection: 'column',
 	    justifyContent: 'center',
 	    alignItems: 'center'
@@ -27289,8 +27292,7 @@
 	
 	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
 	
-	var bool = true;
-	var rotation = 0;
+	var bool = Math.random() < 0.5;
 	
 	function model(actions) {
 	    return _cycleCore.Rx.Observable.combineLatest(actions.mouseClickBackground.startWith(true).map(function (onTarget) {
@@ -27302,17 +27304,11 @@
 	    }), actions.mouseMoveBackground.startWith({
 	        x: 0,
 	        y: 0
-	    }), actions.mouseWheel.startWith([{
-	        deltaX: 0
-	    }]).map(function (me) {
-	        rotation = (rotation + me[0].deltaX) % 255;
-	        return rotation;
-	    }), function (click, move, rotation) {
-	        console.log(rotation);
+	    }), function (click, move) {
 	        var distX = Math.abs(move.x / window.innerWidth * 2 - 1);
 	        var distY = Math.abs(move.y / window.innerHeight * 2 - 1);
 	        var colors = {
-	            purple: 'rgb(' + (Math.floor(distX * 60) + 40 + rotation) + ', ' + (0 + rotation) + ', ' + (Math.floor(distY * 60) + 40 + rotation) + ')',
+	            purple: 'rgb(' + (Math.floor(distX * 60) + 40) + ', ' + 0 + ', ' + (Math.floor(distY * 60) + 40) + ')',
 	            white: '#ddd'
 	        };
 	
@@ -27343,9 +27339,6 @@
 	
 	function intent(DOM) {
 	    return {
-	        mouseWheel: _cycleCore.Rx.Observable.fromEvent(document.getElementById('app'), 'mousewheel', function (me) {
-	            return me;
-	        }),
 	        mouseClickBackground: _cycleCore.Rx.Observable.fromEvent(document.getElementById('app'), 'mousedown', function (me) {
 	            if (me[0].target.classList.contains('rv-container')) {
 	                return true;
@@ -27364,7 +27357,124 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 120 */,
+/* 120 */
+/*!***************************************!*\
+  !*** ./src/components/links/links.js ***!
+  \***************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	exports['default'] = links;
+	
+	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
+	
+	var _cycleWeb = __webpack_require__(/*! @cycle/web */ 6);
+	
+	var linkListStyles = {
+	    display: 'flex',
+	    fontSize: '1rem',
+	    WebkitJustifyContent: 'space-around',
+	    justifyContent: 'space-around',
+	    width: '20rem',
+	    marginTop: '20px'
+	};
+	
+	var linkStyles = {
+	    textDecoration: 'none'
+	};
+	
+	function links(responses) {
+	    function intent() {
+	        return {
+	            mouseOverLink: _cycleCore.Rx.Observable.merge(_cycleCore.Rx.Observable.fromEvent(document.getElementsByClassName('rv-link'), 'mouseenter', function (me) {
+	                return me[0].target.href;
+	            }), _cycleCore.Rx.Observable.fromEvent(document.getElementsByClassName('rv-link'), 'mouseout', function () {
+	                return null;
+	            }))
+	        };
+	    }
+	
+	    function model(context, actions) {
+	        var props$ = context.props.getAll();
+	        return _cycleCore.Rx.Observable.combineLatest(props$, actions.mouseOverLink.startWith(null), function (props, mouseOver) {
+	            return { props: props, mouseOver: mouseOver };
+	        });
+	    }
+	
+	    function view(state$) {
+	        var onlineLinks = [{
+	            href: 'https://github.com/rickyvetter',
+	            name: 'Github',
+	            alt: 'octocat'
+	        }, {
+	            href: 'https://twitter.com/rickyvetter',
+	            name: 'Twitter',
+	            alt: 'bird'
+	        }, {
+	            href: 'https://facebook.com/rickyvetter',
+	            name: 'Facebook',
+	            alt: 'thumbsup'
+	        }, {
+	            href: 'https://linkedin.com/in/rickyvetter',
+	            name: 'LinkedIn',
+	            alt: 'link'
+	        }, {
+	            href: 'https://cash.me/$rickyvetter',
+	            name: 'cash.me',
+	            alt: 'dollar'
+	        }];
+	
+	        var offlineLinks = [{
+	            href: 'https://socialtables.com/',
+	            name: 'Social Tables',
+	            alt: 'office'
+	        }, {
+	            href: 'http://www.meetup.com/React-DC/',
+	            name: 'React DC',
+	            alt: 'busts_in_silhouette'
+	        }];
+	
+	        return state$.map(function (_ref) {
+	            var props = _ref.props;
+	            var mouseOver = _ref.mouseOver;
+	
+	            function createListLink(link) {
+	                var computedLinkStyles = _extends({}, linkStyles, {
+	                    color: props.color,
+	                    textDecoration: mouseOver === link.href ? 'underline' : 'none'
+	                });
+	                return (0, _cycleWeb.h)('li', null, [(0, _cycleWeb.h)('a', { style: computedLinkStyles,
+	                    className: 'rv-link',
+	                    href: link.href,
+	                    title: link.name }, [':' + link.alt + ':'])]);
+	            }
+	            var onlineLinkMarkup = onlineLinks.map(createListLink);
+	            var offlineLinkMarkup = offlineLinks.map(createListLink);
+	
+	            return (0, _cycleWeb.h)('div', null, [(0, _cycleWeb.h)('ul', { style: linkListStyles }, [onlineLinkMarkup]), (0, _cycleWeb.h)('ul', { style: linkListStyles }, [offlineLinkMarkup])]);
+	        });
+	    }
+	
+	    var actions = intent(responses.DOM);
+	    var state = model(responses, actions);
+	    var vtree$ = view(state);
+	
+	    return {
+	        DOM: vtree$,
+	        events: {}
+	    };
+	}
+	
+	module.exports = exports['default'];
+
+/***/ },
 /* 121 */
 /*!*****************************************!*\
   !*** ./src/components/header/header.js ***!
@@ -27403,101 +27513,6 @@
 	            return (0, _cycleWeb.h)('header', {
 	                style: headerStyles,
 	                className: 'site-header' }, [(0, _cycleWeb.h)('h1', { className: 'title' }, ['Ricky Vetter'])]);
-	        });
-	    }
-	
-	    var actions = intent(responses.DOM);
-	    var state = model(responses, actions);
-	    var vtree$ = view(state);
-	
-	    return {
-	        DOM: vtree$,
-	        events: {}
-	    };
-	}
-	
-	module.exports = exports['default'];
-
-/***/ },
-/* 122 */
-/*!***************************************!*\
-  !*** ./src/components/links/links.js ***!
-  \***************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-	
-	exports['default'] = links;
-	
-	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
-	
-	var _cycleWeb = __webpack_require__(/*! @cycle/web */ 6);
-	
-	var linkListStyles = {
-	    display: 'flex',
-	    fontSize: '1rem',
-	    justifyContent: 'space-around',
-	    width: '20rem',
-	    marginTop: '20px'
-	};
-	
-	var linkStyles = {
-	    textDecoration: 'none'
-	};
-	
-	function links(responses) {
-	    function intent() {
-	        return {};
-	    }
-	
-	    function model(context) {
-	        var props$ = context.props.getAll();
-	        return _cycleCore.Rx.Observable.combineLatest(props$, function (props) {
-	            return { props: props };
-	        });
-	    }
-	
-	    function view(state$) {
-	        var onlineLinks = [{
-	            href: 'https://github.com/rickyvetter',
-	            name: 'Github'
-	        }, {
-	            href: 'https://twitter.com/rickyvetter',
-	            name: 'Twitter'
-	        }, {
-	            href: 'https://facebook.com/rickyvetter',
-	            name: 'Facebook'
-	        }, {
-	            href: 'https://linkedin.com/in/rickyvetter',
-	            name: 'LinkedIn'
-	        }];
-	
-	        var offlineLinks = [{
-	            href: 'https://socialtables.com',
-	            name: 'Social Tables'
-	        }, {
-	            href: 'https://meetup.com/React-DC',
-	            name: 'React DC'
-	        }];
-	
-	        return state$.map(function (state) {
-	            var computedLinkStyles = _extends({}, linkStyles, {
-	                color: state.props.color
-	            });
-	            function createListLink(link) {
-	                return (0, _cycleWeb.h)('li', null, [(0, _cycleWeb.h)('a', { style: computedLinkStyles,
-	                    href: link.href }, [link.name])]);
-	            }
-	            var onlineLinkMarkup = onlineLinks.map(createListLink);
-	            var offlineLinkMarkup = offlineLinks.map(createListLink);
-	
-	            return (0, _cycleWeb.h)('div', null, [(0, _cycleWeb.h)('ul', { style: linkListStyles }, [onlineLinkMarkup]), (0, _cycleWeb.h)('ul', { style: linkListStyles }, [offlineLinkMarkup])]);
 	        });
 	    }
 	

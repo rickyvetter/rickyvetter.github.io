@@ -2,11 +2,6 @@ import { Rx } from '@cycle/core';
 
 export default function intent(DOM) {
     return {
-        mouseWheel: Rx.Observable.fromEvent(
-            document.getElementById('app'),
-            'mousewheel',
-            (me) => me
-        ),
         mouseClickBackground: Rx.Observable.fromEvent(
             document.getElementById('app'),
             'mousedown',

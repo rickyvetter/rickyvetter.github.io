@@ -1,4 +1,10 @@
-rickyvetter.com
-===============
+# rickyvetter.com
 
-This is the source for the newest version of my website. I put it up here as a simple project to get used to Git and GitHub.
+The source for rickyvetter.com. Hope you enjoy!
+
+
+TODO:
+- Make tilt have same effect as mouse move.
+- Make touch have same effect as click
+- Fix Safari bugs
+- Fix messy Rx stuff

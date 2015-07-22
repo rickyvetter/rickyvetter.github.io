@@ -16,15 +16,18 @@ export default function model(actions) {
             actions.mouseMoveBackground.startWith({
                 x: 0,
                 y: 0
-            }),
-            (click, move) => {
+            }).map(move => {
                 var distX = Math.abs((move.x / window.innerWidth * 2) - 1);
                 var distY = Math.abs((move.y / window.innerHeight * 2) - 1);
-                var purp = `rgb(${Math.floor(distX * 60) + 40}, ${0}, ${Math.floor(distY * 60) + 40})`;
-                var white = '#ddd';
                 return {
-                    color: click ? purp : white,
-                    backgroundColor: click ? white : purp
+                    purple: `rgb(${Math.floor(distX * 60) + 40}, ${0}, ${Math.floor(distY * 60) + 40})`,
+                    white: '#ddd'
+                };
+            }),
+            (click, colors) => {
+                return {
+                    color: click ? colors.purple : colors.white,
+                    backgroundColor: click ? colors.white : colors.purple
                 };
             }
         );

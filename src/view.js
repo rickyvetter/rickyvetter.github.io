@@ -11,7 +11,6 @@ const containerStyles = {
     justifyContent: 'center',
     alignItems: 'center'
 };
-const themeColor = document.querySelector('meta[name=theme-color]');
 
 export default function view(state) {
     return state.map(({color, backgroundColor}) => {
@@ -23,8 +22,6 @@ export default function view(state) {
                 color
             }
         );
-        // also set meta color
-        themeColor.content = backgroundColor;
 
         return (
             <div className='rv-container' style={computedContainerStyles}>

@@ -1,30 +1,28 @@
 import { Rx } from '@cycle/core';
 
-let bool = Math.random() < 0.5;
+let isPurple = Math.random() < 0.5;
 
 export default function model(actions) {
     return Rx.Observable
         .combineLatest(
             actions.mouseClickBackground.startWith(true)
-                .map((onTarget) => {
-                    // TODO fix this weird state
-                    if(onTarget) {
-                        bool = !bool;
-                    }
-                    return bool;
-                }),
+                .map(() => {
+                    isPurple = !isPurple;
+                    return isPurple;
+                })
+                .startWith(isPurple),
             actions.mouseMoveBackground,
-            (click, move) => {
-                var distX = Math.abs((move.x / window.innerWidth * 2) - 1);
-                var distY = Math.abs((move.y / window.innerHeight * 2) - 1);
+            (isPurple, mouseLocation) => {
+                var distX = Math.abs((mouseLocation.x / window.innerWidth * 2) - 1);
+                var distY = Math.abs((mouseLocation.y / window.innerHeight * 2) - 1);
                 let colors = {
-                    purple: `rgb(${Math.floor(distX * 60) + 40}, ${0}, ${Math.floor(distY * 60) + 40})`,
+                    purple: `rgb(${Math.floor(distX * 60) + 40}, 0, ${Math.floor(distY * 60) + 40})`,
                     white: '#ddd'
                 };
 
                 return {
-                    color: click ? colors.purple : colors.white,
-                    backgroundColor: click ? colors.white : colors.purple
+                    color: isPurple ? colors.purple : colors.white,
+                    backgroundColor: isPurple ? colors.white : colors.purple
                 };
             }
         );

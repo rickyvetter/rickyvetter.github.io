@@ -17442,26 +17442,23 @@
 	
 	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
 	
-	var bool = Math.random() < 0.5;
+	var isPurple = Math.random() < 0.5;
 	
 	function model(actions) {
-	    return _cycleCore.Rx.Observable.combineLatest(actions.mouseClickBackground.startWith(true).map(function (onTarget) {
-	        // TODO fix this weird state
-	        if (onTarget) {
-	            bool = !bool;
-	        }
-	        return bool;
-	    }), actions.mouseMoveBackground, function (click, move) {
-	        var distX = Math.abs(move.x / window.innerWidth * 2 - 1);
-	        var distY = Math.abs(move.y / window.innerHeight * 2 - 1);
+	    return _cycleCore.Rx.Observable.combineLatest(actions.mouseClickBackground.startWith(true).map(function () {
+	        isPurple = !isPurple;
+	        return isPurple;
+	    }).startWith(isPurple), actions.mouseMoveBackground, function (isPurple, mouseLocation) {
+	        var distX = Math.abs(mouseLocation.x / window.innerWidth * 2 - 1);
+	        var distY = Math.abs(mouseLocation.y / window.innerHeight * 2 - 1);
 	        var colors = {
-	            purple: 'rgb(' + (Math.floor(distX * 60) + 40) + ', ' + 0 + ', ' + (Math.floor(distY * 60) + 40) + ')',
+	            purple: 'rgb(' + (Math.floor(distX * 60) + 40) + ', 0, ' + (Math.floor(distY * 60) + 40) + ')',
 	            white: '#ddd'
 	        };
 	
 	        return {
-	            color: click ? colors.purple : colors.white,
-	            backgroundColor: click ? colors.white : colors.purple
+	            color: isPurple ? colors.purple : colors.white,
+	            backgroundColor: isPurple ? colors.white : colors.purple
 	        };
 	    });
 	}
@@ -17486,7 +17483,7 @@
 	
 	function intent(DOM) {
 	    return {
-	        mouseClickBackground: DOM.select('.rv-container').events('mousedown').map(function (me) {
+	        mouseClickBackground: DOM.select('.rv-container').events('mousedown').filter(function (me) {
 	            return me.target.classList.contains('rv-container');
 	        }),
 	        mouseMoveBackground: DOM.select('.rv-container').events('mousemove').map(function (me) {

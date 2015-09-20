@@ -3,7 +3,7 @@ import { Rx } from '@cycle/core';
 export default function intent(DOM) {
     return {
         mouseClickBackground: DOM.select('.rv-container').events('mousedown')
-            .map((me) => me.target.classList.contains('rv-container')),
+            .filter((me) => me.target.classList.contains('rv-container')),
         mouseMoveBackground: DOM.select('.rv-container').events('mousemove')
             .map((me) => {
                 return {

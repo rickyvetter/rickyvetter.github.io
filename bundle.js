@@ -17483,20 +17483,31 @@
 	
 	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
 	
+	var nullCoords = {
+	    x: 0,
+	    y: 0
+	};
+	
 	function intent(DOM) {
 	    return {
 	        mouseClickBackground: DOM.select('.rv-container').events('mousedown').filter(function (me) {
 	            return me.target.classList.contains('rv-container');
 	        }),
-	        mouseMoveBackground: DOM.select('.rv-container').events('mousemove').map(function (me) {
+	        mouseMoveBackground: _cycleCore.Rx.Observable.merge(DOM.select('.rv-container').events('mousemove').map(function (me) {
 	            return {
 	                x: me.clientX,
 	                y: me.clientY
 	            };
-	        }).startWith({
-	            x: 0,
-	            y: 0
-	        })
+	        }),
+	        // allow tilt to change background as well
+	        _cycleCore.Rx.Observable.fromEvent(window, 'deviceorientation').filter(function (tiltData) {
+	            return tiltData.beta || tiltData.gamma;
+	        }).map(function (tiltData) {
+	            return {
+	                x: tiltData.beta,
+	                y: tiltData.gamma
+	            };
+	        })).startWith(nullCoords)
 	    };
 	}
 	
@@ -17551,7 +17562,7 @@
 	
 	    function model(context, actions) {
 	        var props$ = context.props.getAll();
-	        return _cycleCore.Rx.Observable.combineLatest(props$, actions.mouseOverLink.startWith(null), function (props, mouseOver) {
+	        return _cycleCore.Rx.Observable.combineLatest(props$, actions.mouseOverLink, function (props, mouseOver) {
 	            return { props: props, mouseOver: mouseOver };
 	        });
 	    }

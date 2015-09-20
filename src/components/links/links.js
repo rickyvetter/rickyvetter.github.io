@@ -1,5 +1,6 @@
 import { Rx } from '@cycle/core';
 import { h } from '@cycle/dom';
+import { onlineLinks, offlineLinks } from './link-data';
 
 const linkListStyles = {
     display: 'flex',
@@ -37,47 +38,6 @@ export default function links(responses) {
     }
 
     function view(state$) {
-        const onlineLinks = [
-            {
-                href: 'https://github.com/rickyvetter',
-                name: 'Github',
-                alt: 'octocat'
-            },
-            {
-                href: 'https://twitter.com/rickyvetter',
-                name: 'Twitter',
-                alt: 'bird'
-            },
-            {
-                href: 'https://facebook.com/rickyvetter',
-                name: 'Facebook',
-                alt: 'thumbsup'
-            },
-            {
-                href: 'https://linkedin.com/in/rickyvetter',
-                name: 'LinkedIn',
-                alt: 'link'
-            },
-            {
-                href: 'https://cash.me/$rickyvetter',
-                name: 'cash.me',
-                alt: 'dollar'
-            }
-        ];
-
-        const offlineLinks = [
-            {
-                href: 'https://socialtables.com/',
-                name: 'Social Tables',
-                alt: 'office'
-            },
-            {
-                href: 'http://www.meetup.com/React-DC/',
-                name: 'React DC',
-                alt: 'busts_in_silhouette'
-            }
-        ];
-
         return state$.map(({props, mouseOver}) => {
             function createListLink(link) {
                 const computedLinkStyles = Object.assign(

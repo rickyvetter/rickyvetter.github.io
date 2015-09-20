@@ -83,7 +83,7 @@
 	
 	var _componentsLinksLinks2 = _interopRequireDefault(_componentsLinksLinks);
 	
-	var _componentsHeaderHeader = __webpack_require__(/*! ./components/header/header */ 125);
+	var _componentsHeaderHeader = __webpack_require__(/*! ./components/header/header */ 126);
 	
 	var _componentsHeaderHeader2 = _interopRequireDefault(_componentsHeaderHeader);
 	
@@ -17523,6 +17523,8 @@
 	
 	var _cycleDom = __webpack_require__(/*! @cycle/dom */ 6);
 	
+	var _linkData = __webpack_require__(/*! ./link-data */ 125);
+	
 	var linkListStyles = {
 	    display: 'flex',
 	    fontSize: '1rem',
@@ -17555,38 +17557,6 @@
 	    }
 	
 	    function view(state$) {
-	        var onlineLinks = [{
-	            href: 'https://github.com/rickyvetter',
-	            name: 'Github',
-	            alt: 'octocat'
-	        }, {
-	            href: 'https://twitter.com/rickyvetter',
-	            name: 'Twitter',
-	            alt: 'bird'
-	        }, {
-	            href: 'https://facebook.com/rickyvetter',
-	            name: 'Facebook',
-	            alt: 'thumbsup'
-	        }, {
-	            href: 'https://linkedin.com/in/rickyvetter',
-	            name: 'LinkedIn',
-	            alt: 'link'
-	        }, {
-	            href: 'https://cash.me/$rickyvetter',
-	            name: 'cash.me',
-	            alt: 'dollar'
-	        }];
-	
-	        var offlineLinks = [{
-	            href: 'https://socialtables.com/',
-	            name: 'Social Tables',
-	            alt: 'office'
-	        }, {
-	            href: 'http://www.meetup.com/React-DC/',
-	            name: 'React DC',
-	            alt: 'busts_in_silhouette'
-	        }];
-	
 	        return state$.map(function (_ref) {
 	            var props = _ref.props;
 	            var mouseOver = _ref.mouseOver;
@@ -17601,8 +17571,8 @@
 	                    href: link.href,
 	                    title: link.name }, [':' + link.alt + ':'])]);
 	            }
-	            var onlineLinkMarkup = onlineLinks.map(createListLink);
-	            var offlineLinkMarkup = offlineLinks.map(createListLink);
+	            var onlineLinkMarkup = _linkData.onlineLinks.map(createListLink);
+	            var offlineLinkMarkup = _linkData.offlineLinks.map(createListLink);
 	
 	            return (0, _cycleDom.h)('div', null, [(0, _cycleDom.h)('ul', { style: linkListStyles }, [onlineLinkMarkup]), (0, _cycleDom.h)('ul', { style: linkListStyles }, [offlineLinkMarkup])]);
 	        });
@@ -17622,6 +17592,52 @@
 
 /***/ },
 /* 125 */
+/*!*******************************************!*\
+  !*** ./src/components/links/link-data.js ***!
+  \*******************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+	var onlineLinks = [{
+		href: 'https://github.com/rickyvetter',
+		name: 'Github',
+		alt: 'octocat'
+	}, {
+		href: 'https://twitter.com/rickyvetter',
+		name: 'Twitter',
+		alt: 'bird'
+	}, {
+		href: 'https://facebook.com/rickyvetter',
+		name: 'Facebook',
+		alt: 'thumbsup'
+	}, {
+		href: 'https://linkedin.com/in/rickyvetter',
+		name: 'LinkedIn',
+		alt: 'link'
+	}, {
+		href: 'https://cash.me/$rickyvetter',
+		name: 'cash.me',
+		alt: 'dollar'
+	}];
+	
+	exports.onlineLinks = onlineLinks;
+	var offlineLinks = [{
+		href: 'https://socialtables.com/',
+		name: 'Social Tables',
+		alt: 'office'
+	}, {
+		href: 'http://www.meetup.com/React-DC/',
+		name: 'React DC',
+		alt: 'busts_in_silhouette'
+	}];
+	exports.offlineLinks = offlineLinks;
+
+/***/ },
+/* 126 */
 /*!*****************************************!*\
   !*** ./src/components/header/header.js ***!
   \*****************************************/

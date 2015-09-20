@@ -11,12 +11,8 @@ export default function model(actions) {
                     return isPurple;
                 })
                 .startWith(isPurple),
-            actions.mouseMoveBackground,
-            (isPurple, mouseLocation) => {
-                const distX = Math.abs((mouseLocation.x / window.innerWidth * 2) - 1);
-                const distY = Math.abs((mouseLocation.y / window.innerHeight * 2) - 1);
-                const red = Math.floor(distX * 60) + 40;
-                const blue = Math.floor(distY * 60) + 40;
+            actions.updateBackgroundColor,
+            (isPurple, {red, blue}) => {
                 const colors = {
                     purple: `rgb(${red}, 0, ${blue})`,
                     white: '#ddd'

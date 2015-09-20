@@ -17448,11 +17448,10 @@
 	    return _cycleCore.Rx.Observable.combineLatest(actions.mouseClickBackground.startWith(true).map(function () {
 	        isPurple = !isPurple;
 	        return isPurple;
-	    }).startWith(isPurple), actions.mouseMoveBackground, function (isPurple, mouseLocation) {
-	        var distX = Math.abs(mouseLocation.x / window.innerWidth * 2 - 1);
-	        var distY = Math.abs(mouseLocation.y / window.innerHeight * 2 - 1);
-	        var red = Math.floor(distX * 60) + 40;
-	        var blue = Math.floor(distY * 60) + 40;
+	    }).startWith(isPurple), actions.updateBackgroundColor, function (isPurple, _ref) {
+	        var red = _ref.red;
+	        var blue = _ref.blue;
+	
 	        var colors = {
 	            purple: 'rgb(' + red + ', 0, ' + blue + ')',
 	            white: '#ddd'
@@ -17483,31 +17482,37 @@
 	
 	var _cycleCore = __webpack_require__(/*! @cycle/core */ 2);
 	
-	var nullCoords = {
-	    x: 0,
-	    y: 0
-	};
-	
 	function intent(DOM) {
 	    return {
 	        mouseClickBackground: DOM.select('.rv-container').events('mousedown').filter(function (me) {
 	            return me.target.classList.contains('rv-container');
 	        }),
-	        mouseMoveBackground: _cycleCore.Rx.Observable.merge(DOM.select('.rv-container').events('mousemove').map(function (me) {
+	        updateBackgroundColor: _cycleCore.Rx.Observable.merge(
+	        // color changes on mouse move
+	        DOM.select('.rv-container').events('mousemove').map(function (me) {
+	            // normalizing to number between 0 and 1
+	            var distX = Math.abs(me.clientX / window.innerWidth * 2 - 1);
+	            var distY = Math.abs(me.clientY / window.innerHeight * 2 - 1);
 	            return {
-	                x: me.clientX,
-	                y: me.clientY
+	                red: Math.floor(distX * 60) + 40,
+	                blue: Math.floor(distY * 60) + 40
 	            };
 	        }),
 	        // allow tilt to change background as well
 	        _cycleCore.Rx.Observable.fromEvent(window, 'deviceorientation').filter(function (tiltData) {
 	            return tiltData.beta || tiltData.gamma;
 	        }).map(function (tiltData) {
+	            // normalizing to number between 0 and 1
+	            var distX = Math.abs((tiltData.beta + 180) / 360 * 2 - 1);
+	            var distY = Math.abs((tiltData.gamma + 180) / 360 * 2 - 1);
 	            return {
-	                x: tiltData.beta * 100,
-	                y: tiltData.gamma * 100
+	                red: Math.floor(distX * 60) + 40,
+	                blue: Math.floor(distY * 60) + 40
 	            };
-	        })).startWith(nullCoords)
+	        })).startWith({
+	            red: 100,
+	            blue: 100
+	        })
 	    };
 	}
 	

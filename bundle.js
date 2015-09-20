@@ -17504,8 +17504,8 @@
 	            return tiltData.beta || tiltData.gamma;
 	        }).map(function (tiltData) {
 	            return {
-	                x: tiltData.beta,
-	                y: tiltData.gamma
+	                x: tiltData.beta * 100,
+	                y: tiltData.gamma * 100
 	            };
 	        })).startWith(nullCoords)
 	    };

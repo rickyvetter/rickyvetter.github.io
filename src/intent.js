@@ -22,8 +22,8 @@ export default function intent(DOM) {
                     .filter((tiltData) => tiltData.beta || tiltData.gamma)
                     .map((tiltData) => {
                         return {
-                            x: tiltData.beta,
-                            y: tiltData.gamma
+                            x: tiltData.beta * 100,
+                            y: tiltData.gamma * 100
                         };
                     })
             )

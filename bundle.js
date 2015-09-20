@@ -17451,8 +17451,10 @@
 	    }).startWith(isPurple), actions.mouseMoveBackground, function (isPurple, mouseLocation) {
 	        var distX = Math.abs(mouseLocation.x / window.innerWidth * 2 - 1);
 	        var distY = Math.abs(mouseLocation.y / window.innerHeight * 2 - 1);
+	        var red = Math.floor(distX * 60) + 40;
+	        var blue = Math.floor(distY * 60) + 40;
 	        var colors = {
-	            purple: 'rgb(' + (Math.floor(distX * 60) + 40) + ', 0, ' + (Math.floor(distY * 60) + 40) + ')',
+	            purple: 'rgb(' + red + ', 0, ' + blue + ')',
 	            white: '#ddd'
 	        };
 	

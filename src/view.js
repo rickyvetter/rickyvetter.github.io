@@ -14,7 +14,7 @@ const containerStyles = {
 
 export default function view(state) {
     return state.map(({color, backgroundColor}) => {
-        var computedContainerStyles = Object.assign(
+        const computedContainerStyles = Object.assign(
             {},
             containerStyles,
             {

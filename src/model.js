@@ -13,10 +13,12 @@ export default function model(actions) {
                 .startWith(isPurple),
             actions.mouseMoveBackground,
             (isPurple, mouseLocation) => {
-                var distX = Math.abs((mouseLocation.x / window.innerWidth * 2) - 1);
-                var distY = Math.abs((mouseLocation.y / window.innerHeight * 2) - 1);
-                let colors = {
-                    purple: `rgb(${Math.floor(distX * 60) + 40}, 0, ${Math.floor(distY * 60) + 40})`,
+                const distX = Math.abs((mouseLocation.x / window.innerWidth * 2) - 1);
+                const distY = Math.abs((mouseLocation.y / window.innerHeight * 2) - 1);
+                const red = Math.floor(distX * 60) + 40;
+                const blue = Math.floor(distY * 60) + 40;
+                const colors = {
+                    purple: `rgb(${red}, 0, ${blue})`,
                     white: '#ddd'
                 };
 

@@ -28,7 +28,7 @@ export default function links(responses) {
     }
 
     function model(context, actions) {
-        let props$ = context.props.getAll();
+        const props$ = context.props.getAll();
         return Rx.Observable.combineLatest(
             props$,
             actions.mouseOverLink.startWith(null),
@@ -37,7 +37,7 @@ export default function links(responses) {
     }
 
     function view(state$) {
-        let onlineLinks = [
+        const onlineLinks = [
             {
                 href: 'https://github.com/rickyvetter',
                 name: 'Github',
@@ -65,7 +65,7 @@ export default function links(responses) {
             }
         ];
 
-        let offlineLinks = [
+        const offlineLinks = [
             {
                 href: 'https://socialtables.com/',
                 name: 'Social Tables',
@@ -80,7 +80,7 @@ export default function links(responses) {
 
         return state$.map(({props, mouseOver}) => {
             function createListLink(link) {
-                let computedLinkStyles = Object.assign(
+                const computedLinkStyles = Object.assign(
                     {},
                     linkStyles,
                     {
@@ -97,8 +97,8 @@ export default function links(responses) {
                     </li>
                 );
             }
-            let onlineLinkMarkup = onlineLinks.map(createListLink);
-            let offlineLinkMarkup = offlineLinks.map(createListLink);
+            const onlineLinkMarkup = onlineLinks.map(createListLink);
+            const offlineLinkMarkup = offlineLinks.map(createListLink);
 
             return (
                 <div>
@@ -109,9 +109,9 @@ export default function links(responses) {
         });
     }
 
-    let actions = intent(responses.DOM);
-    let state = model(responses, actions);
-    let vtree$ = view(state);
+    const actions = intent(responses.DOM);
+    const state = model(responses, actions);
+    const vtree$ = view(state);
 
     return {
         DOM: vtree$,

@@ -11,7 +11,7 @@ export default function header(responses) {
     }
 
     function model(context, actions) {
-        let props$ = context.props.getAll();
+        const props$ = context.props.getAll();
         return Rx.Observable.combineLatest(props$,
             (props) => { return {props}; }
         );
@@ -29,9 +29,9 @@ export default function header(responses) {
         });
     }
 
-    let actions = intent(responses.DOM);
-    let state = model(responses, actions);
-    let vtree$ = view(state);
+    const actions = intent(responses.DOM);
+    const state = model(responses, actions);
+    const vtree$ = view(state);
 
     return {
         DOM: vtree$,

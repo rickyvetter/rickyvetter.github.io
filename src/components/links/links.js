@@ -1,5 +1,5 @@
 import { Rx } from '@cycle/core';
-import { h } from '@cycle/web';
+import { h } from '@cycle/dom';
 
 const linkListStyles = {
     display: 'flex',
@@ -15,20 +15,15 @@ const linkStyles = {
 };
 
 export default function links(responses) {
-    function intent() {
+    function intent(DOM) {
         return {
             mouseOverLink: Rx.Observable.merge(
-                Rx.Observable.fromEvent(
-                    document.getElementsByClassName('rv-link'),
-                    'mouseenter',
-                    (me) => me[0].target.href
-                ),
-                Rx.Observable.fromEvent(
-                    document.getElementsByClassName('rv-link'),
-                    'mouseout',
-                    () => null
+                    DOM.select('.rv-link').events('mouseenter')
+                        .map(me => me.target.href),
+                    DOM.select('.rv-link').events('mouseout')
+                        .map(() => null)
                 )
-            )
+                .startWith(null)
         };
     }
 

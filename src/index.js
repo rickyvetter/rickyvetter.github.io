@@ -1,5 +1,5 @@
 import Cycle from '@cycle/core';
-import { makeDOMDriver } from '@cycle/web';
+import { makeDOMDriver } from '@cycle/dom';
 
 import view from './view';
 import model from './model';

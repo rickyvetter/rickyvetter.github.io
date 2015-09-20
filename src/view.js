@@ -1,4 +1,4 @@
-import { h } from '@cycle/web';
+import { h } from '@cycle/dom';
 
 const containerStyles = {
     width: '100vw',

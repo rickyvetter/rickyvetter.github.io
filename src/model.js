@@ -13,10 +13,7 @@ export default function model(actions) {
                     }
                     return bool;
                 }),
-            actions.mouseMoveBackground.startWith({
-                x: 0,
-                y: 0
-            }),
+            actions.mouseMoveBackground,
             (click, move) => {
                 var distX = Math.abs((move.x / window.innerWidth * 2) - 1);
                 var distY = Math.abs((move.y / window.innerHeight * 2) - 1);

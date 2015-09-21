@@ -14,7 +14,7 @@ export default function header(responses) {
     function model(context) {
         const props$ = context.props.getAll();
         return Rx.Observable.combineLatest(props$,
-            (props) => { return {props}; }
+            (props) => ({props})
         );
     }
 

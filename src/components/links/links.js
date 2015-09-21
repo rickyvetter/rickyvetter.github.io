@@ -35,7 +35,7 @@ export default function links(responses) {
         return Rx.Observable.combineLatest(
             props$,
             actions.mouseOverLink,
-            (props, mouseOver) => { return {props, mouseOver}; }
+            (props, mouseOver) => ({props, mouseOver})
         );
     }
 

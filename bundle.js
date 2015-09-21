@@ -17451,7 +17451,7 @@
 	var isPurple = Math.random() < 0.5;
 	
 	function model(actions) {
-	    return _cycleCore.Rx.Observable.combineLatest(actions.mouseClickBackground.startWith(true).map(function () {
+	    return _cycleCore.Rx.Observable.combineLatest(actions.mouseClickBackground.map(function () {
 	        isPurple = !isPurple;
 	        return isPurple;
 	    }).startWith(isPurple), actions.updateBackgroundColor, function (isPurple, _ref) {
@@ -17495,27 +17495,32 @@
 	        }),
 	        updateBackgroundColor: _cycleCore.Rx.Observable.merge(
 	        // color changes on mouse move
-	        DOM.select('.rv-container').events('mousemove').map(function (me) {
-	            // normalizing to number between 0 and 1
-	            var distX = Math.abs(me.clientX / window.innerWidth * 2 - 1);
-	            var distY = Math.abs(me.clientY / window.innerHeight * 2 - 1);
+	        DOM.select('.rv-container').events('mousemove')
+	        // normalizing to number between 0 and 1
+	        .map(function (me) {
 	            return {
-	                red: Math.floor(distX * 60) + 40,
-	                blue: Math.floor(distY * 60) + 40
+	                distX: me.clientX / window.innerWidth,
+	                distY: me.clientY / window.innerHeight
 	            };
 	        }),
 	        // allow tilt to change background as well
 	        _cycleCore.Rx.Observable.fromEvent(window, 'deviceorientation').filter(function (tiltData) {
 	            return tiltData.beta || tiltData.gamma;
-	        }).map(function (tiltData) {
-	            // normalizing to number between 0 and 1
-	            var distX = Math.abs((tiltData.beta + 180) / 360 * 2 - 1);
-	            var distY = Math.abs((tiltData.gamma + 180) / 360 * 2 - 1);
+	        })
+	        // normalizing to number between 0 and 1
+	        .map(function (tiltData) {
+	            return {
+	                distX: (tiltData.beta + 180) / 360,
+	                distY: (tiltData.gamma + 180) / 360
+	            };
+	        })).map(function (_ref) {
+	            var distX = _ref.distX;
+	            var distY = _ref.distY;
 	            return {
 	                red: Math.floor(distX * 60) + 40,
 	                blue: Math.floor(distY * 60) + 40
 	            };
-	        })).startWith({
+	        }).startWith({
 	            red: 100,
 	            blue: 100
 	        })

@@ -5,7 +5,7 @@ let isPurple = Math.random() < 0.5;
 export default function model(actions) {
     return Rx.Observable
         .combineLatest(
-            actions.mouseClickBackground.startWith(true)
+            actions.mouseClickBackground
                 .map(() => {
                     isPurple = !isPurple;
                     return isPurple;

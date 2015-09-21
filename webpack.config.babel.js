@@ -1,4 +1,4 @@
-var config = {
+export default {
     devtool: 'cheap-module-eval-source-map',
     entry: [
         './src/index.js'
@@ -13,5 +13,3 @@ var config = {
         ]
     }
 };
-
-module.exports = config;

@@ -17386,6 +17386,7 @@
   \*********************/
 /***/ function(module, exports, __webpack_require__) {
 
+	/** @jsx hJSX */
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -17420,7 +17421,12 @@
 	            color: color
 	        });
 	
-	        return (0, _cycleDom.h)('div', { className: 'rv-container', style: computedContainerStyles }, [(0, _cycleDom.h)('site-header', { key: 'site-header' }), (0, _cycleDom.h)('links', { key: 'links', color: color })]);
+	        return (0, _cycleDom.hJSX)(
+	            'div',
+	            { className: 'rv-container', style: computedContainerStyles },
+	            (0, _cycleDom.hJSX)('site-header', { key: 'site-header' }),
+	            (0, _cycleDom.hJSX)('links', { key: 'links', color: color })
+	        );
 	    });
 	}
 	
@@ -17525,6 +17531,8 @@
   \***************************************/
 /***/ function(module, exports, __webpack_require__) {
 
+	/** @jsx hJSX */
+	
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -17582,15 +17590,36 @@
 	                    color: props.color,
 	                    textDecoration: mouseOver === link.href ? 'underline' : 'none'
 	                });
-	                return (0, _cycleDom.h)('li', null, [(0, _cycleDom.h)('a', { style: computedLinkStyles,
-	                    className: 'rv-link',
-	                    href: link.href,
-	                    title: link.name }, [':' + link.alt + ':'])]);
+	                return (0, _cycleDom.hJSX)(
+	                    'li',
+	                    null,
+	                    (0, _cycleDom.hJSX)(
+	                        'a',
+	                        { style: computedLinkStyles,
+	                            className: 'rv-link',
+	                            href: link.href,
+	                            title: link.name },
+	                        ':' + link.alt + ':'
+	                    )
+	                );
 	            }
 	            var onlineLinkMarkup = _linkData.onlineLinks.map(createListLink);
 	            var offlineLinkMarkup = _linkData.offlineLinks.map(createListLink);
 	
-	            return (0, _cycleDom.h)('div', null, [(0, _cycleDom.h)('ul', { style: linkListStyles }, [onlineLinkMarkup]), (0, _cycleDom.h)('ul', { style: linkListStyles }, [offlineLinkMarkup])]);
+	            return (0, _cycleDom.hJSX)(
+	                'div',
+	                null,
+	                (0, _cycleDom.hJSX)(
+	                    'ul',
+	                    { style: linkListStyles },
+	                    onlineLinkMarkup
+	                ),
+	                (0, _cycleDom.hJSX)(
+	                    'ul',
+	                    { style: linkListStyles },
+	                    offlineLinkMarkup
+	                )
+	            );
 	        });
 	    }
 	
@@ -17659,6 +17688,7 @@
   \*****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
+	/** @jsx hJSX */
 	'use strict';
 	
 	Object.defineProperty(exports, '__esModule', {
@@ -17675,11 +17705,11 @@
 	};
 	
 	function header(responses) {
-	    function intent(DOM) {
+	    function intent() {
 	        return {};
 	    }
 	
-	    function model(context, actions) {
+	    function model(context) {
 	        var props$ = context.props.getAll();
 	        return _cycleCore.Rx.Observable.combineLatest(props$, function (props) {
 	            return { props: props };
@@ -17687,10 +17717,18 @@
 	    }
 	
 	    function view(state$) {
-	        return state$.map(function (state) {
-	            return (0, _cycleDom.h)('header', {
-	                style: headerStyles,
-	                className: 'site-header' }, [(0, _cycleDom.h)('h1', { className: 'title' }, ['Ricky Vetter'])]);
+	        return state$.map(function () {
+	            return (0, _cycleDom.hJSX)(
+	                'header',
+	                {
+	                    style: headerStyles,
+	                    className: 'site-header' },
+	                (0, _cycleDom.hJSX)(
+	                    'h1',
+	                    { className: 'title' },
+	                    'Ricky Vetter'
+	                )
+	            );
 	        });
 	    }
 	

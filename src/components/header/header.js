@@ -1,16 +1,17 @@
+/** @jsx hJSX */
 import { Rx } from '@cycle/core';
-import { h } from '@cycle/dom';
+import { hJSX } from '@cycle/dom';
 
 const headerStyles = {
     fontSize: '4em'
 };
 
 export default function header(responses) {
-    function intent(DOM) {
+    function intent() {
         return {};
     }
 
-    function model(context, actions) {
+    function model(context) {
         const props$ = context.props.getAll();
         return Rx.Observable.combineLatest(props$,
             (props) => { return {props}; }
@@ -18,7 +19,7 @@ export default function header(responses) {
     }
 
     function view(state$) {
-        return state$.map(state => {
+        return state$.map(() => {
             return (
                 <header
                     style={headerStyles}

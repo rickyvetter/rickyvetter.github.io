@@ -1,5 +1,7 @@
+/** @jsx hJSX */
+
 import { Rx } from '@cycle/core';
-import { h } from '@cycle/dom';
+import { hJSX } from '@cycle/dom';
 import { onlineLinks, offlineLinks } from './link-data';
 
 const linkListStyles = {

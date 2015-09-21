@@ -1,4 +1,5 @@
-import { h } from '@cycle/dom';
+/** @jsx hJSX */
+import { hJSX } from '@cycle/dom';
 
 const containerStyles = {
     width: '100vw',

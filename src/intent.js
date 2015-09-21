@@ -17,7 +17,7 @@ export default function intent(DOM) {
                         };
                     }),
                 // allow tilt to change background as well
-                Rx.Observable.fromEvent(window, "deviceorientation")
+                Rx.Observable.fromEvent(window, 'deviceorientation')
                     .filter((tiltData) => tiltData.beta || tiltData.gamma)
                     .map((tiltData) => {
                         // normalizing to number between 0 and 1

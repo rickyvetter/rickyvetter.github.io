@@ -15,6 +15,8 @@ export default function intent(DOM) {
                     ),
                 // allow tilt to change background as well
                 Rx.Observable.fromEvent(window, 'deviceorientation')
+                    // this gives a lot of data, so we throttle it
+                    .throttleFirst(50)
                     .filter((tiltData) => tiltData.beta || tiltData.gamma)
                     // normalizing to number between 0 and 1
                     .map((tiltData) => ({

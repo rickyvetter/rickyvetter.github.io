@@ -9,7 +9,13 @@ export default {
     },
     module: {
         loaders: [
-            {test: /\.js/, exclude: /node_modules/, loaders: ['babel-loader?{"stage":0,"plugins":["object-assign"]}']}
+            {
+                test: /\.js/,
+                exclude: /node_modules/,
+                loaders: [
+                    'babel-loader?{"stage":0,"plugins":["object-assign"]}'
+                ]
+            }
         ]
     }
 };

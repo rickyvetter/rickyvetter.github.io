@@ -28,8 +28,8 @@ export const onlineLinks = [
 
 export const offlineLinks = [
 	{
-		href: 'https://socialtables.com/',
-		name: 'Social Tables',
+		href: 'https://www.facebook.com/careers/',
+		name: 'Facebook',
 		alt: 'office'
 	},
 	{

@@ -1,34 +1,43 @@
-/** @jsx hJSX */
-import { hJSX } from '@cycle/dom';
+import Header from './components/header/header.react';
+import Links from './components/links/links.react';
+import Konami from './components/konami/konami.react';
+import React from 'react';
+import Style from './style';
 
-const containerStyles = {
-    width: '100vw',
-    height: '100vh',
+const View = ({backgroundColor, color, isKonami}) =>
+  <div style={{display: 'flex'}}>
+    <div
+      className={Style.join(
+        'rv-container',
+        BODY_STYLE,
+        {[BODY_SECRET_STYLE]: isKonami}
+      )}
+      style={{backgroundColor, color}}>
+      <Header isKonami={isKonami} />
+      <Links color={color} isKonami={isKonami} />
+    </div>
+    {isKonami ? <Konami /> : null}
+    <Style.Element />
+  </div>;
+
+const TRANSITION_TIME = '1s';
+const BODY_STYLE = Style.registerStyle({
+    alignItems: 'center',
     display: 'flex',
-    WebkitFlexDirection: 'column',
-    WebkitJustifyContent: 'center',
-    WebkitAlignItems: 'center',
     flexDirection: 'column',
+    height: '100vh',
     justifyContent: 'center',
-    alignItems: 'center'
-};
+    MozUserSelect: 'none',
+    MsUserSelect: 'none',
+    userSelect: 'none',
+    WebkitTouchCallout: 'none',
+    WebkitUserSelect: 'none',
+    width: '100vw',
+    transition: `width ${TRANSITION_TIME}`,
+});
 
-export default function view(state) {
-    return state.map(({color, backgroundColor}) => {
-        const computedContainerStyles = Object.assign(
-            {},
-            containerStyles,
-            {
-                backgroundColor,
-                color
-            }
-        );
+const BODY_SECRET_STYLE = Style.registerStyle({
+  width: '15vw',
+});
 
-        return (
-            <div className='rv-container' style={computedContainerStyles}>
-                <site-header key='site-header'/>
-                <links key='links' color={color}/>
-            </div>
-        );
-    });
-}
+export default Style.component(View);

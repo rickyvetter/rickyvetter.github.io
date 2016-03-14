@@ -1,22 +1,11 @@
-import Cycle from '@cycle/core';
-import { makeDOMDriver } from '@cycle/dom';
+import ReactDOM from 'react-dom';
+import React from 'react';
 
-import view from './view';
-import model from './model';
+import View from './view';
 import intent from './intent';
+import model from './model';
 
-import links from './components/links/links';
-import siteHeader from './components/header/header';
+const node = document.getElementById('app');
 
-function main({DOM}) {
-    return {
-        DOM: view(model(intent(DOM)))
-    };
-}
-
-Cycle.run(main, {
-    DOM: makeDOMDriver('#app', {
-        'links': links,
-        'site-header': siteHeader
-    })
-});
+model(intent()).subscribe((state) =>
+  ReactDOM.render(<View {...state} />, node));

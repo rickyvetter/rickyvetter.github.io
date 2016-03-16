@@ -1,10 +1,10 @@
-import Header from './components/header/header.react';
-import Links from './components/links/links.react';
-import Konami from './components/konami/konami.react';
+import Header from './Header.react';
+import Links from './Links.react';
+import Konami from './Konami.react';
 import React from 'react';
-import Style from './style';
+import Style from '../style';
 
-const View = ({backgroundColor, color, isKonami}) =>
+const RickyVetter = ({backgroundColor, color, isKonami}) =>
   <div style={{display: 'flex'}}>
     <div
       className={Style.join(
@@ -40,4 +40,4 @@ const BODY_SECRET_STYLE = Style.registerStyle({
   width: '15vw',
 });
 
-export default Style.component(View);
+export default Style.component(RickyVetter);

@@ -67,24 +67,20 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _view = __webpack_require__(/*! ./view */ 160);
+	var _RickyVetter = __webpack_require__(/*! ./components/RickyVetter.react */ 160);
 	
-	var _view2 = _interopRequireDefault(_view);
+	var _RickyVetter2 = _interopRequireDefault(_RickyVetter);
 	
-	var _intent = __webpack_require__(/*! ./intent */ 187);
+	var _State = __webpack_require__(/*! ./State */ 445);
 	
-	var _intent2 = _interopRequireDefault(_intent);
-	
-	var _model = __webpack_require__(/*! ./model */ 442);
-	
-	var _model2 = _interopRequireDefault(_model);
+	var _State2 = _interopRequireDefault(_State);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var node = document.getElementById('app');
 	
-	_model2.default.subscribe(function (state) {
-	  return _reactDom2.default.render(_react2.default.createElement(_view2.default, state), node);
+	_State2.default.subscribe(function (state) {
+	  return _reactDom2.default.render(_react2.default.createElement(_RickyVetter2.default, state), node);
 	});
 
 /***/ },
@@ -20164,9 +20160,9 @@
 
 /***/ },
 /* 160 */
-/*!*********************!*\
-  !*** ./src/view.js ***!
-  \*********************/
+/*!*********************************************!*\
+  !*** ./src/components/RickyVetter.react.js ***!
+  \*********************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20175,23 +20171,23 @@
 	  value: true
 	});
 	
-	var _header = __webpack_require__(/*! ./components/header/header.react */ 161);
+	var _Header = __webpack_require__(/*! ./Header.react */ 161);
 	
-	var _header2 = _interopRequireDefault(_header);
+	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _links = __webpack_require__(/*! ./components/links/links.react */ 167);
+	var _Links = __webpack_require__(/*! ./Links.react */ 167);
 	
-	var _links2 = _interopRequireDefault(_links);
+	var _Links2 = _interopRequireDefault(_Links);
 	
-	var _konami = __webpack_require__(/*! ./components/konami/konami.react */ 169);
+	var _Konami = __webpack_require__(/*! ./Konami.react */ 169);
 	
-	var _konami2 = _interopRequireDefault(_konami);
+	var _Konami2 = _interopRequireDefault(_Konami);
 	
 	var _react = __webpack_require__(/*! react */ 148);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _style = __webpack_require__(/*! ./style */ 162);
+	var _style = __webpack_require__(/*! ../style */ 162);
 	
 	var _style2 = _interopRequireDefault(_style);
 	
@@ -20199,7 +20195,7 @@
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
-	var View = function View(_ref) {
+	var RickyVetter = function RickyVetter(_ref) {
 	  var backgroundColor = _ref.backgroundColor;
 	  var color = _ref.color;
 	  var isKonami = _ref.isKonami;
@@ -20211,10 +20207,10 @@
 	      {
 	        className: _style2.default.join('rv-container', BODY_STYLE, _defineProperty({}, BODY_SECRET_STYLE, isKonami)),
 	        style: { backgroundColor: backgroundColor, color: color } },
-	      _react2.default.createElement(_header2.default, { isKonami: isKonami }),
-	      _react2.default.createElement(_links2.default, { color: color, isKonami: isKonami })
+	      _react2.default.createElement(_Header2.default, { isKonami: isKonami }),
+	      _react2.default.createElement(_Links2.default, { color: color, isKonami: isKonami })
 	    ),
-	    isKonami ? _react2.default.createElement(_konami2.default, null) : null,
+	    isKonami ? _react2.default.createElement(_Konami2.default, null) : null,
 	    _react2.default.createElement(_style2.default.Element, null)
 	  );
 	};
@@ -20239,13 +20235,13 @@
 	  width: '15vw'
 	});
 	
-	exports.default = _style2.default.component(View);
+	exports.default = _style2.default.component(RickyVetter);
 
 /***/ },
 /* 161 */
-/*!***********************************************!*\
-  !*** ./src/components/header/header.react.js ***!
-  \***********************************************/
+/*!****************************************!*\
+  !*** ./src/components/Header.react.js ***!
+  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20258,7 +20254,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _style = __webpack_require__(/*! ../../style */ 162);
+	var _style = __webpack_require__(/*! ../style */ 162);
 	
 	var _style2 = _interopRequireDefault(_style);
 	
@@ -21008,9 +21004,9 @@
 
 /***/ },
 /* 167 */
-/*!*********************************************!*\
-  !*** ./src/components/links/links.react.js ***!
-  \*********************************************/
+/*!***************************************!*\
+  !*** ./src/components/Links.react.js ***!
+  \***************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21027,7 +21023,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _style = __webpack_require__(/*! ../../style */ 162);
+	var _style = __webpack_require__(/*! ../style */ 162);
 	
 	var _style2 = _interopRequireDefault(_style);
 	
@@ -21101,9 +21097,9 @@
 
 /***/ },
 /* 168 */
-/*!******************************************!*\
-  !*** ./src/components/links/linkData.js ***!
-  \******************************************/
+/*!************************************!*\
+  !*** ./src/components/linkData.js ***!
+  \************************************/
 /***/ function(module, exports) {
 
 	'use strict';
@@ -21138,9 +21134,9 @@
 
 /***/ },
 /* 169 */
-/*!***********************************************!*\
-  !*** ./src/components/konami/konami.react.js ***!
-  \***********************************************/
+/*!****************************************!*\
+  !*** ./src/components/Konami.react.js ***!
+  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21157,7 +21153,7 @@
 	
 	var _reactPlayer2 = _interopRequireDefault(_reactPlayer);
 	
-	var _style = __webpack_require__(/*! ../../style */ 162);
+	var _style = __webpack_require__(/*! ../style */ 162);
 	
 	var _style2 = _interopRequireDefault(_style);
 	
@@ -23949,37 +23945,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 187 */
-/*!***********************!*\
-  !*** ./src/intent.js ***!
-  \***********************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.updateBackgroundColor = exports.mouseClickBackground = undefined;
-	
-	var _Rx = __webpack_require__(/*! rxjs-es/Rx */ 188);
-	
-	var isPurple = Math.random() < 0.5;
-	
-	var mouseClickBackground = exports.mouseClickBackground = _Rx.Observable.fromEvent(document, 'mousedown').filter(function (me) {
-	  return me.target.classList.contains('rv-container');
-	}).scan(function (isPurple) {
-	  return !isPurple;
-	}, isPurple).startWith(isPurple);
-	
-	var updateBackgroundColor = exports.updateBackgroundColor = _Rx.Observable.fromEvent(document, 'mousemove').map(function (me) {
-	  return {
-	    red: Math.floor(me.clientX / window.innerWidth * 60) + 40,
-	    blue: Math.floor(me.clientY / window.innerHeight * 60) + 40
-	  };
-	}).startWith({ red: 100, blue: 100 });
-
-/***/ },
+/* 187 */,
 /* 188 */
 /*!*************************!*\
   !*** ./~/rxjs-es/Rx.js ***!
@@ -40756,9 +40722,9 @@
 
 /***/ },
 /* 442 */
-/*!**********************!*\
-  !*** ./src/model.js ***!
-  \**********************/
+/*!*******************************************!*\
+  !*** ./src/actions/backgroundGradient.js ***!
+  \*******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40769,34 +40735,41 @@
 	
 	var _Rx = __webpack_require__(/*! rxjs-es/Rx */ 188);
 	
-	var _konamiToggle = __webpack_require__(/*! ./konamiToggle */ 443);
-	
-	var _konamiToggle2 = _interopRequireDefault(_konamiToggle);
-	
-	var _intent = __webpack_require__(/*! ./intent.js */ 187);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var white = '#ddd';
-	
-	exports.default = _Rx.Observable.combineLatest(_intent.mouseClickBackground, _intent.updateBackgroundColor, _konamiToggle2.default, function (isPurple, _ref, isKonami) {
-	  var red = _ref.red;
-	  var blue = _ref.blue;
-	
-	  var purple = 'rgb(' + red + ', 0, ' + blue + ')';
-	
+	exports.default = _Rx.Observable.fromEvent(document, 'mousemove').map(function (me) {
 	  return {
-	    color: isPurple ? purple : white,
-	    backgroundColor: isPurple ? white : purple,
-	    isKonami: isKonami
+	    red: Math.floor(me.clientX / window.innerWidth * 60) + 40,
+	    blue: Math.floor(me.clientY / window.innerHeight * 60) + 40
 	  };
-	});
+	}).startWith({ red: 100, blue: 100 });
 
 /***/ },
 /* 443 */
-/*!*****************************!*\
-  !*** ./src/konamiToggle.js ***!
-  \*****************************/
+/*!*****************************************!*\
+  !*** ./src/actions/backgroundToggle.js ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Rx = __webpack_require__(/*! rxjs-es/Rx */ 188);
+	
+	var isPurple = Math.random() < 0.5;
+	
+	exports.default = _Rx.Observable.fromEvent(document, 'mousedown').filter(function (me) {
+	  return me.target.classList.contains('rv-container');
+	}).scan(function (isPurple) {
+	  return !isPurple;
+	}, isPurple).startWith(isPurple);
+
+/***/ },
+/* 444 */
+/*!*************************************!*\
+  !*** ./src/actions/konamiToggle.js ***!
+  \*************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -40827,6 +40800,50 @@
 	}).bufferCount(10, 1).filter(testKonami).scan(function (isKonami) {
 	  return !isKonami;
 	}, false).startWith(false);
+
+/***/ },
+/* 445 */
+/*!**********************!*\
+  !*** ./src/State.js ***!
+  \**********************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Rx = __webpack_require__(/*! rxjs-es/Rx */ 188);
+	
+	var _backgroundGradient = __webpack_require__(/*! ./actions/backgroundGradient */ 442);
+	
+	var _backgroundGradient2 = _interopRequireDefault(_backgroundGradient);
+	
+	var _backgroundToggle = __webpack_require__(/*! ./actions/backgroundToggle */ 443);
+	
+	var _backgroundToggle2 = _interopRequireDefault(_backgroundToggle);
+	
+	var _konamiToggle = __webpack_require__(/*! ./actions/konamiToggle */ 444);
+	
+	var _konamiToggle2 = _interopRequireDefault(_konamiToggle);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var white = '#ddd';
+	
+	exports.default = _Rx.Observable.combineLatest(_backgroundToggle2.default, _backgroundGradient2.default, _konamiToggle2.default, function (isPurple, _ref, isKonami) {
+	  var red = _ref.red;
+	  var blue = _ref.blue;
+	
+	  var purple = 'rgb(' + red + ', 0, ' + blue + ')';
+	
+	  return {
+	    color: isPurple ? purple : white,
+	    backgroundColor: isPurple ? white : purple,
+	    isKonami: isKonami
+	  };
+	});
 
 /***/ }
 /******/ ]);

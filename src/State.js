@@ -1,12 +1,13 @@
 import {Observable} from 'rxjs-es/Rx';
-import konamiToggle from './konamiToggle';
-import {mouseClickBackground, updateBackgroundColor} from './intent.js'
+import backgroundGradient from './actions/backgroundGradient';
+import backgroundToggle from './actions/backgroundToggle';
+import konamiToggle from './actions/konamiToggle';
 
 const white = '#ddd';
 
 export default Observable.combineLatest(
-  mouseClickBackground,
-  updateBackgroundColor,
+  backgroundToggle,
+  backgroundGradient,
   konamiToggle,
   (isPurple, {red, blue}, isKonami) => {
     const purple = `rgb(${red}, 0, ${blue})`;

@@ -1,6 +1,6 @@
 import {resumeLinks, reachMeLinks} from './linkData';
 import React from 'react';
-import Style from '../../style';
+import Style from '../style';
 
 const PROTOCOL = '//';
 

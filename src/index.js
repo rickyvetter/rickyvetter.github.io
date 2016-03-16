@@ -7,5 +7,5 @@ import model from './model';
 
 const node = document.getElementById('app');
 
-model(intent()).subscribe((state) =>
+model.subscribe((state) =>
   ReactDOM.render(<View {...state} />, node));

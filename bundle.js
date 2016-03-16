@@ -83,7 +83,7 @@
 	
 	var node = document.getElementById('app');
 	
-	(0, _model2.default)((0, _intent2.default)()).subscribe(function (state) {
+	_model2.default.subscribe(function (state) {
 	  return _reactDom2.default.render(_react2.default.createElement(_view2.default, state), node);
 	});
 
@@ -23960,23 +23960,24 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = intent;
+	exports.updateBackgroundColor = exports.mouseClickBackground = undefined;
 	
 	var _Rx = __webpack_require__(/*! rxjs-es/Rx */ 188);
 	
-	function intent() {
+	var isPurple = Math.random() < 0.5;
+	
+	var mouseClickBackground = exports.mouseClickBackground = _Rx.Observable.fromEvent(document, 'mousedown').filter(function (me) {
+	  return me.target.classList.contains('rv-container');
+	}).scan(function (isPurple) {
+	  return !isPurple;
+	}, isPurple).startWith(isPurple);
+	
+	var updateBackgroundColor = exports.updateBackgroundColor = _Rx.Observable.fromEvent(document, 'mousemove').map(function (me) {
 	  return {
-	    mouseClickBackground: _Rx.Observable.fromEvent(document, 'mousedown').filter(function (me) {
-	      return me.target.classList.contains('rv-container');
-	    }),
-	    updateBackgroundColor: _Rx.Observable.fromEvent(document, 'mousemove').map(function (me) {
-	      return {
-	        red: Math.floor(me.clientX / window.innerWidth * 60) + 40,
-	        blue: Math.floor(me.clientY / window.innerHeight * 60) + 40
-	      };
-	    }).startWith({ red: 100, blue: 100 })
+	    red: Math.floor(me.clientX / window.innerWidth * 60) + 40,
+	    blue: Math.floor(me.clientY / window.innerHeight * 60) + 40
 	  };
-	}
+	}).startWith({ red: 100, blue: 100 });
 
 /***/ },
 /* 188 */
@@ -40765,12 +40766,46 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = model;
 	
 	var _Rx = __webpack_require__(/*! rxjs-es/Rx */ 188);
 	
-	var isPurple = Math.random() < 0.5;
+	var _konamiToggle = __webpack_require__(/*! ./konamiToggle */ 443);
+	
+	var _konamiToggle2 = _interopRequireDefault(_konamiToggle);
+	
+	var _intent = __webpack_require__(/*! ./intent.js */ 187);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	var white = '#ddd';
+	
+	exports.default = _Rx.Observable.combineLatest(_intent.mouseClickBackground, _intent.updateBackgroundColor, _konamiToggle2.default, function (isPurple, _ref, isKonami) {
+	  var red = _ref.red;
+	  var blue = _ref.blue;
+	
+	  var purple = 'rgb(' + red + ', 0, ' + blue + ')';
+	
+	  return {
+	    color: isPurple ? purple : white,
+	    backgroundColor: isPurple ? white : purple,
+	    isKonami: isKonami
+	  };
+	});
+
+/***/ },
+/* 443 */
+/*!*****************************!*\
+  !*** ./src/konamiToggle.js ***!
+  \*****************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Rx = __webpack_require__(/*! rxjs-es/Rx */ 188);
 	
 	var codes = [38, // up
 	38, // up
@@ -40783,30 +40818,15 @@
 	66, // b
 	65]. // a
 	toString();
-	var isKonami = function isKonami(buffer) {
+	var testKonami = function testKonami(buffer) {
 	  return codes === buffer.toString();
 	};
 	
-	function model(actions) {
-	  return _Rx.Observable.combineLatest(actions.mouseClickBackground.scan(function (isPurple) {
-	    return !isPurple;
-	  }, isPurple).startWith(isPurple), actions.updateBackgroundColor, _Rx.Observable.fromEvent(document, 'keyup').map(function (e) {
-	    return e.keyCode;
-	  }).bufferCount(10, 1).filter(isKonami).scan(function (isKonami) {
-	    return !isKonami;
-	  }, false).startWith(false), function (isPurple, _ref, isKonami) {
-	    var red = _ref.red;
-	    var blue = _ref.blue;
-	
-	    var purple = 'rgb(' + red + ', 0, ' + blue + ')';
-	
-	    return {
-	      color: isPurple ? purple : white,
-	      backgroundColor: isPurple ? white : purple,
-	      isKonami: isKonami
-	    };
-	  });
-	}
+	exports.default = _Rx.Observable.fromEvent(document, 'keyup').map(function (e) {
+	  return e.keyCode;
+	}).bufferCount(10, 1).filter(testKonami).scan(function (isKonami) {
+	  return !isKonami;
+	}, false).startWith(false);
 
 /***/ }
 /******/ ]);

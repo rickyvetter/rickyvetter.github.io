@@ -27,7 +27,7 @@ export default function styleReset(Style) {
     'blockquote:before,blockquote:after,q:before,q:after',
     {content: ['', 'none']},
   );
-  Style.registerRule('table', {borderCollapse: `collapse`, borderSpacing: 0});
+  Style.registerRule('table', {borderCollapse: 'collapse', borderSpacing: 0});
 
   Style.registerRule('body', {
     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',

@@ -6,10 +6,9 @@ export default function intent() {
       .filter((me) => me.target.classList.contains('rv-container')),
     updateBackgroundColor: Observable.fromEvent(document, 'mousemove')
       .map((me) => ({
-          red: Math.floor(me.clientX / window.innerWidth * 60) + 40,
-          blue: Math.floor(me.clientY / window.innerHeight * 60) + 40,
-        })
-      )
+        red: Math.floor(me.clientX / window.innerWidth * 60) + 40,
+        blue: Math.floor(me.clientY / window.innerHeight * 60) + 40,
+      }))
       .startWith({red: 100, blue: 100}),
   };
 }

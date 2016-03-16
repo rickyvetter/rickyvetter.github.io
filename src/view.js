@@ -22,18 +22,18 @@ const View = ({backgroundColor, color, isKonami}) =>
 
 const TRANSITION_TIME = '1s';
 const BODY_STYLE = Style.registerStyle({
-    alignItems: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100vh',
-    justifyContent: 'center',
-    MozUserSelect: 'none',
-    MsUserSelect: 'none',
-    userSelect: 'none',
-    WebkitTouchCallout: 'none',
-    WebkitUserSelect: 'none',
-    width: '100vw',
-    transition: `width ${TRANSITION_TIME}`,
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100vh',
+  justifyContent: 'center',
+  MozUserSelect: 'none',
+  MsUserSelect: 'none',
+  userSelect: 'none',
+  WebkitTouchCallout: 'none',
+  WebkitUserSelect: 'none',
+  width: '100vw',
+  transition: `width ${TRANSITION_TIME}`,
 });
 
 const BODY_SECRET_STYLE = Style.registerStyle({

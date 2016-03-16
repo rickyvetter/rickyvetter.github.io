@@ -39,5 +39,5 @@ export default function model(actions) {
         isKonami,
       };
     },
-  )
+  );
 }

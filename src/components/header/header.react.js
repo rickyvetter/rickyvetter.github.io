@@ -2,9 +2,10 @@ import React from 'react';
 import Style from '../../style';
 
 const Header = ({isKonami}) =>
-  <header className={Style.join({
-    [HEADER_STYLE]: true,
-    [HEADER_STYLE_SMALL]: isKonami,
+  <header
+    className={Style.join({
+      [HEADER_STYLE]: true,
+      [HEADER_STYLE_SMALL]: isKonami,
     })}>
     <h1>Ricky Vetter</h1>
   </header>;

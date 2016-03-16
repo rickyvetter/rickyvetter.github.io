@@ -54,4 +54,4 @@ const LINK_STYLE = Style.registerStyle({
   },
 });
 
-export default Links
+export default Links;

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactPlayer from 'react-player';
 import Style from '../../style';
 
-const Konami = ({isKonami}) =>
+const Konami = () =>
   <div className={WRAPPER_STYLE}>
     <div className={GUARD_STYLE} />
     <ReactPlayer

@@ -1,11 +1,21 @@
+const OFF = 0;
+const WARNING = 1;
+const ERROR = 2;
+
 module.exports = {
   parser: 'babel-eslint',
+  plugins: [
+    'react',
+  ],
   rules: {
-    'comma-dangle': [2, 'always-multiline'],
-    'indent': [2, 2, {SwitchCase: 1}],
-    'linebreak-style': [2, 'unix'],
-    'quotes': [2,'single'],
-    'semi': [2, 'always'],
+    'comma-dangle': [ERROR, 'always-multiline'],
+    'indent': [ERROR, 2],
+    'linebreak-style': [ERROR, 'unix'],
+    'quotes': [ERROR,'single'],
+    'semi': [ERROR, 'always'],
+    'react/jsx-uses-react': ERROR,
+    'react/jsx-uses-vars': ERROR,
+    'react/react-in-jsx-scope': ERROR,
   },
   env: {
     browser: true,

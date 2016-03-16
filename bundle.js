@@ -20272,7 +20272,8 @@
 	  var isKonami = _ref.isKonami;
 	  return _react2.default.createElement(
 	    'header',
-	    { className: _style2.default.join((_Style$join = {}, _defineProperty(_Style$join, HEADER_STYLE, true), _defineProperty(_Style$join, HEADER_STYLE_SMALL, isKonami), _Style$join)) },
+	    {
+	      className: _style2.default.join((_Style$join = {}, _defineProperty(_Style$join, HEADER_STYLE, true), _defineProperty(_Style$join, HEADER_STYLE_SMALL, isKonami), _Style$join)) },
 	    _react2.default.createElement(
 	      'h1',
 	      null,
@@ -21162,8 +21163,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Konami = function Konami(_ref) {
-	  var isKonami = _ref.isKonami;
+	var Konami = function Konami() {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: WRAPPER_STYLE },

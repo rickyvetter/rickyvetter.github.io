@@ -1,19 +1,19 @@
 export const resumeLinks = [
   {
     href: 'github.com/rickyvetter',
-    text: 'github',
+    text: 'octocat',
   },
   {
     href: 'twitter.com/rickyvetter',
-    text: 'twitter',
+    text: 'bird',
   },
   {
     href: 'facebook.com/rickyvetter',
-    text: 'facebook',
+    text: 'thumbsup',
   },
   {
     href: 'linkedin.com/in/rickyvetter',
-    text: 'linkedin',
+    text: 'link',
   },
 ];
 
@@ -24,10 +24,10 @@ export const reachMeLinks = [
   },
   {
     href: 'messenger.com/t/rickyvetter',
-    text: 'contact',
+    text: 'zap',
   },
   {
     href: 'cash.me/$rickyvetter',
-    text: 'money',
+    text: 'dollar',
   },
 ];

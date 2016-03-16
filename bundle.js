@@ -21050,7 +21050,7 @@
 	        href: PROTOCOL + link.href,
 	        style: { color: color },
 	        target: '_blank' },
-	      link.text
+	      ':' + link.text + ':'
 	    )
 	  );
 	};
@@ -21113,16 +21113,16 @@
 	});
 	var resumeLinks = exports.resumeLinks = [{
 	  href: 'github.com/rickyvetter',
-	  text: 'github'
+	  text: 'octocat'
 	}, {
 	  href: 'twitter.com/rickyvetter',
-	  text: 'twitter'
+	  text: 'bird'
 	}, {
 	  href: 'facebook.com/rickyvetter',
-	  text: 'facebook'
+	  text: 'thumbsup'
 	}, {
 	  href: 'linkedin.com/in/rickyvetter',
-	  text: 'linkedin'
+	  text: 'link'
 	}];
 	
 	var reachMeLinks = exports.reachMeLinks = [{
@@ -21130,10 +21130,10 @@
 	  text: 'office'
 	}, {
 	  href: 'messenger.com/t/rickyvetter',
-	  text: 'contact'
+	  text: 'zap'
 	}, {
 	  href: 'cash.me/$rickyvetter',
-	  text: 'money'
+	  text: 'dollar'
 	}];
 
 /***/ },

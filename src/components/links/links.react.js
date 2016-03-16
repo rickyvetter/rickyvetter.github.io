@@ -11,7 +11,7 @@ const Link = ({color, link}) =>
       href={PROTOCOL + link.href}
       style={{color}}
       target="_blank">
-      {link.text}
+      {`:${link.text}:`}
     </a>
   </li>;
 

@@ -71,7 +71,7 @@
 	
 	var _RickyVetter2 = _interopRequireDefault(_RickyVetter);
 	
-	var _State = __webpack_require__(/*! ./State */ 445);
+	var _State = __webpack_require__(/*! ./State */ 187);
 	
 	var _State2 = _interopRequireDefault(_State);
 	
@@ -23945,7 +23945,50 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 187 */,
+/* 187 */
+/*!**********************!*\
+  !*** ./src/State.js ***!
+  \**********************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Rx = __webpack_require__(/*! rxjs-es/Rx */ 188);
+	
+	var _backgroundGradient = __webpack_require__(/*! ./actions/backgroundGradient */ 442);
+	
+	var _backgroundGradient2 = _interopRequireDefault(_backgroundGradient);
+	
+	var _backgroundToggle = __webpack_require__(/*! ./actions/backgroundToggle */ 443);
+	
+	var _backgroundToggle2 = _interopRequireDefault(_backgroundToggle);
+	
+	var _konamiToggle = __webpack_require__(/*! ./actions/konamiToggle */ 444);
+	
+	var _konamiToggle2 = _interopRequireDefault(_konamiToggle);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var white = '#ddd';
+	
+	exports.default = _Rx.Observable.combineLatest(_backgroundToggle2.default, _backgroundGradient2.default, _konamiToggle2.default, function (isPurple, _ref, isKonami) {
+	  var red = _ref.red;
+	  var blue = _ref.blue;
+	
+	  var purple = 'rgb(' + red + ', 0, ' + blue + ')';
+	
+	  return {
+	    color: isPurple ? purple : white,
+	    backgroundColor: isPurple ? white : purple,
+	    isKonami: isKonami
+	  };
+	});
+
+/***/ },
 /* 188 */
 /*!*************************!*\
   !*** ./~/rxjs-es/Rx.js ***!
@@ -40757,11 +40800,14 @@
 	
 	var _Rx = __webpack_require__(/*! rxjs-es/Rx */ 188);
 	
-	var isPurple = Math.random() < 0.5;
+	var savedColor = localStorage.getItem('isPurple') && JSON.parse(localStorage.getItem('isPurple'));
+	//check specifically for null because isPurple can be false which would trigger ||
+	var isPurple = savedColor === null ? Math.random() < 0.5 : savedColor;
 	
 	exports.default = _Rx.Observable.fromEvent(document, 'mousedown').filter(function (me) {
 	  return me.target.classList.contains('rv-container');
 	}).scan(function (isPurple) {
+	  localStorage.setItem('isPurple', !isPurple);
 	  return !isPurple;
 	}, isPurple).startWith(isPurple);
 
@@ -40800,50 +40846,6 @@
 	}).bufferCount(10, 1).filter(testKonami).scan(function (isKonami) {
 	  return !isKonami;
 	}, false).startWith(false);
-
-/***/ },
-/* 445 */
-/*!**********************!*\
-  !*** ./src/State.js ***!
-  \**********************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _Rx = __webpack_require__(/*! rxjs-es/Rx */ 188);
-	
-	var _backgroundGradient = __webpack_require__(/*! ./actions/backgroundGradient */ 442);
-	
-	var _backgroundGradient2 = _interopRequireDefault(_backgroundGradient);
-	
-	var _backgroundToggle = __webpack_require__(/*! ./actions/backgroundToggle */ 443);
-	
-	var _backgroundToggle2 = _interopRequireDefault(_backgroundToggle);
-	
-	var _konamiToggle = __webpack_require__(/*! ./actions/konamiToggle */ 444);
-	
-	var _konamiToggle2 = _interopRequireDefault(_konamiToggle);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var white = '#ddd';
-	
-	exports.default = _Rx.Observable.combineLatest(_backgroundToggle2.default, _backgroundGradient2.default, _konamiToggle2.default, function (isPurple, _ref, isKonami) {
-	  var red = _ref.red;
-	  var blue = _ref.blue;
-	
-	  var purple = 'rgb(' + red + ', 0, ' + blue + ')';
-	
-	  return {
-	    color: isPurple ? purple : white,
-	    backgroundColor: isPurple ? white : purple,
-	    isKonami: isKonami
-	  };
-	});
 
 /***/ }
 /******/ ]);

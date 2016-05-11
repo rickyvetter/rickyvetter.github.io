@@ -23,7 +23,7 @@ export const reachMeLinks = [
     text: 'office',
   },
   {
-    href: 'messenger.com/t/rickyvetter',
+    href: 'm.me/rickyvetter',
     text: 'zap',
   },
   {
